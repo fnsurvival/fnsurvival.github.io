@@ -1,0 +1,176 @@
+/* REQUIR */
+* {
+    padding: 0;
+    margin: 0;
+    color: white;
+}
+body {
+    background-color: rgb(45, 45, 45) !important;
+}
+/* FONT */
+p, a, ol, li, button {
+    font-family: Comic;
+    font-size: 25px;
+}
+p, a {
+    color: whitesmoke;
+}
+
+/* LAOD PAGE */
+#out-loader {
+    display: block;
+    background-color: #2d2d2d;
+}
+#loader {
+    background-color: #2d2d2d;
+    position: absolute;
+    left: 50%;
+    top: 45%;
+    z-index: 1;
+    width: 120px;
+    height: 120px;
+    margin: -76px 0 0 -76px;
+    border: 16px solid #797979;
+    border-radius: 50%;
+    border-top: 16px solid #3d3f3b0d;
+    -webkit-animation: spin 2s linear infinite;
+    animation: spin 2s linear infinite;
+    transform: translate(-50%, -50%);
+    -webkit-transform: translate(-50%, -50%);
+    -moz-transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+    -o-transform: translate(-50%, -50%);
+}
+@-webkit-keyframes spin {
+    0% {
+        -webkit-transform: rotate(0deg);
+    }
+    100% {
+        -webkit-transform: rotate(360deg);
+    }
+}
+@keyframes spin {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}
+.animate-bottom {
+    position: relative;
+    -webkit-animation-name: animatebottom;
+    -webkit-animation-duration: 1s;
+    animation-name: animatebottom;
+    animation-duration: 1s;
+}
+@-webkit-keyframes animatebottom {
+    from {
+        bottom: -100px;
+        opacity: 0
+    }
+    to {
+        bottom: 0px;
+        opacity: 1
+    }
+}
+@keyframes animatebottom {
+    from {
+        bottom: -100px;
+        opacity: 0
+    }
+    to {
+        bottom: 0;
+        opacity: 1
+    }
+}
+#in-loader {
+    display: none;
+    color: black;
+}
+#ServerIP {
+    text-align: center !important;
+    color: #fff;
+    outline: 1px solid whitesmoke;
+    border: none;
+    width: 200.5px;
+    height: 30px;
+    font-size: 20px;
+    padding: 5px;
+    border-top-right-radius: 4px;
+    border-top-left-radius: 4px;
+    background-color: transparent;
+}
+.btn2 {
+    border: none;
+    border: 1px solid whitesmoke;
+    border-bottom-right-radius: 4px;
+    border-bottom-left-radius: 4px;
+    outline: none;
+    width: 200.5px;
+    padding: 0.5px;
+    font-size: 20px;
+    top: 50%;
+    left: 50%;
+    background-image: linear-gradient(to right, rgb(126, 126, 126), rgb(45, 45, 45) 20% 80%, rgb(126, 126, 126));
+    height: 30px;
+    cursor: pointer;
+}
+@keyframes fadein {
+    0% {
+        opacity: 0;
+        color: rgb(45, 45, 45);
+    }
+    50% {
+        opacity: 0.5;
+        color: rgb(122, 122, 122);
+    }
+    100% {
+        opacity: 1;
+        color: white;
+    }
+}
+.tip {
+    position: relative;
+    display: inline-block;
+    color: black;
+}
+.tip .tiptext {
+    visibility: hidden;
+    width: 140px;
+    background-color: #555;
+    color: black;
+    text-align: center;
+    padding: 5px;
+    box-shadow: rgba(0, 0, 0, 2) 0px 0px 10px;
+    border: 1px solid rgb(148, 144, 144);
+    border-radius: 3px;
+    position: absolute;
+    z-index: 1;
+    bottom: 150%;
+    left: 50%;
+    margin-left: -75px;
+    opacity: 0;
+    transition: opacity 0.3s;
+    -webkit-border-radius: 3px;
+    -moz-border-radius: 3px;
+    -ms-border-radius: 3px;
+    -o-border-radius: 3px;
+}
+.tip .tiptext::after {
+    content: "";
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    margin-left: -5px;
+    border-width: 5px;
+    border-style: solid;
+    border-color: #555 transparent transparent transparent;
+    outline: none;
+    color: black;
+}
+.tip:hover .tiptext {
+    visibility: visible;
+    opacity: 1;
+    color: rgb(255, 255, 255);
+}
