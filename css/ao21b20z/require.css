@@ -128,9 +128,6 @@ footer {
     -ms-transform: translate(-50%, -50%);
     -o-transform: translate(-50%, -50%);
 }
-body {
-    user-select: none;
-}
 * {
     margin: 0;
     padding: 0;
