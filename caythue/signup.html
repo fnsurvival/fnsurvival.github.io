@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/singup.css">
+    <link rel="shortcut icon" href="https://tr.rbxcdn.com/d66fd5885c5517c1f08165889a2d9961/150/150/AvatarHeadshot/Png" type="image/x-icon">
+    <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="/css/ao21b20z/font.css">
+    <link rel="stylesheet" href="/css/ao21b20z/require.css">
+    <link rel="stylesheet" href="/css/scrol.css">
+    <script src="/js/font1.js"></script>
+    <script src="/js/idk.js"></script>
+    <title>Đăng kí</title>
+</head>
+<body>
+    <input id="navbar-indicator" class="navbar-collapse" type="checkbox" checked>
+    <nav class="navbar">
+        &emsp;&emsp;<a class="navbar-brand" href="index.html">
+            Shopluadao
+        </a>
+
+        <div class="navbar-right">
+            <a class="nav-link" href="/index.html">Trang chính</a>
+            <a class="nav-link" href="signup.html">Đăng ký</a>
+            <a class="nav-link" href="login.html">Đăng nhập</a>
+            <a href="#" class="nav-link" id="clock" style="color: green;"></a>
+        </div>
+
+        <label class="navbar-toggler" for="navbar-indicator">
+            <i class="fa-solid fa-bars"></i>
+        </label>
+    </nav>
+
+    <br>
+    <div class="container">
+        <p>Đăng kí</p>
+        <hr><br>
+        <form action="/php/xulytk.php" method="post">
+            <input class="input" type="text" name="name" id="name" placeholder="Tên đăng kí" autofocus autocomplete="off" required><br><br>
+            <input class="input" type="password" name="mk" id="mk" placeholder="Mật khẩu" required><br><br>
+            <input class="input" type="text" name="mail" id="mail" placeholder="Email" autocomplete="off">
+            <br><br><input class="submit" type="submit" value="Đăng kí" placeholder="Đăng kí">
+        </form>
+        <br>
+        <a href="login.html" style="text-decoration: none; color: rgb(206, 206, 206); font-size: 20px;">ĐÙ có acc r sao thế thì <br> Đăng nhập đê</a>
+
+    </div>
+
+    <div id="contextMenu" class="context-menu" style="display:none">
+        <ul>
+            <li class="menu"><a class="link1" href="/index.html"><i class="fa-solid fa-house-user">&nbsp;</i>Home</a></li>
+            <li class="menu"><a class="link2" href="https://discord.com/invite/nfTUEWrEe6" target="_blank"><i class="fa-brands fa-discord">&nbsp;</i>Discord</a></li>
+            <li class="menu"><a class="link3" href="#"><i class="fa-regular fa-circle-xmark">&nbsp;</i>Chưa có</a></li>
+            <li class="menu"><a class="link4" href="#"><i class="fa-regular fa-circle-xmark">&nbsp;</i>Chưa có</a></li>
+        </ul>
+    </div>
+</body>
+</html>
