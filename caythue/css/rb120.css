@@ -36,3 +36,8 @@ input[type=submit] {
     font-size: 20px;
     padding: 9px;
 }
+@media (max-width: 420px) {
+    .container {
+        width: auto !important;
+    }
+}

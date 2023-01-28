@@ -139,11 +139,6 @@ body {
 .navbar {
     position: relative;
     background: rgb(66, 66, 66);
-    font-size: 25px;
-}
-.navbar-left {
-    display: inline-block;
-    margin-left: 15px;
 }
 .navbar-right {
     display: inline-block;
@@ -185,6 +180,7 @@ body {
     font-weight: bold;
     padding-left: 15px;
     padding-right: 15px;
+    font-size: 25px;
     background: transparent;
 }
 .navbar .nav-link:hover {
