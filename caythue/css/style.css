@@ -171,6 +171,7 @@ button {
 .pad-oul {
     padding: 5px;
     width: 25%;
+    box-shadow: var(--boxshadow);
 }
 .shop {
     padding: 5px;

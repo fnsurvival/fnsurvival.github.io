@@ -95,4 +95,5 @@ p {
     border: 2px solid rgb(132, 132, 132);
     border-radius: 2.5px;
     padding: 5px;
+    box-shadow: var(--boxshadow);
 }

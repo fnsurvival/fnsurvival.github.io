@@ -1,3 +1,4 @@
+@import url(../root/rt.css);
 h1, h2, h3, h4, h5, h6, a, div, ::placeholder, div, p, button, input, li, ol, option, select, textarea{
     font-family: Arial, Helvetica, sans-serif !important;
     color: white;
