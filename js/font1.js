@@ -83,7 +83,8 @@ window.Fontsite = {
                 }
                 return n
             }(t, e) || function (t, e) {
-                if (!t) return; if (
+                if (!t) return;
+                if (
                     "string" == typeof t
                 )
                     return i(t, e);
@@ -102,7 +103,13 @@ window.Fontsite = {
             }()
         }
         function i(t, e) {
-            (null == e || e > t.length) && (e = t.length); for (var n = 0, o = new Array(e); n < e; n++)o[n] = t[n]; return o
+            (null == e || e > t.length) && (e = t.length);
+            for (
+                var n = 0,
+                o = new Array(e);
+                n < e; n++
+            )o[n] = t[n];
+            return o
         }
         function c(t, e) {
             var n = e && e.addOn || "",
@@ -173,7 +180,8 @@ window.Fontsite = {
                         return r.call(n, (
                             function (t) {
                                 o || (o = !0, n === t ? g(e, t) : b(e, t))
-                            }), (
+                            }
+                        ), (
                             function (t) {
                                 o || (o = !0, w(e, t))
                             })
@@ -217,16 +225,17 @@ window.Fontsite = {
                 );
             if (
                 this instanceof E == !1
-            )
-                throw new TypeError(
-                    "Failed to construct 'Promise': Please use the 'new' operator, this object constructor cannot be called as a function.");
+            ) throw new TypeError("Failed to construct 'Promise': Please use the 'new' operator, this object constructor cannot be called as a function.");
             this._then = [],
                 function (t, e) {
                     function n(t) {
                         w(e, t)
                     } try {
-                        t((
-                            function (t) { b(e, t) }), n)
+                        t(
+                            (
+                                function (t) { b(e, t) }
+                            ), n
+                        )
                     } catch (t) { n(t) }
                 }(t, this)
         }
@@ -465,8 +474,11 @@ window.Fontsite = {
                                                 t.setAttribute("data-fetch-uploaded-svg-from", e.fetchUploadedSvgFrom));
                                             return t
                                         }(r, e))
-                                })).catch(r)
-                    }))), _.all(n)
+                                }
+                            )).catch(r)
+                    })
+                )),
+                _.all(n)
         }
         function I(t, e) {
             var n = document.createElement("SCRIPT"),
@@ -475,7 +487,8 @@ window.Fontsite = {
             n.appendChild(o),
                 n.referrerPolicy = "strict-origin",
                 e.id && n.setAttribute("id", e.id),
-                e && e.detectingConflicts && e.detectionIgnoreAttr && n.setAttributeNode(document.createAttribute(e.detectionIgnoreAttr)), n
+                e && e.detectingConflicts && e.detectionIgnoreAttr && n.setAttributeNode(document.createAttribute(e.detectionIgnoreAttr)),
+                n
         }
         function L(t) {
             var e,
@@ -484,11 +497,13 @@ window.Fontsite = {
                 r = o.documentElement.doScroll,
                 i = (r ? /^loaded|^c/ : /^loaded|^i|^c/).test(o.readyState); i || o.addEventListener("DOMContentLoaded",
                     e = function () {
-                        for (o.removeEventListener("DOMContentLoaded", e),
+                        for (
+                            o.removeEventListener("DOMContentLoaded", e),
                             i = 1;
-                            e = n.shift();)e()
-                    }),
-                    i ? setTimeout(t, 0) : n.push(t)
+                            e = n.shift();
+                        )e()
+                    }
+                ), i ? setTimeout(t, 0) : n.push(t)
         }
         function T(t) {
             "undefined" != typeof MutationObserver && new MutationObserver(t).observe(document, { childList: !0, subtree: !0 })
