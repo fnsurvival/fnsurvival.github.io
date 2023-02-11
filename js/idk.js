@@ -2,32 +2,32 @@
 // LOAD PAGE
 var loadpage;
 function myFunction() {
-    loadpage = setTimeout(showPage, 1500);
+    loadpage = setTimeout(showPage, 100);
 }
 function showPage() {
     document.getElementById("loader").style.display = "none";
     document.getElementById("in-loader").style.display = "block";
 }
 
-// COPY IP SERVER
-function IPSever() {
-    var copyText = document.getElementById("ServerIP");
-    copyText.select();
-    copyText.setSelectionRange(0, 99999);    // mobile device
-    // COPY TEXT INSIDE TEXTFIELD
-    navigator.clipboard.writeText(copyText.value);
+// COPY IP SERVER  (DISABLED)
+// function IPSever() {
+//     var copyText = document.getElementById("ServerIP");
+//     copyText.select();
+//     copyText.setSelectionRange(0, 99999);    // mobile device
+//     // COPY TEXT INSIDE TEXTFIELD
+//     navigator.clipboard.writeText(copyText.value);
 
-    var tooltip = document.getElementById("Tooltip");
-    // tooltip.innerHTML = "Copied: " + copyText.value;  ---- default tip value
-    tooltip.innerHTML = "Đã copy:" + "<br>" + copyText.value;
-    document.getElementById('nexttext').innerText = "Nhưng vẫn không béo bằng mẹ mình:)";
-    document.getElementById('nexttext').style.transition = "1s";
-}
+//     var tooltip = document.getElementById("Tooltip");
+//     // tooltip.innerHTML = "Copied: " + copyText.value;  ---- default tip value
+//     tooltip.innerHTML = "Đã copy:" + "<br>" + copyText.value;
+//     document.getElementById('nexttext').innerText = "Nhưng vẫn không béo bằng mẹ mình:)";
+//     document.getElementById('nexttext').style.transition = "1s";
+// }
 
-function outFunc() {
-    var tooltip = document.getElementById("Tooltip");
-    tooltip.innerHTML = "Copy to clipboard";
-}
+// function outFunc() {
+//     var tooltip = document.getElementById("Tooltip");
+//     tooltip.innerHTML = "Copy to clipboard";
+// }
 
 // MENU RIGHTCLICK
 document.onclick = hideMenu;
@@ -75,7 +75,7 @@ document.onkeydown = function (e) {
     if (e.which == 17)
         isCtrl = true;
     if (((e.which == 85) || (e.which == 117) || (e.which == 65) || (e.which == 97) || (e.which == 67) || (e.which == 99)) && isCtrl == true) {
-        console.log('This guy is trying to to use shortcut key');
+        console.log('NO Shortcut key HERE LOL');
         return false;
     }
 }
