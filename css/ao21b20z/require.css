@@ -139,6 +139,7 @@ body {
 .navbar {
     position: relative;
     background: rgb(66, 66, 66);
+    font-size: 25px;
 }
 .navbar-right {
     display: inline-block;
