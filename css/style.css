@@ -98,7 +98,7 @@ p {
     box-shadow: var(--boxshadow);
 }
 #Backtotop {
-    /* display: none; */
+    display: none;
     position: fixed;
     bottom: 20px;
     right: 30px;
@@ -114,8 +114,13 @@ p {
     padding-left: 18.2px;
     padding-right: 18.2px;
     border-radius: 50%;
+    transition: 500ms;
     -webkit-border-radius: 50%;
     -moz-border-radius: 50%;
     -ms-border-radius: 50%;
     -o-border-radius: 50%;
+    -webkit-transition: 500ms;
+    -moz-transition: 500ms;
+    -ms-transition: 500ms;
+    -o-transition: 500ms;
 }

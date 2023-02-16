@@ -102,9 +102,6 @@ document.onkeydown = function (e) {
     }
 }
 
-// 
-
-
 // CLOCK
 setInterval(myTimer, 0);
 function myTimer() {

@@ -127,6 +127,24 @@
             <button id="Backtotop" onclick="Backtotop()"><i class="fa-solid fa-arrow-up"></i></button>
         </div>
     </div>
+    <script>
+    // BACK TO TOP
+    let mybutton = document.getElementById("Backtotop");
+
+    window.onscroll = function() {scrollFunction()};
+
+    function scrollFunction() {
+    if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+        mybutton.style.display = "block";
+    } else {
+        mybutton.style.display = "none";
+    }
+    }
+    function Backtotop() {
+    document.body.scrollTop = 0;
+    document.documentElement.scrollTop = 0;
+    }
+    </script>
 </body>
 </html>
   
