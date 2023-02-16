@@ -56,5 +56,24 @@
             <li class="menu"><a class="link4" href="#"><i class="fa-regular fa-circle-xmark">&nbsp;</i>Chưa có</a></li>
         </ul>
     </div>
+    <button id="Backtotop" onclick="Backtotop()"><i class="fa-solid fa-arrow-up"></i></button>
+    <script>
+    // BACK TO TOP
+    let mybutton = document.getElementById("Backtotop");
+
+    window.onscroll = function() {scrollFunction()};
+
+    function scrollFunction() {
+    if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+        mybutton.style.display = "block";
+    } else {
+        mybutton.style.display = "none";
+    }
+    }
+    function Backtotop() {
+    document.body.scrollTop = 0;
+    document.documentElement.scrollTop = 0;
+    }
+    </script>
 </body>
 </html>
