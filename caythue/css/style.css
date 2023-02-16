@@ -49,6 +49,7 @@ body {
     }
     .sumbit-od {
         width: 97% !important;
+        height: 33px;
         outline: none;
         border: 1px solid rgb(167, 167, 167);
         background-color: transparent;
@@ -130,6 +131,7 @@ input {
 }
 .sumbit-od {
     width: 320px;
+    height: 33px;
     outline: none;
     border: 1px solid rgb(167, 167, 167);
     background-color: transparent;
