@@ -1,6 +1,6 @@
 * {
     margin: 0;
-    padding: 0;
+    padding: 0 auto;
 }
 body {
     background-color: rgb(45, 45, 45);
@@ -47,7 +47,7 @@ body {
         font-size: 15px;
         width: 97% !important;
     }
-    button {
+    .sumbit-od {
         width: 97% !important;
         outline: none;
         border: 1px solid rgb(167, 167, 167);
@@ -128,7 +128,7 @@ input {
 ::placeholder {
     color: white;
 }
-button {
+.sumbit-od {
     width: 320px;
     outline: none;
     border: 1px solid rgb(167, 167, 167);
