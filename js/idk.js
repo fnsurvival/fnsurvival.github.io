@@ -1,7 +1,7 @@
 
 // LOAD PAGE
 var loadpage;
-function myFunction() {
+function LoadSite() {
     loadpage = setTimeout(showPage, 100);
 }
 function showPage() {

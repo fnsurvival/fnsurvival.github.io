@@ -19,17 +19,27 @@
         * {
             padding: 0;
             margin: 0;
-            box-sizing: border-box;
         }
         body, html {
             padding: 0 auto;
             background-color: rgb(45, 45, 45);
             color: rgb(231, 231, 231);
         }
+        .idmv > li > a {
+            font-size: 20px;
+        }
+        .ctbx {
+            margin: auto;
+            width: auto;
+            max-width: 1000px;
+        }
+        img {
+            width: 90% !important;
+        }
     </style>
     <title>Funny survival</title>
 </head>
-<body onload="myFunction()">
+<body onload="LoadSite()">
     <div id="out-loader"><a style="opacity: 0; position: absolute;">Load font</a>
         <div id="loader"></div>
     </div>
@@ -50,32 +60,61 @@
             <label class="navbar-toggler" for="navbar-indicator">
                 <i class="fa-solid fa-bars"></i>
             </label>
-        </nav>
-        <hr>
+        </nav><br>
         <!--   END TOP BAR   -->
-        <br>
         <div>
-            <div class="container">
-                <!-- CONTENT PAGE -->
-                <h3 style="text-align: center; color: aquamarine;">Còn lâu t mới spoil server kakakaka</h3>
-                <br><hr><br>
-                <h3 style="text-align: center; color: aquamarine;">Về Team</h3>
-                <p style="color: rgb(255, 62, 62);">1.Pham2015609 (OWNER)</p>
-                <p>- Làm tất cả mọi thứ từ đầu đến cuối</p>
-                <p style="color: rgb(31, 177, 31);">2.TheNiceBear (Tester)</p>
-                <p>- Rảnh háng chỉ có vào test game theo yêu cầu</p><br>
-                <br><hr><br>
-                <h3 style="text-align: center; color: rgb(203, 203, 42);">Bạn có thể làm gì ở đó</h3>
-                <p>1. Sinh tồn vui vẻ và đôi khi là chán ngắt <br> - Gặp gỡ -> kết bạn -> vui vẻ <br> Nghe thật là chán ngắt đúng không? - Đúng vậy. <br>Nó chán vcl</p>
-                <p>2. Bắt pet làm nô lệ <br> - Chả có cái mẹ gì đặc biệt cả</p>
-                <p>3. Phá đám người khác <br> - Điều này tui không cấm nhưng đừng có quá đáng nhé</p>
-                <p style="color: rgb(241, 84, 49);">4. Crystal pvp (Chắc không phải ai cũng biết)</p>
-                <br><hr><br>
-                <h3 style="text-align: center;">Các loại lệnh <br>(Thiếu rất nhiều mà còn lười update)</h3>
-                <p>1. /rtp: tp ngẫu nhiên đến 1 nơi nào đó <br>2. /shop: mở cái j thì các bạn biết r đó <br>3. /sk: mở bảng stat hay tui gọi là bảng kĩ năng <br>4. /autotool toggle: giỏi tiếng anh nhìn phát biết luôn kakaka <br> (Cho những người ko giỏi: Khi mình dùng lệnh này thì - mỗi khi ta đào/đập 1 block nào đó thì nó sẽ giúp ta chọn 1 công cụ để đào block đó -- hiểu thì hiểu ko hiểu thì thôi ) <br>5. /playtime: Xem thời gian bạn đã chơi trong server <br>6. /trade: trao đổi đò </p>
-                <br><hr><br>
-                <h3 style="text-align: center; color: Red;">Luật <br>(Không thẻ bỏ qua được)</h3>
-                <div style="margin:auto;border:2px solid red;border-radius:5px;text-align:center;padding:5px;width:250px;">Nhìn thế thôi chứ del có luật:)</div>
+            <div class="idmv" style="
+                border: 1px solid white;
+                border-left: none;
+                border-right: none;
+                padding: 10px;
+                width: auto;
+                max-width: 500px;
+                margin: auto;
+            ">
+                <li><a href="#ipsv">Địa chỉ IP server</a></li>
+                <li><a href="#rule">Luật lệ</a></li>
+                <li><a href="#Team">Các thành viên phát triển</a></li>
+                <li><a href="#whatyoucando">Bạn có thể làm gì ở đó</a></li>
+                <li><a href="#command">Commands</a></li>
+            </div><br>
+            <div class="content-box" style=" border-top: 1px solid white; border-bottom: 1px solid white; border-radius: 3.5px; margin: auto;">
+                <div class="ctbx">
+                    <div style="padding:5px">
+                        <h1 id="ipsv">1.Địa chỉ ip server</h1>
+                        <p>Chưa công khai (Đang trong beta)</p>
+                        <img src="/pic/sad.jpg" alt="Chưa mở sv" width="500">
+                    </div>
+                    <div style="padding:5px">
+                        <h1 id="rule">2.Luật lệ</h1>
+                        <p>Server không luật lệ nhưng ngứa mặt là kick hoặc jail</p>
+                        <img src="/pic/smile-2.jpg" alt="Chưa mở sv" width="500">
+                    </div>
+                    <div style="padding:5px">
+                        <h1 id="Team">3.Các thành viên phát triển (Chưa có ảnh/video)</h1>
+                        <p style="color: rgb(255, 62, 62);">* Pham2015609 (Owner)</p>
+                        <p>- Làm tất cả mọi thứ từ đầu đến cuối</p>
+                        <p style="color: rgb(31, 177, 31);">* TheNiceBear (Tester)</p>
+                        <p>- Rảnh háng chỉ có vào test game theo yêu cầu</p>
+                    </div>
+                    <div style="padding:5px">
+                        <h1 id="whatyoucando">4.Bạn có thể làm gì ở đó (Chưa có ảnh/video)</h1>
+                        <img src="/pic/face.webp" alt="" width="500">
+                        <p>* Sinh tồn vui vẻ và đôi khi là chán ngắt <br> - Gặp gỡ -> kết bạn -> vui vẻ <br> Nghe thật là chán ngắt đúng không? - Đúng vậy. <br>Nó chán vcl</p>
+                        <p>* Bắt pet làm nô lệ <br> - Chả có cái mẹ gì đặc biệt cả</p>
+                        <p>* Phá đám người khác <br> - Điều này tui không cấm nhưng đừng có quá đáng nhé</p>
+                        <p style="color: rgb(241, 84, 49);">* Crystal pvp (Chắc không phải ai cũng biết)</p>
+                    </div>
+                    <div style="padding: 5px;">
+                        <h1 id="command">5.Lệnh (Chưa có ảnh/video)</h1>
+                        <p>- /rtp: tp ngẫu nhiên đến 1 nơi nào đó</p>
+                        <p>- /shop: mở cái j thì các bạn biết r đó </p>
+                        <p>- /sk: mở bảng stat hay tui gọi là bảng kĩ năng</p>
+                        <p>- /autotool toggle: Tự động dùng công cụ</p>
+                        <p>- /playtime: Xem thời gian bạn đã chơi trong server</p>
+                        <p>- /trade: trao đổi đồ</p>
+                    </div>
+                </div>
             </div>
             <div id="contextMenu" class="context-menu" style="display:none">
                 <ul>
