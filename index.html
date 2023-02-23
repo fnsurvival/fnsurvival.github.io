@@ -20,21 +20,31 @@
             padding: 0;
             margin: 0;
         }
-        body, html {
-            padding: 0 auto;
-            background-color: rgb(45, 45, 45);
+        body{
             color: rgb(231, 231, 231);
+        }
+        .ctbx {
+            height: 95vh;
+            background-image: url(/pic/bgi.jpg);
+            background-size: cover;
+            background-repeat: no-repeat;
         }
         .idmv > li > a {
             font-size: 20px;
         }
-        .ctbx {
-            margin: auto;
-            width: auto;
-            max-width: 1000px;
-        }
         img {
-            width: 90% !important;
+            width: 90% ;
+        }
+        @media (max-width:1300px) {
+            img {
+                width: 70%;
+                height: auto;
+            }
+        }
+        video {
+            width: 95% !important;
+            margin: auto !important;
+            text-align: center;
         }
     </style>
     <title>Funny survival</title>
@@ -60,91 +70,174 @@
             <label class="navbar-toggler" for="navbar-indicator">
                 <i class="fa-solid fa-bars"></i>
             </label>
-        </nav><br>
+        </nav>
         <!--   END TOP BAR   -->
         <div>
-            <div class="idmv" style="
-                border: 1px solid white;
-                border-left: none;
-                border-right: none;
-                padding: 10px;
-                width: auto;
-                max-width: 500px;
-                margin: auto;
-            ">
-                <li><a href="#ipsv">Địa chỉ IP server</a></li>
-                <li><a href="#rule">Luật lệ</a></li>
-                <li><a href="#Team">Các thành viên phát triển</a></li>
-                <li><a href="#whatyoucando">Bạn có thể làm gì ở đó</a></li>
-                <li><a href="#command">Commands</a></li>
-            </div><br>
-            <div class="content-box" style=" border-top: 1px solid white; border-bottom: 1px solid white; border-radius: 3.5px; margin: auto;">
-                <div class="ctbx">
-                    <div style="padding:5px">
-                        <h1 id="ipsv">1.Địa chỉ ip server</h1>
-                        <p>Chưa công khai (Đang trong beta)</p>
-                        <img src="/pic/sad.jpg" alt="Chưa mở sv" width="500">
+            <div class="content-box">
+                <div class="ctbx" id="ipsv">
+                    <div class="cpi-box">
+                        <p id="copyip" value="Coppy IP server" title="Sao chép địa chỉ IP máy chủ">Coppy IP server</p>
+                        <h1><p class="mopt" id="mopt" title="Xem thêm thông tin">...</p></h1>
+                        <p id="moptbt" value="...">...</p>
                     </div>
-                    <div style="padding:5px">
-                        <h1 id="rule">2.Luật lệ</h1>
-                        <p>Server không luật lệ nhưng ngứa mặt là kick hoặc jail</p>
-                        <img src="/pic/smile-2.jpg" alt="Chưa mở sv" width="500">
+                    <!-- modal -->
+                    <div id="Modal2" class="modal">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h2>Danh sách</h2>
+                            </div>
+                            <div class="modal-body">
+                                <!-- <p><a href="#ipsv">1.Địa chỉ IP server</a></p> -->
+                                <p><a href="#rule">1.Luật lệ</a></p>
+                                <p><a href="#Team">2.Các thành viên phát triển</a></p>
+                                <p><a href="#whatyoucando">3.Bạn có thể làm gì ở đó</a></p>
+                                <p><a href="#command">4.Commands</a></p>
+                            </div>
+                            <div class="modal-footer">
+                                <span class="close2">Đóng</span>
+                            </div>
+                        </div>
                     </div>
-                    <div style="padding:5px">
-                        <h1 id="Team">3.Các thành viên phát triển (Chưa có ảnh/video)</h1>
-                        <p style="color: rgb(255, 62, 62);">* Pham2015609 (Owner)</p>
-                        <p>- Làm tất cả mọi thứ từ đầu đến cuối</p>
-                        <p style="color: rgb(31, 177, 31);">* TheNiceBear (Tester)</p>
-                        <p>- Rảnh háng chỉ có vào test game theo yêu cầu</p>
+                    <div id="Modal" class="modal">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h2>Chưa công khai</h2>
+                            </div>
+                            <div class="modal-body">
+                                <p>Server MC chưa được công khai</p>
+                                <p>Nên không có IP</p>
+                            </div>
+                            <div class="modal-footer">
+                                <span class="close">Đóng</span>
+                            </div>
+                        </div>
                     </div>
-                    <div style="padding:5px">
-                        <h1 id="whatyoucando">4.Bạn có thể làm gì ở đó (Chưa có ảnh/video)</h1>
-                        <img src="/pic/face.webp" alt="" width="500">
-                        <p>* Sinh tồn vui vẻ và đôi khi là chán ngắt <br> - Gặp gỡ -> kết bạn -> vui vẻ <br> Nghe thật là chán ngắt đúng không? - Đúng vậy. <br>Nó chán vcl</p>
-                        <p>* Bắt pet làm nô lệ <br> - Chả có cái mẹ gì đặc biệt cả</p>
-                        <p>* Phá đám người khác <br> - Điều này tui không cấm nhưng đừng có quá đáng nhé</p>
-                        <p style="color: rgb(241, 84, 49);">* Crystal pvp (Chắc không phải ai cũng biết)</p>
-                    </div>
-                    <div style="padding: 5px;">
-                        <h1 id="command">5.Lệnh (Chưa có ảnh/video)</h1>
-                        <p>- /rtp: tp ngẫu nhiên đến 1 nơi nào đó</p>
-                        <p>- /shop: mở cái j thì các bạn biết r đó </p>
-                        <p>- /sk: mở bảng stat hay tui gọi là bảng kĩ năng</p>
-                        <p>- /autotool toggle: Tự động dùng công cụ</p>
-                        <p>- /playtime: Xem thời gian bạn đã chơi trong server</p>
-                        <p>- /trade: trao đổi đồ</p>
-                    </div>
+                </div>
+                <!-- end -->
+                <div style="padding: 5px; transition: all 200ms; border-radius: 15px;" id="acg">
+                    <h1 style="text-align: center; top: 50%; left: 50%;">Thông tin về Server</h1>
+                
+                </div>
+                <div style="padding:5px">
+                    <h1 id="rule">1.Luật lệ</h1>
+                    <p>Server không luật lệ</p>
+                </div>
+                <div style="padding:5px">
+                    <h1 id="Team">2.Các thành viên phát triển (Chưa có ảnh/video)</h1>
+                    <p style="color: rgb(255, 62, 62);">* Pham2015609 (Owner)</p>
+                    <p>- Làm tất cả mọi thứ từ đầu đến cuối</p>
+                    <p style="color: rgb(31, 177, 31);">* TheNiceBear (Tester)</p>
+                    <p>- Rảnh háng chỉ có vào test game theo yêu cầu</p>
+                </div>
+                <div style="padding:5px">
+                    <h1 id="whatyoucando">3.Bạn có thể làm gì ở đó (Chưa có ảnh/video)</h1>
+                    <img src="/pic/face.webp" alt="" width="500">
+                    <p>* Sinh tồn vui vẻ và đôi khi là chán ngắt <br> - Gặp gỡ -> kết bạn -> vui vẻ <br> Nghe thật là chán ngắt đúng không? - Đúng vậy. <br>Nó chán vcl</p>
+                    <p>* Bắt pet làm nô lệ <br> - Chả có cái mẹ gì đặc biệt cả</p>
+                    <p>* Phá đám người khác <br> - Điều này tui không cấm nhưng đừng có quá đáng nhé</p>
+                    <p style="color: rgb(241, 84, 49);">* Crystal pvp (Chắc không phải ai cũng biết)</p>
+                </div>
+                <div style="padding: 5px;">
+                    <h1 id="command">4.Lệnh (Chưa có ảnh/video)</h1>
+                    <p>- /rtp: tp ngẫu nhiên đến 1 nơi nào đó</p>
+                    <p>- /shop: mở cái j thì các bạn biết r đó </p>
+                    <p>- /sk: mở bảng stat hay tui gọi là bảng kĩ năng</p>
+                    <p>- /autotool toggle: Tự động dùng công cụ</p>
+                    <p>- /playtime: Xem thời gian bạn đã chơi trong server</p>
+                    <p>- /trade (Tên người chơi): trao đổi đồ</p>
+                    <video src="/vid/vd1.mp4" controls preload="auto"></video>
                 </div>
             </div>
             <div id="contextMenu" class="context-menu" style="display:none">
                 <ul>
-                    <li class="menu"><a class="link1" href="/index.html"><i class="fa-solid fa-house-user">&nbsp;</i>Home</a></li>
-                    <li class="menu"><a class="link2" href="https://discord.com/invite/nfTUEWrEe6" target="_blank">&nbsp;<i class="fa-brands fa-discord"></i>Discord</a></li>
-                    <li class="menu"><a class="link3" href="#"><i class="fa-regular fa-circle-xmark">&nbsp;</i>Chưa có</a></li>
-                    <li class="menu"><a class="link4" href="#"><i class="fa-regular fa-circle-xmark">&nbsp;</i>Chưa có</a></li>
+                    <li class="menu"><a class="link1" href="/index.html"><i class="fa-solid fa-house-user">&nbsp;</i>Home</a>
+                    <li class="menu"><a class="link2" href="https://discord.com/invite/nfTUEWrEe6" target="_blank">&nbsp;<i class="fa-brands fa-discord"></i>Discord</a>
+                    <li class="menu"><a class="link3" href="#"><i class="fa-regular fa-circle-xmark">&nbsp;</i>Chưa có</a>
+                    <li class="menu"><a class="link4" href="#"><i class="fa-regular fa-circle-xmark">&nbsp;</i>Chưa có</a>
                 </ul>
             </div>
         </div>
     </div>
     <button id="Backtotop" onclick="Backtotop()"><i class="fa-solid fa-arrow-up"></i></button>
     <script>
-    // BACK TO TOP
-    let mybutton = document.getElementById("Backtotop");
+        setInterval(
+            function () {
+                var randomColor = Math.floor(Math.random() * 16777215).toString(16);
+                document.getElementById("acg").style.backgroundColor = "#" + randomColor;
+            }, 100);
+        // BACK TO TOP
+        let mybutton = document.getElementById("Backtotop");
+        window.onscroll = function () { scrollFunction() };
+        function scrollFunction() {
+            if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+                mybutton.style.display = "block";
+            } else {
+                mybutton.style.display = "none";
+            }
+        }
+        function Backtotop() {
+            document.body.scrollTop = 0;
+            document.documentElement.scrollTop = 0;
+        }
 
-    window.onscroll = function() {scrollFunction()};
-
-    function scrollFunction() {
-    if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
-        mybutton.style.display = "block";
-    } else {
-        mybutton.style.display = "none";
-    }
-    }
-    function Backtotop() {
-    document.body.scrollTop = 0;
-    document.documentElement.scrollTop = 0;
-    }
+        // 1
+        var modal = document.getElementById("Modal");
+        var btn = document.getElementById("copyip");
+        var span = document.getElementsByClassName("close")[0];
+        // 1
+        btn.onclick = function() {
+            modal.style.display = "block";
+            document.body.style.overflow = "hidden";
+        }
+        span.onclick = function() {
+            modal.style.display = "none";
+            document.body.style.overflow = "visible";
+        }
+        window.onclick = function(event) {
+        if (event.target == modal) {
+            modal.style.display = "none";
+            document.body.style.overflow = "visible";
+            }
+        }
+        // 2
+        var btn2 = document.getElementById("mopt");
+        var modal2 = document.getElementById("Modal2");
+        var span2 = document.getElementsByClassName("close2")[0];
+        var div2sc = document.getElementsByClassName("modal-body")[0];
+        // 2
+        btn2.onclick = function() {
+            modal2.style.display = "block";
+            document.body.style.overflow = "hidden";
+        }
+        span2.onclick = function() {
+            modal2.style.display = "none";
+            document.body.style.overflow = "visible";
+        }
+        div2sc.onclick = function() {
+            modal2.style.display = "none";
+            document.body.style.overflow = "visible";
+        }
+        window.onclick = function(event) {
+        if (event.target == modal2) {
+            modal2.style.display = "none";
+            document.body.style.overflow = "visible";
+            }
+        }
+        
+        // 2
+        var moptbt = document.getElementById("moptbt");
+        document.getElementById("moptbt").style.cursor= "pointer";
+        // 2
+        moptbt.onclick = function() {
+            modal2.style.display = "block";
+            document.body.style.overflow = "hidden";
+        }
+        window.onclick = function(event) {
+        if (event.target == modal2) {
+            modal2.style.display = "none";
+            document.body.style.overflow = "visible";
+            }
+        }
     </script>
 </body>
 </html>
-  

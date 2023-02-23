@@ -15,7 +15,6 @@ p, a, ol, li, button {
 p, a {
     color: whitesmoke;
 }
-
 /* LAOD PAGE */
 #out-loader {
     display: block;
@@ -25,7 +24,7 @@ p, a {
     background-color: rgb(45, 45, 45);
     position: absolute;
     left: 50%;
-    top: 45%;
+    top: 50%;
     z-index: 1;
     width: 120px;
     height: 120px;
@@ -35,26 +34,43 @@ p, a {
     border-top: 16px solid #ffffff;
     -webkit-animation: spin 2s linear infinite;
     animation: spin 2s linear infinite;
-    transform: translate(-50%, -50%);
-    -webkit-transform: translate(-50%, -50%);
-    -moz-transform: translate(-50%, -50%);
-    -ms-transform: translate(-50%, -50%);
-    -o-transform: translate(-50%, -50%);
+    transform: translate(50%, 50%);
+    -webkit-transform: translate(50%, 50%);
+    -moz-transform: translate(50%, 50%);
+    -ms-transform: translate(50%, 50%);
+    -o-transform: translate(50%, 50%);
 }
 @-webkit-keyframes spin {
     0% {
+        transform: rotate(0deg);
         -webkit-transform: rotate(0deg);
+        -moz-transform: rotate(0deg);
+        -ms-transform: rotate(0deg);
+        -o-transform: rotate(0deg);
     }
     100% {
+        transform: rotate(360deg);
         -webkit-transform: rotate(360deg);
+        -webkit-transform: rotate(360deg);
+        -moz-transform: rotate(360deg);
+        -ms-transform: rotate(360deg);
+        -o-transform: rotate(360deg);
     }
 }
 @keyframes spin {
     0% {
-        transform: rotate(0deg);
+        transform: rotate(0deg);    ;
+        -webkit-transform: rotate(0deg);
+        -moz-transform: rotate(0deg);
+        -ms-transform: rotate(0deg);
+        -o-transform: rotate(0deg);
     }
     100% {
         transform: rotate(360deg);
+        -webkit-transform: rotate(360deg);
+        -moz-transform: rotate(360deg);
+        -ms-transform: rotate(360deg);
+        -o-transform: rotate(360deg);
     }
 }
 .animate-bottom {
@@ -68,8 +84,7 @@ p, a {
     from {
         bottom: -100px;
         opacity: 0
-    }
-    to {
+    } to {
         bottom: 0px;
         opacity: 1
     }
@@ -78,8 +93,7 @@ p, a {
     from {
         bottom: -100px;
         opacity: 0
-    }
-    to {
+    } to {
         bottom: 0;
         opacity: 1
     }
@@ -96,4 +110,180 @@ p {
     border-radius: 2.5px;
     padding: 5px;
     box-shadow: var(--boxshadow);
+}
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1;
+    padding-top: 100px;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgb(0, 0, 0);
+    background-color: rgba(0, 0, 0, 0.4);
+}
+.modal-content {
+    position: relative;
+    background-color: #fefefe;
+    margin: auto;
+    padding: 0;
+    border: 1px solid #888;
+    border-radius: 15px;
+    width: 100%;
+    max-width: 550px;
+    box-shadow: var(--boxshadow);
+    -webkit-animation-name: animatetop;
+    -webkit-animation-duration: 0.4s;
+    animation-name: animatetop;
+    animation-duration: 0.4s;
+    -webkit-border-radius: 15px;
+    -moz-border-radius: 15px;
+    -ms-border-radius: 15px;
+    -o-border-radius: 15px;
+}
+@-webkit-keyframes animatetop {
+    from {
+        top: -300px;
+        opacity: 0
+    } to {
+        top: 0;
+        opacity: 1
+    }
+}
+@keyframes animatetop {
+    from {
+        top: -300px;
+        opacity: 0
+    } to {
+        top: 0;
+        opacity: 1
+    }
+}
+.modal-header {
+    height: 50px;
+    padding: 2px 16px;
+    background-color: rgb(45, 45, 45);
+    border-top-right-radius: 15px;
+    border-top-left-radius: 15px;
+    color: white;
+}
+.modal-body {
+    background-color: rgb(65, 63, 63);
+    padding: 2px 16px;
+}
+.modal-footer {
+    height: 50px;
+    width: auto;
+    padding: 2px 16px;
+    background-color: rgb(45, 45, 45);
+    color: white;
+    border-bottom-right-radius: 15px;
+    border-bottom-left-radius: 15px;
+}
+.close {
+    position: absolute;
+    right: 20px;
+    cursor: pointer;
+    padding-left: 20px;
+    font-size: 25px;
+    bottom: 10px;
+    transition:ease-in all 250ms;
+    -webkit-transition:ease-in all 250ms;
+    -moz-transition:ease-in all 250ms;
+    -ms-transition:ease-in all 250ms;
+    -o-transition:ease-in all 250ms;
+}
+.close:hover {
+    transform: rotateZ(50deg);
+    -webkit-transform: rotateZ(50deg);
+    -moz-transform: rotateZ(50deg);
+    -ms-transform: rotateZ(50deg);
+    -o-transform: rotateZ(50deg);
+}
+.close2 {
+    position: absolute;
+    right: 20px;
+    cursor: pointer;
+    padding-left: 20px;
+    font-size: 25px;
+    bottom: 10px;
+    transition:ease-in all 250ms;
+    -webkit-transition:ease-in all 250ms;
+    -moz-transition:ease-in all 250ms;
+    -ms-transition:ease-in all 250ms;
+    -o-transition:ease-in all 250ms;
+}
+.close2:hover {
+    transform: rotateZ(50deg);
+    -webkit-transform: rotateZ(50deg);
+    -moz-transform: rotateZ(50deg);
+    -ms-transform: rotateZ(50deg);
+    -o-transform: rotateZ(50deg);
+}
+.cpi-box {
+    margin: 0 auto;
+    padding: 20px;
+    overflow: auto;
+}
+#copyip {
+    cursor: pointer;
+    color: white;
+    /*margin: -70px 0 0 -130px;*/
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-65%, -30%);
+    padding: 20px 20px 20px 20px;
+    border: 1px solid rgb(99, 226, 26);
+    border-radius: 20px;
+    background: rgb(79, 151, 37);
+    box-shadow: var(--superXbigger-dark-boxshadow);
+    -webkit-border-radius: 20px;
+    -moz-border-radius: 20px;
+    -ms-border-radius: 20px;
+    -o-border-radius: 20px;
+    -webkit-transform: translate(-65%, -30%);
+    -moz-transform: translate(-65%, -30%);
+    -ms-transform: translate(-65%, -30%);
+    -o-transform: translate(-65%, -30%);
+}
+.mopt {
+    cursor: pointer;
+    color: white;
+    margin: -20px 0 0 75px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    padding: 20px 20px 20px 20px;
+    border: 1px solid rgb(99, 226, 26);
+    border-radius: 20px;
+    background: rgb(79, 151, 37);
+    box-shadow: var(--super-dark-boxshadow);
+    -webkit-border-radius: 20px;
+    -moz-border-radius: 20px;
+    -ms-border-radius: 20px;
+    -o-border-radius: 20px;
+}
+#moptbt {
+    position: fixed;
+    bottom: 80px;
+    right: 2px;
+    z-index: 99;
+    font-size: 18px;
+    border: none;
+    outline: none;
+    background-color: rgb(68, 68, 68);
+    box-shadow: var(--super-dark-boxshadow);
+    color: white;
+    cursor: pointer;
+    padding: 15px;
+    padding-left: 18.2px;
+    padding-right: 18.2px;
+    border-radius: 50%;
+    -webkit-border-radius: 50%;
+    -moz-border-radius: 50%;
+    -ms-border-radius: 50%;
+    -o-border-radius: 50%;
 }
