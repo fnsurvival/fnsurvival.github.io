@@ -2,7 +2,7 @@
 // LOAD PAGE
 var loadpage;
 function LoadSite() {
-    loadpage = setTimeout(showPage, 100);
+    loadpage = setTimeout(showPage, 5000);
 }
 function showPage() {
     document.getElementById("loader").style.display = "none";
