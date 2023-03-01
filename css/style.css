@@ -271,7 +271,7 @@ p {
     position: fixed;
     bottom: 80px;
     right: 2px;
-    z-index: 99;
+    height: 50px;
     font-size: 18px;
     border: none;
     outline: none;
