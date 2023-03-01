@@ -180,24 +180,25 @@
     <script>
         setInterval(
             function () {
-                var randomColor = Math.floor(Math.random() * 16777215).toString(16);
+                var randomColor = Math.floor(Math.random() * 26787215).toString(16);
                 document.getElementById("acg").style.backgroundColor = "#" + randomColor;
-            }, 100);
+            }, 200);
         // BACK TO TOP
-        let mybutton = document.getElementById("Backtotop");
+        let btt = document.getElementById("Backtotop");
         window.onscroll = function () { scrollFunction() };
         function scrollFunction() {
             if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
-                mybutton.style.display = "block";
+                btt.style.display = "block";
+                moptbt.style.display = "block";
             } else {
-                mybutton.style.display = "none";
+                btt.style.display = "none";
+                moptbt.style.display = "none";
             }
         }
         function Backtotop() {
             document.body.scrollTop = 0;
             document.documentElement.scrollTop = 0;
         }
-
         // 1
         var modal = document.getElementById("Modal");
         var btn = document.getElementById("copyip");
