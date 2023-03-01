@@ -267,6 +267,7 @@ p {
     -o-border-radius: 20px;
 }
 #moptbt {
+    display: none;
     position: fixed;
     bottom: 80px;
     right: 2px;
