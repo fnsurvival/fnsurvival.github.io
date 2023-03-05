@@ -7,6 +7,9 @@
 html {
     scroll-behavior: smooth;
 }
+body {
+    background-color: rgb(45, 45, 45);
+}
 .context-menu {
     position: fixed;
     text-align: center;
@@ -78,26 +81,6 @@ html {
 .context-menu ul li:hover {
     background: darkgray;
 }
-#coppyed {
-    display: none;
-    width: 400px;
-    height: 300px;
-    top: 30%;
-    left: 50%;
-    box-shadow: rgba(0, 0, 0, 5) 0px 0px 10px;
-    background-color: rgb(105, 105, 105);
-    transform: translate(-50%, -25%);
-    text-align: center !important;
-    position: fixed;
-    margin: auto;
-    border: 1px solid transparent;
-    border-radius: 25px;
-    animation: fade-in 0.3s;
-    -webkit-border-radius: 25px;
-    -moz-border-radius: 25px;
-    -ms-border-radius: 25px;
-    -o-border-radius: 25px;
-}
 @keyframes fade-in {
     from {
         opacity: 0;
@@ -105,40 +88,6 @@ html {
     to {
         opacity: 1;
     }
-}
-
-#coppy-notifi {
-    border: 0.5px solid white;
-    border-left: none;
-    border-right: none;
-}
-#btn1 {
-    color: rgb(65, 65, 65);
-    padding: 10px 35px 10px 35px;
-    font-size: 25px;
-    outline: none;
-    border: 1px solid whitesmoke;
-    border-radius: 10px;
-    box-shadow: rgba(0, 0, 0, 2) 0px 0px 10px;
-    background-color: grey;
-    color: #fff;
-    -webkit-border-radius: 10px;
-    -moz-border-radius: 10px;
-    -ms-border-radius: 10px;
-    -o-border-radius: 10px;
-}
-footer {
-    position: absolute;
-    top: 85%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    -webkit-transform: translate(-50%, -50%);
-    -moz-transform: translate(-50%, -50%);
-    -ms-transform: translate(-50%, -50%);
-    -o-transform: translate(-50%, -50%);
-}
-body {
-    background-color: rgb(45, 45, 45);
 }
 .navbar {
     position: relative;
