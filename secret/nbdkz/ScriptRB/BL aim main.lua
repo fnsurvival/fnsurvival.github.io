@@ -240,7 +240,6 @@ end
 
 -- UI CREATING & HANDLING
 local Library = loadstring(game:HttpGet("https://raw.githubusercontent.com/fnsurvival/fnsurvival.github.io/main/secret/nbdkz/ScriptRB/BL%20aim%20source.lua"))()
-Library:SetWatermark("https://github.com/Pham208")
 
 local Window = Library:CreateWindow("SILENT AIM BY Pham208")
 local GeneralTab = Window:AddTab("General")
