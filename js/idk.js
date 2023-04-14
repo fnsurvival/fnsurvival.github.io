@@ -102,10 +102,11 @@ document.onkeydown = function (e) {
     }
 }
 
-// CLOCK
-setInterval(myTimer, 0);
-function myTimer() {
-    const d = new Date();
-    document.getElementById("clock").innerHTML = d.toLocaleTimeString();
-    document.getElementById("clock").style.padding = "none"
-}
+// MENU NAV
+document.addEventListener("DOMContentLoaded",function(){
+    var nut = document.querySelector('div.icon i');
+    var mobile = document.querySelector('ul');
+    nut.addEventListener('click',function(){
+        mobile.classList.toggle('active');
+    })
+})
