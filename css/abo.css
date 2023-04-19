@@ -4,24 +4,19 @@
 }
 body {
     padding: 15px;
-	background: linear-gradient(334deg, #6b97f7, #7525e2, #f7137e);
-	background-size: 180% 180%;
-	animation: gradient-animation 6s ease infinite;
     font-size: 20px;
+    text-shadow: 1px 1px 5px black;
+    background-image: url(/pic/vhoa0.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
+    background-position: center;
+    height: auto;
 }
-@keyframes gradient-animation {
-	0% {
-		background-position: 0% 50%;
-	}
-	50% {
-		background-position: 100% 50%;
-	}
-	100% {
-		background-position: 0% 50%;
-	}
+body::-webkit-scrollbar {
+    display: none;
 }
 .container {
-    background-color: rgb(65, 65, 65);
     margin: auto;
     padding: 15px;
     border: 1px solid whitesmoke;
@@ -43,7 +38,7 @@ body {
     padding: 5px;
     border: 1px solid whitesmoke;
     border-radius: 5px;
-    box-shadow: var(--boxshadow);
+    box-shadow: var(--dark-big-boxshadow);
     -webkit-border-radius: 5px;
     -moz-border-radius: 5px;
     -ms-border-radius: 5px;

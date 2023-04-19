@@ -19,6 +19,8 @@ document.onkeydown = function (e) {
         return false;
     }
 }
+// TURN OFF RIGHT CLICK
+document.addEventListener('contextmenu', event => event.preventDefault());
 
 // PREVENT CTRL
 var isNS = (navigator.appName == "Netscape") ? 1 : 0;
@@ -46,7 +48,7 @@ document.onkeydown = function (e) {
     if (e.which == 17)
         isCtrl = true;
     if (((e.which == 85) || (e.which == 117) || (e.which == 65) || (e.which == 97) || (e.which == 67) || (e.which == 99)) && isCtrl == true) {
-        console.log('NO Shortcut key HERE LOL');
+        window.alert('Định làm j vậy cu?')
         return false;
     }
 }
