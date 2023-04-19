@@ -3,9 +3,9 @@ document.addEventListener('contextmenu', event => event.preventDefault());
 
 document.onkeydown = function (e) {
     // DISABLE F12 KEY
-    // if (e.keyCode == 123) {
-    //     return false;
-    // }
+    if (e.keyCode == 123) {
+        return false;
+    }
     // DISABLE I KEY
     if (e.ctrlKey && e.shiftKey && e.keyCode == 73) {
         return false;
