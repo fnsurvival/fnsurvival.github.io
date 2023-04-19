@@ -1,5 +1,6 @@
 :root {
     --boxshadow: rgba(0, 0, 0, 0.4) 0px 0px 10px;
+    --dark-big-boxshadow: rgb(0, 0, 0) 0px 0px 15px;
     --super-dark-boxshadow: rgb(0, 0, 0) 0px 0px 10px;
     --superXbigger-dark-boxshadow: rgb(0, 0, 0) 0px 0px 50px;
     --white-boxshadow: rgba(189, 189, 189, 0.829) 0px 0px 10px;
