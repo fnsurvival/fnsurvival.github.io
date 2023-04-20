@@ -19,8 +19,6 @@ document.onkeydown = function (e) {
         return false;
     }
 }
-// TURN OFF RIGHT CLICK
-document.addEventListener('contextmenu', event => event.preventDefault());
 
 // PREVENT CTRL
 var isNS = (navigator.appName == "Netscape") ? 1 : 0;
