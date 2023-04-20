@@ -1,4 +1,3 @@
-
 * {
     margin: 0;
     padding: 0;
@@ -67,19 +66,25 @@ body {
     padding-bottom: 5px;
     padding-top: 5px;
     outline: none;
-    border: 0.1px solid whitesmoke;
     border-radius: 2px;
     -webkit-border-radius: 2px;
     -moz-border-radius: 2px;
     -ms-border-radius: 2px;
     -o-border-radius: 2px;
 }
+.context-menu ul li:hover {
+    background: darkgray;
+    transition: 150ms;
+    transition-delay: 200ms;
+    border: 1px solid white;
+    -webkit-transition: 150ms;
+    -moz-transition: 150ms;
+    -ms-transition: 150ms;
+    -o-transition: 150ms;
+}
 .context-menu ul li a {
     text-decoration: none;
     color: rgb(243, 243, 243);
-}
-.context-menu ul li:hover {
-    background: darkgray;
 }
 @keyframes fade-in {
     from {
