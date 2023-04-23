@@ -4,9 +4,6 @@
     margin: 0;
     color: white;
 }
-body {
-    background-color: rgb(45, 45, 45);
-}
 /* FONT */
 p, a, ol, li, button {
     font-family: Comic;

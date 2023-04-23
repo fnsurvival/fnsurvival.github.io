@@ -2,14 +2,15 @@
   "ExpandedNodes": [
     "",
     "\\css",
-    "\\css\\ao21b20z",
     "\\css\\root",
     "\\db",
     "\\js",
     "\\pic",
     "\\secret",
     "\\secret\\nbdkz",
+    "\\secret\\nbdkz\\ScriptRB",
     "\\vid"
   ],
+  "SelectedNode": "\\css\\ao21b20z\\require.css",
   "PreviewInSolutionExplorer": false
 }

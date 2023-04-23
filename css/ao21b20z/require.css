@@ -181,7 +181,7 @@ li:hover ul.cap_2 {
         margin: 0;
         background-color: rgb(119, 119, 119);
         width: 100%;
-        position: absolute;
+        position: fixed !important;
         top: 63px;
         left: 0;
         display: block;
