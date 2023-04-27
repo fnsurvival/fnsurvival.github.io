@@ -9,10 +9,33 @@
     <link rel="stylesheet" href="/css/ao21b20z/font.css">
     <link rel="stylesheet" href="/css/root/rt.css">
     <script src="/js/abo.js"></script>
+    <script src="/js/font1.js"></script>
     <link rel="shortcut icon" href="/Logosite.png" type="image/x-icon">
 </head>
 <body>
-    <div class="container">
+    <div id="al1" class="container-alert">
+        <div class="container-alert-content">
+            <div class="alert-head">
+                <h2>Bảng Cảnh Báo</h2>
+            </div>
+            <div class="alert-body">
+                <p>Dùng phím tắt cái cái con cá</p>
+                <p>Hãy nói không với phím tắt với trang này nhé!</p>
+            </div>
+            <div class="alert-footer">
+                <span class="close">Đóng</span>
+            </div>
+        </div>
+    </div>
+    <script>
+        const close = document.getElementsByClassName("close")[0];
+        close.onclick = function() {
+            document.getElementById("al1").style.display = "none";
+            document.getElementById("ctn1").style.display = "block";
+        }
+    </script>
+    <br>
+    <div id="ctn1" class="container">
         <a href="/" class="gohome">Về Trang chủ</a>
         <p>Tự tìm được trang này mà không ai nói cho thì cũng ngầu đấy 😏 </p>
         <div class="content">
@@ -29,7 +52,8 @@
                 </a>
                 <style>.schl { max-width: 700px; width: 100%; }</style>
             </div>
-            <p>Câu cửa miệng: Ai hỏi?</p>
+            <p>Câu cửa miệng: Ai hỏi?</p><br><hr><br>
+            <p style="color: rgb(154, 231, 53);">Souce Code: <a target="_blank" href="https://github.com/fnsurvival"><i class="fa-brands fa-github"></i></a> <a target="_blank" href="https://github.com/fnsurvival">Github</a></p>
         </div><br>
         <div class="content">
             <h1 style="text-align: center;">Dự án</h1><hr>
@@ -39,7 +63,7 @@
                     <p style="color:rgb(0, 255, 0)">&nbsp; Đang trên 79k (Last check: 24/4/2023)</p>
                 <li>Server Minecraft (đã xong nhưng cần nhà tài trợ)</li>
                 <li>Shop Roblox (chưa xong)</li>
-                <li>Tạo game ăn cưts simluator (lười ko làm:D)</li>
+                <li>Tạo game ăn cưts simluator (ko làm:D)</li>
             </ol>
         </div><br>
         <div class="content">
@@ -55,9 +79,6 @@
             <hr>
             <h2>THE END</h2>
         </div>
-    </div><br><br>
-    <div class="div-copyright">
-        <p>Non Copyright ©</p>
     </div>
 </body>
 </html>
