@@ -10,6 +10,9 @@ document.onkeydown = function (e) {
     if (e.ctrlKey && e.shiftKey && e.keyCode == 73) {
         return false;
     }
+    if (e.keyCode == 83) {
+        return false;
+    }
     // DISABLE J KEY
     if (e.ctrlKey && e.shiftKey && e.keyCode == 74) {
         return false;
@@ -45,8 +48,12 @@ document.onkeyup = function (e) {
 document.onkeydown = function (e) {
     if (e.which == 17)
         isCtrl = true;
-    if (((e.which == 85) || (e.which == 117) || (e.which == 65) || (e.which == 97) || (e.which == 67) || (e.which == 99)) && isCtrl == true) {
-        window.alert('Định làm j vậy cu?')
+    if (((e.which == 85) || (e.which == 117) || (e.which == 65) || (e.which == 97) || (e.which == 67) || (e.which == 99) || (e.which == 83)) && isCtrl == true) { 
+        document.getElementById("ctn1").style.display = "none";
+        document.getElementById("al1").style.display = "block";
         return false;
+    } else {
+        document.getElementById("al1").style.display = "none";
+        document.getElementById("ctn1").style.display = "block";
     }
 }
