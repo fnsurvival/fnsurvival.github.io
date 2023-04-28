@@ -50,10 +50,12 @@ document.onkeydown = function (e) {
         isCtrl = true;
     if (((e.which == 85) || (e.which == 117) || (e.which == 65) || (e.which == 97) || (e.which == 67) || (e.which == 99) || (e.which == 83)) && isCtrl == true) { 
         document.getElementById("ctn1").style.display = "none";
+        document.getElementById("ctna2").style.display = "block";
         document.getElementById("al1").style.display = "block";
         return false;
     } else {
         document.getElementById("al1").style.display = "none";
+        document.getElementById("ctna2").style.display = "none";
         document.getElementById("ctn1").style.display = "block";
     }
 }
