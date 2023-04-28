@@ -175,11 +175,6 @@
     </div>
     <button id="Backtotop" onclick="Backtotop()"><i class="fa-solid fa-arrow-up"></i></button>
     <script>
-        setInterval(
-            function () {
-                var randomColor = Math.floor(Math.random() * 26787215).toString(16);
-                document.getElementById("acg").style.backgroundColor = "#" + randomColor;
-            }, 5000);
         // BACK TO TOP
         let btt = document.getElementById("Backtotop");
         window.onscroll = function () { scrollFunction() };
