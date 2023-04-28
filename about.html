@@ -27,9 +27,19 @@
             </div>
         </div>
     </div>
+    <div id="ctna2" style="padding:10px; position: absolute;">
+        <div class="container-alert2">
+            <p>Phát hiện dùng phím tắt, đã bị hệ thống ngăn chặn!</p>
+        </div>
+    </div>
     <script>
+        const x = document.getElementById("ctna2");
+        setInterval(function() {
+            x.style.display = "none";
+        }, 3000)
         const close = document.getElementsByClassName("close")[0];
         close.onclick = function() {
+            document.getElementById("ctna2").style.display = "none";
             document.getElementById("al1").style.display = "none";
             document.getElementById("ctn1").style.display = "block";
         }
