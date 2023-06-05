@@ -181,8 +181,7 @@
         // random color generator
         setInterval(
         function () {
-            var randomColor = Math.floor(Math.random()*16777215).toString(16);
-            document.getElementById("acg").style.backgroundColor = "#"+randomColor;
+            document.getElementById("acg").style.backgroundColor = "#"+ Math.floor(Math.random()*16777215).toString(16);
         }, 200);
         // BACK TO TOP
         let btt = document.getElementById("Backtotop");
