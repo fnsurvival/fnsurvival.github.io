@@ -1,4 +1,17 @@
+.container2 {
+    margin: auto;
+    padding: 15px;
+    box-shadow: var(--superXbigger-dark-boxshadow);
+    border-radius: 7px;
+    height: auto;
+    max-width: 1130px;
+    -webkit-border-radius: 7px;
+    -moz-border-radius: 7px;
+    -ms-border-radius: 7px;
+    -o-border-radius: 7px;
+}
 .container {
+    height: 850px !important;
     margin: auto;
     padding: 15px;
     box-shadow: var(--superXbigger-dark-boxshadow);
@@ -12,6 +25,7 @@
 }
 video {
     width: 100%;
+    height: 94.5%;
 }
 .modal {
     display: none;
