@@ -58,6 +58,15 @@
         <p>Gửi nó qua mail: <a href="mailto:fnsurvival@gmail.com">fnsurvival@gmail.com</a> hoặc <a href="https://docs.google.com/forms/d/e/1FAIpQLSc7H6vZhciehMAtgbjG0YTEJwyQHHYMTrjMBRyU4ipleqA-hw/viewform">cái này</a> để video đó xuất hiện tại đây</p>
     </div><br>
 
+    <!-- form -->
+    <!-- 
+        <div class="container">
+            <h1 id="v"></h1>
+            <p style="font-size: 15px">cre: on video</p>
+            <video src="/vid/?.mp4" controls></video>
+        </div><br>
+    -->
+
     <div class="container">
         <h1 id="v1">1. Video 1</h1>
         <p style="font-size: 15px">cre: on video</p>
@@ -65,18 +74,26 @@
     </div><br>
 
     <div class="container">
-        <h1 id="v2">1. Video 2</h1>
+        <h1 id="v2">2. Video 2</h1>
         <p style="font-size: 15px">cre: on video</p>
         <video src="/vid/vd3.mp4" controls height="700px"></video>
     </div><br>
 
-
+    <div class="container">
+        <h1 id="v3">3. Video 3</h1>
+        <p style="font-size: 15px">cre: on video</p>
+        <video src="/vid/v4.mp4" controls></video>
+    </div><br>
 
     <!-- Others -->
 <div id="Modal" class="modal"><div class="modal-content"><div class="modal-header"><h2>Danh sách</h2></div><div class="modal-body">
     <!-- remember this -->
+    <!-- <p><a href="#v"></a>. Video </p> -->
+    
     <p><a href="#v1">1. Video 1</a></p>
     <p><a href="#v2">2. Video 2</a></p>
+    <p><a href="#v3">3. Video 3</a></p>
+
 </div><div class="modal-footer"><span class="close">Đóng</span></div></div></div><br><p id="moptbt" value="..." style="cursor: pointer; display: block;">...</p>
 <script>var moptbt = document.getElementById("moptbt");var modal = document.getElementById("Modal");var span = document.getElementsByClassName("close")[0];var div2sc = document.getElementsByClassName("modal-body")[0];document.getElementById("moptbt").style.cursor="pointer";moptbt.onclick=function(){modal.style.display="block";document.body.style.overflow="hidden";}; span.onclick=function(){modal.style.display="none";document.body.style.overflow="visible";};div2sc.onclick=function(){modal.style.display="none";document.body.style.overflow="visible";};window.onclick=function(event){if(event.target==modal){modal.style.display="none";document.body.style.overflow="visible";}}</script>
 </body>
