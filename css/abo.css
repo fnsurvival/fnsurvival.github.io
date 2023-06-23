@@ -62,16 +62,18 @@ body::-webkit-scrollbar {
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    padding-bottom: 15px;
     gap: 20px;
 }
 .directo {
     width: 100%;
     padding-top: 20px;
-    height: 40px;
+    padding-bottom: 20px;
     text-align: center;
     border: 1px solid whitesmoke;
     border-radius: 5px;
     background-color: unset;
+    box-shadow: var(--sm-boxshadow);
     -webkit-border-radius: 5px;
     -moz-border-radius: 5px;
     -ms-border-radius: 5px;
