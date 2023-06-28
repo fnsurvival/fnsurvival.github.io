@@ -1,4 +1,4 @@
-ErrorDocument 404 https://fnsurvival.github.io/404.html
+ErrorDocument 404 https://fnsurvival.github.io/404
 
 <ifModule mod_rewrite.c>
 
@@ -14,4 +14,6 @@ RewriteRule ^(.*)$ $1.php [NC, L]
 
 RewriteRule ^(.*)$ $1.html [NC, L]
 
+Redirect 301 /ViewMore /maintenance
+Redirect 301 /Video /maintenance
 </ifModule>
