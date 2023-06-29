@@ -18,6 +18,10 @@ RewriteRule ^(.*)$ $1.html [NC, L]
 
 <IfModule mod_alias.c>
 
+    
+    RedirectMatch "^/o/Video.html\.html/?$" "https://fnsurvival.github.io/maintenance"
+    RedirectMatch "^/ViewMore.html\.html/?$" "https://fnsurvival.github.io/maintenance"
+
     RedirectMatch "^/o/Video\.html/?$" "https://fnsurvival.github.io/maintenance"
     RedirectMatch "^/ViewMore\.html/?$" "https://fnsurvival.github.io/maintenance"
 
