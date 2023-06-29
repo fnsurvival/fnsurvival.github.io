@@ -14,7 +14,16 @@ RewriteRule ^(.*)$ $1.php [NC, L]
 
 RewriteRule ^(.*)$ $1.html [NC, L]
 
-Redirect 301 /ViewMore /https://fnsurvival.github.io/maintenance
-Redirect 301 /Video /https://fnsurvival.github.io/maintenance
-
 </ifModule>
+
+<IfModule mod_alias.c>
+
+    RedirectMatch "^/Video\.html/?$" "https://fnsurvival.github.io/maintenance"
+
+</IfModule>
+
+<IfModule mod_mime.c>
+
+    AddDefaultCharset utf-8
+    
+</IfModule>
