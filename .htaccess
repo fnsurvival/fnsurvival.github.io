@@ -14,6 +14,7 @@ RewriteRule ^(.*)$ $1.php [NC, L]
 
 RewriteRule ^(.*)$ $1.html [NC, L]
 
-Redirect 301 /ViewMore /maintenance
-Redirect 301 /Video /maintenance
+Redirect 301 /ViewMore /https://fnsurvival.github.io/maintenance
+Redirect 301 /Video /https://fnsurvival.github.io/maintenance
+
 </ifModule>
