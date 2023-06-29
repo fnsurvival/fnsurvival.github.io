@@ -18,12 +18,13 @@ RewriteRule ^(.*)$ $1.html [NC, L]
 
 <IfModule mod_alias.c>
 
-    RedirectMatch "^/Video\.html/?$" "https://fnsurvival.github.io/maintenance"
+    RedirectMatch "^/o/Video\.html/?$" "https://fnsurvival.github.io/maintenance"
+    RedirectMatch "^/ViewMore\.html/?$" "https://fnsurvival.github.io/maintenance"
 
 </IfModule>
 
 <IfModule mod_mime.c>
 
     AddDefaultCharset utf-8
-    
+
 </IfModule>
