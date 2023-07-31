@@ -6,14 +6,23 @@
     --superXbigger-dark-boxshadow: rgb(0, 0, 0) 0px 0px 50px;
     --white-boxshadow: rgba(189, 189, 189, 0.829) 0px 0px 10px;
 }
+.amargin {
+    margin: auto;
+}
 .center-text {
     text-align: center !important;
 }
 .cursor {
     cursor: pointer !important;
 }
+.div95 {
+    width: 95% !important;
+}
 .div90 {
     width: 90% !important;
+}
+.div85 {
+    width: 85% !important;
 }
 .div80 {
     width: 80% !important;

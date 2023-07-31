@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="vi">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -10,9 +11,29 @@
     <link rel="stylesheet" href="/css/ao21b20z/require.css">
     <link rel="stylesheet" href="/css/ao21b20z/font.css">
     <link rel="stylesheet" href="/css/scrol.css">
+    <link rel="stylesheet" href="/css/root/rt.css">
     <script src="/js/font1.js"></script>
     <script src="/js/idk.js"></script>
+    <!-- <script src="/js/Announcement.js"></script> -->
     <link rel="shortcut icon" href="/Logosite.png" type="image/x-icon">
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-YSEL8YGQZK"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+
+        gtag('config', 'G-YSEL8YGQZK');
+    </script>
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-2M5PZQW8D4"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+
+        gtag('config', 'G-2M5PZQW8D4');
+    </script>
     <style>
         * {
             padding: 0;
@@ -27,7 +48,7 @@
             background-attachment: fixed;
             background-position: center;
         }
-        .idmv > li > a {
+        .idmv>li>a {
             font-size: 20px;
         }
         video {
@@ -38,6 +59,7 @@
     </style>
     <title>Funny survival</title>
 </head>
+
 <body onload="LoadSite()">
     <div id="out-loader"><a style="opacity: 0; position: absolute;">Load font</a>
         <div id="loader"></div>
@@ -50,16 +72,6 @@
             </div>
             <nav>
                 <ul class="mother-content">
-                    <noscript>
-                    <!-- <li class="main-content">
-                        <a href="#">Home<i class="fa-solid fa-chevron-down fa-xs" style="color: #ffffff;"></i></a>
-                        <ul class="cap_2">
-                            <li>1QUE</li>
-                            <li>2QUE</li>
-                            <li>3QUE</li>
-                        </ul>
-                    </li> -->
-                    </noscript>
                     <li class="main-content"><a href="/about" style="color:green;">Về admin</a></li>
                     <li class="main-content"><a href="/ViewMore">Xem thêm</a></li>
                 </ul>
@@ -69,100 +81,117 @@
             </nav>
         </div>
         <!--   END TOP BAR   -->
-        <div>
-            <div class="content-box">
-                <div class="ctbx" id="ipsv">
-                    <div class="cpi-box">
-                        <p id="copyip" value="Coppy IP server" title="Sao chép địa chỉ IP máy chủ">Coppy IP server</p>
-                        <h1><p class="mopt" id="mopt" title="Xem thêm thông tin">...</p></h1>
-                        <p id="moptbt" value="...">...</p>
-                    </div>
-                    <p style="font-size:10px; bottom: 0 !important; padding: 0px !important; position: absolute;">mmb</p>
-                    <!-- modal -->
-                    <div id="Modal2" class="modal">
-                        <div class="modal-content">
-                            <div class="modal-header">
-                                <h2>Danh sách</h2>
-                            </div>
-                            <div class="modal-body">
-                                <!-- <p><a href="#ipsv">1.Địa chỉ IP server</a></p> -->
-                                <p><a href="#rule">1.Luật lệ</a></p>
-                                <p><a href="#Team">2.Các thành viên phát triển</a></p>
-                                <p><a href="#whatyoucando">3.Bạn có thể làm gì ở đó</a></p>
-                                <p><a href="#command">4.Commands</a></p>
-                            </div>
-                            <div class="modal-footer">
-                                <span class="close2">Đóng</span>
-                            </div>
+        <!-- <div class="Important-announcement amargin" id="AnnouncementBox">
+            <div class="Header-annoucement center-text">
+                <p>Đây là tin nhắn tự động</p>
+            </div>
+            <div class="Body-annoucement">
+                <p>Nếu bạn đang sử dụng Adblock thì làm ơn tắt đi được không ạ 💀. <br> Tôi cam kết trang này không nhận quảng cáo nên bạn không phải cần phải bật.</p>
+                <p style="color: rgba(0, 255, 0, 0.678);font-size: 15px;">Tin nhắn này được tích hợp sẵn vào web nên nếu bạn có dùng Adblock hay không thì tin nhắn này vẫn sẽ hiện thị.</p>
+                <p style="color: rgb(0, 255, 0);">Tin nhắn tự đóng sau 5 giây</p>
+            </div>
+            <div class="footer-annoucement">
+                <button class="close-annoucement-btn cursor">Đóng</button>
+            </div>
+        </div> -->
+        <div class="content-box">
+            <div class="ctbx" id="ipsv">
+                <div class="cpi-box">
+                    <p id="copyip" class="cursor" value="Coppy IP server" title="Sao chép địa chỉ IP máy chủ">Coppy IP
+                        server</p>
+                    <hr>
+                    <p class="mopt cursor" id="mopt" title="Xem thêm thông tin">Xem các tiêu đề</p>
+                </div>
+                <p id="moptbt" value="...">...</p>
+                <p style="font-size:10px; bottom: 0 !important; padding: 0px !important; position: absolute;">mmb</p>
+                <!-- modal -->
+                <div id="Modal2" class="modal">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h2>Danh sách</h2>
+                        </div>
+                        <div class="modal-body">
+                            <!-- <p><a href="#ipsv">1.Địa chỉ IP server</a></p> -->
+                            <p><a href="#rule">1.Luật lệ</a></p>
+                            <p><a href="#Team">2.Các thành viên phát triển</a></p>
+                            <p><a href="#whatyoucando">3.Bạn có thể làm gì ở đó</a></p>
+                            <p><a href="#command">4.Commands</a></p>
+                        </div>
+                        <div class="modal-footer">
+                            <span class="close2">Đóng</span>
                         </div>
                     </div>
-                    <div id="Modal" class="modal">
-                        <div class="modal-content">
-                            <div class="modal-header">
-                                <h2>Chưa công khai</h2>
-                            </div>
-                            <div class="modal-body">
-                                <p>Server MC chưa được công khai</p>
-                                <p>Nên không có IP</p>
-                            </div>
-                            <div class="modal-footer">
-                                <span class="close">Đóng</span>
-                            </div>
+                </div>
+                <div id="Modal" class="modal">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h2>Chưa công khai</h2>
+                        </div>
+                        <div class="modal-body">
+                            <p>Server MC chưa được công khai</p>
+                            <p>Nên không có IP</p>
+                        </div>
+                        <div class="modal-footer">
+                            <span class="close">Đóng</span>
                         </div>
                     </div>
-                </div>
-                <!-- end -->
-                <div style="padding: 5px; transition: all 200ms; border-radius: 15px;" id="acg">
-                    <h1 style="text-align: center; top: 50%; left: 50%;">Thông tin về Server</h1>
-                </div>  
-                <div style="padding:5px">
-                    <h1 id="rule">1.Luật lệ</h1>
-                    <p>Server không luật lệ</p>
-                </div>
-                <div style="padding:5px">
-                    <h1 id="Team">2.Các thành viên phát triển (Chưa có ảnh/video)</h1>
-                    <p style="color: rgb(255, 62, 62);">* Pham2015609 (Owner)</p>
-                    <p>- Làm tất cả mọi thứ từ đầu đến cuối</p>
-                    <p style="color: rgb(31, 177, 31);">* TheNiceBear (Tester)</p>
-                    <p>- Rảnh háng chỉ có vào test game theo yêu cầu</p>
-                </div>
-                <div style="padding:5px">
-                    <h1 id="whatyoucando">3.Bạn có thể làm gì ở đó (Chưa có ảnh/video)</h1>
-                    <p>* Sinh tồn vui vẻ và đôi khi là chán ngắt <br> - Gặp gỡ -> kết bạn -> vui vẻ <br> Nghe thật là chán ngắt đúng không? - Đúng vậy. <br>Nó chán vcl</p>
-                    <p>* Bắt pet làm nô lệ <br> - Chả có cái mẹ gì đặc biệt cả</p>
-                    <p>* Phá đám người khác <br> - Điều này tui không cấm nhưng đừng có quá đáng nhé</p>
-                    <p style="color: rgb(241, 84, 49);">* Crystal pvp (Chắc không phải ai cũng biết)</p>
-                </div>
-                <div style="padding: 5px;">
-                    <h1 id="command">4.Lệnh (Chưa có ảnh/video)</h1>
-                    <p>- /rtp: tp ngẫu nhiên đến 1 nơi nào đó</p>
-                    <p>- /shop: mở cái j thì các bạn biết r đó </p>
-                    <p>- /sk: mở bảng stat hay tui gọi là bảng kĩ năng</p>
-                    <p>- /autotool toggle: Tự động dùng công cụ</p>
-                    <p>- /playtime: Xem thời gian bạn đã chơi trong server</p>
-                    <p>- /trade (Tên người chơi): trao đổi đồ</p>
-                    <video src="/vid/vd1.mp4" controls preload="auto"></video>
                 </div>
             </div>
-            <div id="contextMenu" class="context-menu" style="display:none">
-                <ul>
-                    <li class="menu"><a class="link1" href="/index"><i class="fa-solid fa-house-user">&nbsp;</i>Home</a>
-                    <li class="menu"><a class="link2" href="https://discord.com/invite/nfTUEWrEe6" target="_blank">&nbsp;<i class="fa-brands fa-discord"></i>Discord</a>
-                    <li class="menu"><a class="link3" href="#"><i class="fa-regular fa-circle-xmark">&nbsp;</i>Chưa có</a>
-                    <li class="menu"><a class="link4" href="#"><i class="fa-regular fa-circle-xmark">&nbsp;</i>Chưa có</a>
-                </ul>
+            <!-- end -->
+            <div style="padding: 5px; transition: all 200ms; border-radius: 15px;" id="acg">
+                <h1 style="text-align: center; top: 50%; left: 50%;">Thông tin về Server</h1>
+            </div>
+            <div style="padding:5px">
+                <h1 id="rule">1.Luật lệ</h1>
+                <p>Server không luật lệ</p>
+            </div>
+            <div style="padding:5px">
+                <h1 id="Team">2.Các thành viên phát triển (Chưa có ảnh/video)</h1>
+                <p style="color: rgb(255, 62, 62);">* Pham2015609 (Owner)</p>
+                <p>- Làm tất cả mọi thứ từ đầu đến cuối</p>
+                <p style="color: rgb(31, 177, 31);">* TheNiceBear (Tester)</p>
+                <p>- Rảnh háng chỉ có vào test game theo yêu cầu</p>
+            </div>
+            <div style="padding:5px">
+                <h1 id="whatyoucando">3.Bạn có thể làm gì ở đó (Chưa có ảnh/video)</h1>
+                <p>* Sinh tồn vui vẻ và đôi khi là chán ngắt <br> - Gặp gỡ -> kết bạn -> vui vẻ <br> Nghe thật là chán
+                    ngắt đúng không? - Đúng vậy. <br>Nó chán vcl</p>
+                <p>* Bắt pet làm nô lệ <br> - Chả có cái mẹ gì đặc biệt cả</p>
+                <p>* Phá đám người khác <br> - Điều này tui không cấm nhưng đừng có quá đáng nhé</p>
+                <p style="color: rgb(241, 84, 49);">* Crystal pvp (Chắc không phải ai cũng biết)</p>
+            </div>
+            <div style="padding: 5px;">
+                <h1 id="command">4.Lệnh (Chưa có ảnh/video)</h1>
+                <p>- /rtp: tp ngẫu nhiên đến 1 nơi nào đó</p>
+                <p>- /shop: mở cái j thì các bạn biết r đó </p>
+                <p>- /sk: mở bảng stat hay tui gọi là bảng kĩ năng</p>
+                <p>- /autotool toggle: Tự động dùng công cụ</p>
+                <p>- /playtime: Xem thời gian bạn đã chơi trong server</p>
+                <p>- /trade (Tên người chơi): trao đổi đồ</p>
+                <video src="/vid/vd1.mp4" controls preload="auto"></video>
             </div>
         </div>
-        <div class="cpright"><p style="text-align: center; font-size: 15px;">&copy;  Copyright 2023-<script>document.write(new Date().getFullYear())</script> FNSURVIVAL</p>
-        </div>  
+        <div id="contextMenu" class="context-menu" style="display:none">
+            <ul>
+                <li class="menu"><a class="link1" href="/index"><i class="fa-solid fa-house-user">&nbsp;</i>Home</a>
+                <li class="menu"><a class="link2" href="https://discord.com/invite/nfTUEWrEe6" target="_blank">&nbsp;<i class="fa-brands fa-discord"></i>Discord</a>
+                <li class="menu"><a class="link3" href="#"><i class="fa-regular fa-circle-xmark">&nbsp;</i>Chưa có</a>
+                <li class="menu"><a class="link4" href="#"><i class="fa-regular fa-circle-xmark">&nbsp;</i>Chưa có</a>
+            </ul>
+        </div>
+        <div class="cpright">
+            <p style="text-align: center; font-size: 15px;">&copy; Copyright 2023-
+                <script>document.write(new Date().getFullYear())</script> FNSURVIVAL
+            </p>
+        </div>
     </div>
     <button id="Backtotop" onclick="Backtotop()"><i class="fa-solid fa-arrow-up"></i></button>
     <script>
         // random color generator
         setInterval(
-        function () {
-            document.getElementById("acg").style.backgroundColor = "#"+ Math.floor(Math.random()*16777215).toString(16);
-        }, 200);
+            function () {
+                document.getElementById("acg").style.backgroundColor = "#" + Math.floor(Math.random() * 16777215).toString(16);
+            }, 200);
         // BACK TO TOP
         let btt = document.getElementById("Backtotop");
         window.onscroll = function () { scrollFunction() };
@@ -184,22 +213,22 @@
         var btn = document.getElementById("copyip");
         var span = document.getElementsByClassName("close")[0];
         // 1
-        btn.onclick = function() {
+        btn.onclick = function () {
             modal.style.display = "block";
             document.body.style.overflow = "hidden";
         }
-        span.onclick = function() {
+        span.onclick = function () {
             modal.style.display = "none";
             document.body.style.overflow = "visible";
         }
-        modal.onclick = function() {
+        modal.onclick = function () {
             modal.style.display = "none";
             document.body.style.overflow = "visible";
         }
-        window.onclick = function(event) {
-        if (event.target == modal) {
-            modal.style.display = "none";
-            document.body.style.overflow = "visible";
+        window.onclick = function (event) {
+            if (event.target == modal) {
+                modal.style.display = "none";
+                document.body.style.overflow = "visible";
             }
         }
         // 2
@@ -208,37 +237,37 @@
         var span2 = document.getElementsByClassName("close2")[0];
         var div2sc = document.getElementsByClassName("modal-body")[0];
         // 2
-        btn2.onclick = function() {
+        btn2.onclick = function () {
             modal2.style.display = "block";
             document.body.style.overflow = "hidden";
         }
-        span2.onclick = function() {
+        span2.onclick = function () {
             modal2.style.display = "none";
             document.body.style.overflow = "visible";
         }
-        div2sc.onclick = function() {
+        div2sc.onclick = function () {
             modal2.style.display = "none";
             document.body.style.overflow = "visible";
         }
-        window.onclick = function(event) {
+        window.onclick = function (event) {
             if (event.target == modal2) {
                 modal2.style.display = "none";
                 document.body.style.overflow = "visible";
             }
         }
-        
+
         // 2
         var moptbt = document.getElementById("moptbt");
-        document.getElementById("moptbt").style.cursor= "pointer";
+        document.getElementById("moptbt").style.cursor = "pointer";
         // 2
-        moptbt.onclick = function() {
+        moptbt.onclick = function () {
             modal2.style.display = "block";
             document.body.style.overflow = "hidden";
         }
-        window.onclick = function(event) {
-        if (event.target == modal2) {
-            modal2.style.display = "none";
-            document.body.style.overflow = "visible";
+        window.onclick = function (event) {
+            if (event.target == modal2) {
+                modal2.style.display = "none";
+                document.body.style.overflow = "visible";
             }
         }
     </script>

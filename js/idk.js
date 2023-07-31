@@ -1,4 +1,3 @@
-
 // LOAD PAGE
 var loadpage;
 function LoadSite() {
