@@ -1,0 +1,22 @@
+.container {
+    padding: 5px;
+    max-width: auto;
+    border: 1px solid whitesmoke;
+    border-radius: 5px;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    -ms-border-radius: 5px;
+    -o-border-radius: 5px;
+}
+@media (min-width:1670px) {
+    .container {
+        max-width: 1900px !important;
+    }
+    .dienvien {
+        float: none;
+    }
+}
+video {
+    width: 100%;
+    max-width: 1200px;
+}
