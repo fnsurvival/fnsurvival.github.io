@@ -8,13 +8,22 @@
     -ms-border-radius: 5px;
     -o-border-radius: 5px;
 }
-@media (min-width:1670px) {
+@media (max-width:1750px) {
     .container {
         max-width: 1900px !important;
     }
     .dienvien {
-        float: none;
+        float: left !important;
     }
+    .video {
+        width: 100% !important;
+        max-width: 2000px !important;
+    }
+}
+.dienvien {
+    float: right;
+    width: 100%;
+    max-width: 600px;
 }
 video {
     width: 100%;
