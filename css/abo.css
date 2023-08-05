@@ -217,6 +217,11 @@ body::-webkit-scrollbar {
     -ms-border-radius: 7.5px;
     -o-border-radius: 7.5px;
 }
+@media (max-width: 1500px) {
+    .pic {
+        width: 95% !important;
+    }
+}
 @keyframes vp {
     from {
         top: -300px;
