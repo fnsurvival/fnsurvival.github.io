@@ -10,6 +10,7 @@
     <link rel="stylesheet" href="/css/ao21b20z/require.css">
     <link rel="stylesheet" href="/css/ao21b20z/font.css">
     <link rel="stylesheet" href="/css/scrol.css">
+    <link rel="stylesheet" href="/css/root/rt.css">
     <script src="/js/font1.js"></script>
     <script src="/js/idk.js"></script>
     <link rel="shortcut icon" href="/Logosite.png" type="image/x-icon">
@@ -23,14 +24,13 @@
             <div style="font-size:30px;font-weight:bold">Thông báo</div>
             <hr>
             <div style="padding: 5px;">
-                <!-- <p>10k = 100.000rb đã qua thuế</p> -->
-                <p style="color:red;">Do shop vẫn đang trong quá trình phát triển nên những phần như<br>ĐĂNG KÍ và ĐĂNG NHẬP<br>sẽ không được công khai</p>
+                <p>10k = 100.000rb đã qua thuế</p>
+                <p style="color:red;">Do shop vẫn đang trong quá trình phát triển nên những phần như<br>Nạp thẻ và ĐĂNG KÍ và ĐĂNG NHẬP và những Mục mua đồ sẽ không có</p>
             </div>
             <hr>
-            <!-- <p style="color:red;">Do shop vẫn đang trong quá trình phát triển nên những phần như ĐĂNG KÍ và ĐĂNG NHẬP sẽ không được công khai</p> -->
-            <p>Thời gian hoành thành Shop</p>
+            
             <p style="color:green">👉 31/2/2300 👈</p>
-            <p>Nhanh không í mà</p>
+            <p>Nhanh mà</p>
             <p>hehe</p>
         </div>
     </div>
@@ -41,17 +41,7 @@
         </div>
         <nav>
             <ul class="mother-content">
-                <noscript>
-                <!-- <li class="main-content">
-                    <a href="#">Home</a>
-                    <ul class="cap_2">
-                        <li>1QUE</li>
-                        <li>2QUE</li>
-                        <li>3QUE</li>
-                    </ul>
-                </li> -->
-                </noscript>
-                <!-- <li class="main-content"><a href="/">Trang Chủ</a></li> -->
+                <li class="main-content"><a href="/ViewMore">Về trang chủ</a></li>
             </ul>
             <div class="icon">
                 <i class="fas fa-bars"></i>
@@ -61,19 +51,18 @@
     <!-- END HERE -->
     <!-- Content page -->
     <br>
-    <div class="container"> 
-        <p>Nạp thẻ</p>
-        <hr><br>
+    <div class="container">
+        <p class="center-text" style="border-bottom: 1px solid whitesmoke;">Nạp thẻ</p>
         <form action="index.html" method="get">
             <div class="card">
                 <select required>
-                    <option value="">-- Thẻ, sai là mất --</option>
+                    <option value="">-- Chọn thẻ, sai là mất --</option>
                     <option value="viettiel">Viettiel</option>
                     <option value="mobi">Mobi</option>
                     <option value="vina">Vina</option>
                     <option value="vietnammobile">Vietnammobile</option>
                 </select>
-            </div><br>
+            </div>
             <div class="card">
                 <select required>
                     <option value="">-- Chọn mệnh giá, sai là mất --</option>
@@ -84,147 +73,38 @@
                     <option value="200000">200,000 VND</option>
                     <option value="500000">500,000 VND</option>
                 </select>
-            </div><br>
+            </div>
             <div class="card">
-                <input id="sessionNum" class="num-input" type="number" name="mathe" placeholder="Mã số thể" maxlength="35" required><br><br>
+                <input id="sessionNum" class="num-input" type="number" name="mathe" placeholder="Mã số thể" maxlength="35" required>
+            </div>
+            <div class="card">
                 <input id="sessionNum" class="num-input" type="number" name="seri" placeholder="Mã số seri" maxlength="35" required>
-            </div><br>
+            </div>
             <div class="card">
-                <button class="sumbit-od" type="submit" id="xuly_napthe" value="Nạp thẻ">Nạp thẻ</button>
+                <button class="sumbit-od cursor" type="submit" id="xuly_napthe" value="Nạp thẻ">Nạp thẻ</button>
             </div>
         </form>
-        <!-- <div class="vidtu">
-            <video src="/vid/2023-01-09 22-57-45.mp4" width="450px" height="300px" controls></video>
-        </div> -->
-
     </div>
-
-    <br><br>
-    <div class="outline-content">
-        <div class="team-descr">
-                <h1>Team RAM</h1>
-        </div><hr><br>
-        <div class="content-box">
-            <!-- CONTENT SHOP -->
-            <div class="pad-oul">
-                <div class="shop">
-                    <a class="descr" href="#" style="display:block;">Mua Hùng 3 lỗ</a>
-                    <hr>
-                    <a href="#" style="display:block;">
-                        <img src="https://tr.rbxcdn.com/f73d81f7e9cd5c4f4b5e12886a9bc74a/150/150/AvatarHeadshot/Png" alt="">
-                    </a>
-                    <hr>
-                    <div style="display:block;">
-                        <li style="display:circle;">Không event</li>
-                        <br>
-                        <a class="buy-in" href="dichvu/rb120">Mua ngay</a>
-                    </div>
+    <br></br>
+    <div class="shop_container">
+        <p class="center-text amargin">Còn cái nịt</p>
+        <!-- <div class="view">
+            <div class="head-title">
+                <p>Robux server vip</p>
+            </div>
+            <div class="body-title">
+                <img src="/pic/bgi.jpg" alt="" srcset="">
+            </div>
+            <div class="footer-title">
+                <div class="price-title">
+                    <p class="price-set">10,000đ</p>
+                </div>
+                <div class="getinshop">
+                    <a href="">Mua ngay</a>
                 </div>
             </div>
-    
-            <div class="pad-oul">
-                <div class="shop">
-                    <a class="descr" href="#" style="display:block;">Mua Nam dái bò</a>
-                    <hr>
-                    <a href="#" style="display:block;">
-                        <img src="https://tr.rbxcdn.com/590df7f935703afc5faa7285439166dc/150/150/AvatarHeadshot/Png" alt="">
-                    </a>
-                    <hr>
-                    <div style="display:block;">
-                        <li style="display:circle">Không event</li>
-                        <br>
-                        <a class="buy-in" href="#">Mua ngay</a>
-                    </div>
-                </div>
-            </div>
-    
-            <div class="pad-oul">
-                <div class="shop">
-                    <a class="descr" href="#" style="display:block;">Mua Hữu Trang</a>
-                    <hr>
-                    <a href="#" style="display:block;">
-                        <img src="https://tr.rbxcdn.com/6d56569a07d1c8655436f38134c98207/150/150/AvatarHeadshot/Png" alt="">
-                    </a>
-                    <hr>
-                    <div style="display:block;">
-                        <li style="display:circle">Không event</li>
-                        <br>
-                        <a class="buy-in" href="#">Mua ngay</a>
-                    </div>
-                </div>
-            </div>
-    
-            <div class="pad-oul">
-                <div class="shop">
-                    <a class="descr" href="#" style="display:block;">Mua Quang dảk</a>
-                    <hr>
-                    <a href="#" style="display:block;">
-                        <img src="https://tr.rbxcdn.com/ebf1e0bee7f5522dded30c5ba707f8d1/150/150/AvatarHeadshot/Png" alt="">
-                    </a>
-                    <hr>
-                    <div style="display:block;">
-                        <li style="display:circle">Không event</li>
-                        <br>
-                        <a class="buy-in" href="#">Mua ngay</a>
-                    </div>
-                </div>
-            </div>
-    
-            <div class="pad-oul">
-                <div class="shop">
-                    <a class="descr" href="#" style="display:block;">Mua Tiến múp</a>
-                    <hr>
-                    <a href="#" style="display:block;">
-                        <img src="https://tr.rbxcdn.com/1c2667bf325644bbd8bfd10463129ff8/150/150/AvatarHeadshot/Png" alt="">
-                    </a>
-                    <hr>
-                    <div style="display:block;">
-                        <li style="display:circle">Không event</li>
-                        <br>
-                        <a class="buy-in" href="#">Mua ngay</a>
-                    </div>
-                </div>
-            </div>
-    
-            <div class="pad-oul">
-                <div class="shop">
-                    <a class="descr" href="#" style="display:block;">Mua Tuấn</a>
-                    <hr>
-                    <a href="#" style="display:block;">
-                        <img src="https://tr.rbxcdn.com/8f66cb9b92b777a7ef8f5b6db23aa951/150/150/AvatarHeadshot/Png" alt="">
-                    </a>
-                    <hr>
-                    <div style="display:block;">
-                        <li style="display:circle">Không event</li>
-                        <br>
-                        <a class="buy-in" href="#">Mua ngay</a>
-                    </div>
-                </div>
-            </div>
-    
-            <div class="pad-oul">
-                <div class="shop">
-                    <a class="descr" href="#" style="display:block;">Mua Đức cẹc</a>
-                    <hr>
-                    <a href="#" style="display:block;">
-                        <img src="https://tr.rbxcdn.com/b50ac30cac159ffe02203e0200453e62/150/150/AvatarHeadshot/Png" alt="">
-                    </a>
-                    <hr>
-                    <div style="display:block;">
-                        <li style="display:circle">Không event</li>
-                        <br>
-                        <a class="buy-in" href="#">Mua ngay</a>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <!-- END CONTENT SHOP -->
-        <br>
-        <div class="team-descr">
-            <p>Vẫn còn 1 số sp chưa được công khai. Mong bạn thông cảm</p>
-        </div>
-    </div><br>
-    <div class="cpright"><p style="text-align: center; font-size: 15px;">&copy;  Copyright 2023-<script>document.write(new Date().getFullYear())</script> FNSURVIVAL</p>
+        </div> -->
+    </div>
     <!-- end -->
     <div id="contextMenu" class="context-menu" style="display:none">
         <ul>
@@ -257,4 +137,7 @@
         document.getElementById("tbpopup-1").classList.toggle("active");
     }
 </script>
+<footer>
+    <br><div class="cpright"><p style="text-align: center; font-size: 15px;">&copy;  Copyright 2023-<script>document.write(new Date().getFullYear())</script> FNSURVIVAL</p>
+</footer>
 </html>
