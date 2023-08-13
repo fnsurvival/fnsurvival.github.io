@@ -1,3 +1,6 @@
+html, body {
+    scroll-behavior: smooth;
+}
 :root {
     --boxshadow: rgba(0, 0, 0, 0.4) 0px 0px 10px;
     --sm-boxshadow: rgba(0, 0, 0, 0.781) 0px 0px 10px;
