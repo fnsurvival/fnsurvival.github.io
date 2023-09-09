@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="vi">
-
 <head>
     <meta charset="utf-8" />
     <title>Đăng ký</title>
@@ -9,8 +8,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="shortcut icon" href="/Logosite.png" type="image/x-icon">
-    <link rel="stylesheet" href="css/style.css">
-    <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="css/login.css">
     <link rel="stylesheet" href="/css/ao21b20z/require.css">
     <link rel="stylesheet" href="/css/ao21b20z/font.css">
     <link rel="stylesheet" href="/css/scrol.css">
@@ -42,32 +40,21 @@
         gtag('config', 'G-2M5PZQW8D4');
     </script>
 </head>
-
 <body>
-<div class="sidebar">
-            <div class="logo">
-                <h4>LOGO</h4>
-            </div>
-            <nav>
-                <ul class="mother-content">
-                    <noscript>
-                    <!-- <li class="main-content">
-                        <a href="#">Home</a>
-                        <ul class="cap_2">
-                            <li>1QUE</li>
-                            <li>2QUE</li>
-                            <li>3QUE</li>
-                        </ul>
-                    </li> -->
-                    </noscript>
-                    <li class="main-content"><a href="index.html">Shop <i class="fa-solid fa-chevron-down fa-xs" style="color: #ffffff;"></i></a></li>
-                    <li class="main-content"><a href="caythue/dashboard.php">Đăng ký</a></li>
-                </ul>
-                <div class="icon">
-                    <i class="fas fa-bars"></i>
-                </div>
-            </nav>
+<div class="sidebar" id="sidebar" style="display: block;">
+        <div class="logo">
+            <a class="logo-font" href="/index" style="font-family: IntoRrust;">FNSURVIVAL</a>
         </div>
+        <nav>
+            <ul class="mother-content">
+                <li class="main-content"><a href="/caythue/index" style="color: green;">Shop roblox</a></li>
+                <li class="main-content"><a href="login.php">Đăng ký</a></li>
+            </ul>
+            <div class="icon">
+                <i class="fas fa-bars"></i>
+            </div>
+        </nav>
+    </div><br>
     <?php
     require('db.php');
     session_start();
@@ -97,8 +84,8 @@
     ?><br>
         <form class="form" method="post" name="login">
             <h1 class="login-title">Đăng nhập</h1><hr><br>
-            <input type="text" class="login-input" name="username" placeholder="Tên đã đăng ký" title="Tên đã đăng ký" autocomplete="on" autofocus="true" /><br><br>
-            <input type="password" class="login-input" name="password" placeholder="Mật khẩu" title="Mật khẩu" /><br><br>
+            <input type="text" class="login-input" name="username" placeholder="Tên đã đăng ký" title="Tên đã đăng ký" autocomplete="on" autofocus="true" required/><br><br>
+            <input type="password" class="login-input" name="password" placeholder="Mật khẩu" title="Mật khẩu" required/><br><br>
             <input type="submit" value="Đăng nhập" name="submit" class="login-button" /><br><br>
             <p class="link">Chưa có tài khoản O_o?<br><a href="registration.php">Cút đi đăng ký</a></p>
         </form>
@@ -113,19 +100,5 @@
             <li class="menu"><a class="link4" href="#"><i class="fa-regular fa-circle-xmark">&nbsp;</i>Chưa có</a></li>
         </ul>
     </div>
-    <style>
-        form, .form {
-            padding: 15px;
-            margin: auto;
-            border: 1px solid whitesmoke;
-            border-radius: 5px;
-            max-width: 500px;
-            text-align: center;
-        }
-        .login-button {
-            cursor: pointer;
-        }
-    </style>
 </body>
-
 </html>
