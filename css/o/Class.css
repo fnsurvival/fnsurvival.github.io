@@ -1,0 +1,124 @@
+body {
+    padding: 5px;
+    width: 100%;
+}
+.container {
+    margin: auto;
+    padding: 15px;
+    border: 1px solid whitesmoke;
+    border-radius: 15px;
+    max-width: 600px;
+    width: 100%;
+    box-shadow: var(--dark-big-boxshadow);
+    -webkit-border-radius: 15px;
+    -moz-border-radius: 15px;
+    -ms-border-radius: 15px;
+    -o-border-radius: 15px;
+}
+.headerCheck {
+    border-bottom: 1px solid whitesmoke;
+    padding-bottom: 5px;
+}
+.headerCheck > i {
+    float: right;
+    cursor: pointer;
+}
+.bodyC {
+    padding: 10px 0px;
+    display: flex;
+}
+.SubmitButton {
+    border: 1px solid whitesmoke;
+    border-radius: 10px;
+    background-color: rgb(50, 50, 50);
+    height: 50px;
+    width: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    box-shadow: var(--dark-big-boxshadow);
+    -webkit-border-radius: 10px;
+    -moz-border-radius: 10px;
+    -ms-border-radius: 10px;
+    -o-border-radius: 10px;
+}
+.DissappearAnim {
+    animation-name: Dissappear;
+    animation-duration: 1s;
+    animation-timing-function: ease-in-out;
+    position: relative;
+}
+@keyframes Dissappear {
+    0%   {right:0px;}
+    100% {right: 90%; opacity: 0;}
+}
+.footerC {
+    text-align: center;
+    border-top: 1px solid whitesmoke;
+    padding-top: 10px;
+}
+.LoginForm {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+.inputForm {
+    width: 100%;
+    padding: 10px;
+    background-color: rgb(59, 59, 59);
+    outline: none;
+    border: 1px solid whitesmoke;
+    border-radius: 5px;
+    box-shadow: var(--boxshadow);
+}
+.Submitbtn {
+    width: 50%;
+    padding: 2.5px 0;
+    background-color: rgb(59, 59, 59);
+    outline: none;
+    border: 1px solid whitesmoke;
+    border-radius: 5px;
+    box-shadow: var(--boxshadow);
+    cursor: pointer;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    -ms-border-radius: 5px;
+    -o-border-radius: 5px;
+}
+.AppearingAnim {
+    animation-name: Appear;
+    animation-duration: 1s;
+    animation-timing-function: ease-in-out;
+    position: relative;
+}
+@keyframes Appear {
+    0%   {right: 100%}
+    100% {right: 0px; opacity: 1;}
+}
+.Container {
+    display: none;
+    width: 100%;
+    border: 1px solid whitesmoke;
+    border-radius: 15px;
+    padding: 5px;
+    -webkit-border-radius: 15px;
+    -moz-border-radius: 15px;
+    -ms-border-radius: 15px;
+    -o-border-radius: 15px;
+}
+.ContentAnimAppear {
+    animation-name: ContentAppear;
+    animation-duration: 1.5s;
+    animation-timing-function: ease-in-out;
+    position: relative;
+}
+@keyframes ContentAppear {
+    from {
+        bottom: -120vh;
+    }
+    to {
+        bottom: 0;
+    }
+}
