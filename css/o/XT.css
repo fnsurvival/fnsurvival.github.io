@@ -1,0 +1,98 @@
+body::-webkit-scrollbar-track, textarea::-webkit-scrollbar-track {
+    display: none;
+}
+body::-webkit-scrollbar, textarea::-webkit-scrollbar {
+    display: none;
+}
+body::-webkit-scrollbar-thumb, textarea::-webkit-scrollbar-thumb {
+    display: none;
+}
+h1 {
+    text-align: center;
+    font-size: 40px;
+}
+body {
+    padding: 0px 20px !important;
+    background-color: rgb(45,45,45);
+}
+.container {
+    border: 1px solid whitesmoke;
+    border-radius: 15px;
+    padding: 5px 15px;
+    max-width: 150vh;
+    width: 100%;
+    margin: auto;
+    display: block;
+    box-shadow: var(--white-boxshadow);
+}
+.DissappearAnim {
+    animation-name: Dissappear;
+    animation-duration: 1s;
+    animation-timing-function: ease-in-out;
+    position: relative;
+}
+@keyframes Dissappear {
+    0%   {right:0px;}
+    100% {right: 100%; opacity: 0;}
+}
+.AppearingAnim {
+    animation-name: Appear;
+    animation-duration: 1s;
+    animation-timing-function: ease-in-out;
+    position: relative;
+}
+@keyframes Appear {
+    0%   {right: 100%}
+    100% {right: 0px; opacity: 1;}
+}
+.containerX {
+    border-top: 1px solid whitesmoke;
+    display: flex;
+    flex-direction: row;
+    font-size: 30px;
+    text-align: center;
+}
+#ViewMore {
+    padding: 10px;
+    flex: 50%;
+    border-right: 1px solid whitesmoke;
+    cursor: pointer;
+    text-decoration: underline;
+}
+#XXXXXX {
+    padding: 10px;
+    flex: 50%;
+}
+.Version {
+    position: relative;
+    float: right;
+}
+.ContentAnimAppear {
+    animation-name: ContentAppear;
+    animation-duration: 1.5s;
+    animation-timing-function: ease-in-out;
+    position: relative;
+}
+@keyframes ContentAppear {
+    from {
+        bottom: -120vh;
+    }
+    to {
+        bottom: 0;
+    }
+}
+#Back {
+    position: absolute;
+    bottom: 0;
+    right: 20px;
+    cursor: pointer;
+    background-color: rgb(60,60,50);
+    padding: 10px 20px;
+    border: 1px solid whitesmoke;
+    box-shadow: var(--white-boxshadow);
+    border-radius: 5px;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    -ms-border-radius: 5px;
+    -o-border-radius: 5px;
+}
