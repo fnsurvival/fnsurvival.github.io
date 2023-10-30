@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-YSEL8YGQZK"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+
+        gtag('config', 'G-YSEL8YGQZK');
+    </script>
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-2M5PZQW8D4"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+
+        gtag('config', 'G-2M5PZQW8D4');
+    </script>
+    <title>Chào mừng các nhóc</title>
+    <link rel="stylesheet" href="/css/ao21b20z/font.css">
+    <link rel="stylesheet" href="/css/root/rt.css">
+    <link rel="stylesheet" href="/css/o/XT.css">
+</head>
+<body>
+    <!-- DIV NUMBER 1 -->
+    <div id="DIVContentNumber1">
+        <h1>Chào các em nhóe</h1>
+        <div class="container">
+            <h2>Thông tin về anh trước đã</h2>
+            <ol>
+                <li>Anh là cựu học sinh của trường THCS Trần Đăng Ninh</li>
+                <li>Hiện anh đang học lớp 10 trường Phan Bội Châu nhé. Hỏi mẹ Xuyến Trần là mẹ biết ngay nhé</li>
+                <li>Anh có tất cả nhưng thiếu văn :(</li>
+            </ol>
+            <h2 style="color: red;">Vài lưu ý khi dùng phần mềm này:</h2>
+            <ol>
+                <li>Các em không được cho ai cái này nhé! Bí mật Bí mật</li>
+                <li>Hiện tại phần mềm chưa hoàn thành 100% nên không thể không có lỗi trong quá trình sử dụng dù anh đã test rất nhiều lần</li>
+                <li>Nếu có bất cứ lỗi nào thì liên hệ ngay với anh để anh sửa nhé<3</li>
+                <li>Nếu các em cần file để xóa dữ liệu thì bảo cô Xuyến Trần nhắn tin cho anh r anh gửi file cho cô để cô gửi cho các em nhé:3, hoặc có thể gửi qua mail cho anh: <a href="mailto:fcapham201@gmail.com" style="color: pink;">cái này nè</a></li>
+            </ol>
+        </div>
+        <h1>Xuyến Trần NEVER DIE</h1>
+        <div class="containerX">
+            <p onclick="ViewMore()" id="ViewMore">Những cập nhật gần đây</p>
+            <p id="XXXXXX" style="text-align:center">Phần mềm tạo ra do mom Xuyến Trần nhờ<br>Phần mềm được làm từ ngày 20/10</p>
+        </div>
+    </div>
+    <!-- DIV NUMBER 2 -->
+    <div id="DIVContentNumber2" style="display:none">
+        <!-- NEW -->
+        <!-- OLD -->
+        <div class="container div65">
+            <h2 style="text-align:center">Những cập nhật gần đây</h2><hr>
+            <p class="Version">Version: 0.0.0.0.0</p>
+            <p>Được tạo để tự làm <a href="https://study.hanoi.edu.vn/">https://study.hanoi.edu.vn/</a><br>Hỗ trợ 6 môn:<ol>
+                <li>Toán</li><li>Lý</li><li>Hóa</li><li>GDCD</li><li>Sinh Học</li><li>Tiếng anh</li>
+            </ol></p>
+        </div>
+    </div>
+    <p onclick="Back()" id="Back" style="display: none;">Quay lại</p>
+</body>
+<footer>
+    <script>
+        function ViewMore() {
+            document.getElementById("DIVContentNumber1").className = "DissappearAnim";
+            setTimeout(DisappearAnim,900)
+            function DisappearAnim() {
+                document.getElementById("DIVContentNumber1").style.display = "none"
+            }
+            setTimeout(AppearAnim,1100)
+            function AppearAnim() {
+                document.getElementById("DIVContentNumber2").style.display = "block"
+                document.getElementById("Back").style.display = "block"
+                document.getElementById("DIVContentNumber2").classList = "AppearingAnim"
+                document.getElementById("Back").className = "ContentAnimAppear"
+            }
+        }
+        function Back() {
+            document.getElementById("DIVContentNumber2").className = "DissappearAnim";
+                document.getElementById("Back").className = "DissappearAnim"
+            setTimeout(DisappearAnim,900)
+            function DisappearAnim() {
+                document.getElementById("DIVContentNumber2").style.display = "none"
+                document.getElementById("Back").style.display = "none"
+            }
+            setTimeout(AppearAnim,1100)
+            function AppearAnim() {
+                document.getElementById("DIVContentNumber1").style.display = "block"
+                document.getElementById("DIVContentNumber1").classList = "AppearingAnim"
+            }
+        }
+    </script>
+</footer>
+</html>
