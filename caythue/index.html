@@ -12,7 +12,7 @@
     <link rel="stylesheet" href="/css/scrol.css">
     <link rel="stylesheet" href="/css/root/rt.css">
     <script src="/js/font1.js"></script>
-    <script src="/js/idk.js"></script>
+    <script src="js/index.js"></script>
     <link rel="shortcut icon" href="/Logosite.png" type="image/x-icon">
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-YSEL8YGQZK"></script>
     <script>
@@ -42,13 +42,10 @@
             <hr>
             <div style="padding: 5px;">
                 <p>10k = 100.000rb đã qua thuế</p>
-                <p style="color:red;">Do shop vẫn đang trong quá trình phát triển nên những phần như<br>Nạp thẻ và ĐĂNG KÍ và ĐĂNG NHẬP và những Mục mua đồ sẽ không có</p>
+                <p style="color:red;">Do shop thiếu kinh tế nên chỉ có thể dừng lại tại đây</p>
             </div>
             <hr>
-            
-            <p style="color:green">👉 31/2/2300 👈</p>
-            <p>Nhanh mà</p>
-            <p>hehe</p>
+            <p>Tạm Biệt</p>
         </div>
     </div>
     <!-- NAVBAR -->
@@ -56,13 +53,6 @@
         <div class="logo">
             <a class="logo-font" href="/index" style="font-family: IntoRrust;">FNSURVIVAL</a>
         </div>
-        <nav>
-            <ul class="mother-content">
-            </ul>
-            <div class="icon">
-                <i class="fas fa-bars"></i>
-            </div>
-        </nav>
     </div>
     <!-- END HERE -->
     <!-- Content page -->
@@ -91,19 +81,22 @@
                 </select>
             </div>
             <div class="card">
-                <input id="sessionNum" class="num-input" type="number" name="mathe" placeholder="Mã số thể" maxlength="35" required>
+                <input id="sessionNum" class="num-input" type="number" name="mathe" placeholder="Mã số thể"
+                    maxlength="35" required>
             </div>
             <div class="card">
-                <input id="sessionNum" class="num-input" type="number" name="seri" placeholder="Mã số seri" maxlength="35" required>
+                <input id="sessionNum" class="num-input" type="number" name="seri" placeholder="Mã số seri"
+                    maxlength="35" required>
             </div>
             <div class="card">
                 <button class="sumbit-od cursor" type="submit" id="xuly_napthe" value="Nạp thẻ">Nạp thẻ</button>
             </div>
         </form>
     </div>
-    <br></br>
+    <br><br>
     <div class="shop_container">
-        <p class="center-text amargin" style="text-shadow: 0px 1px 1px #ffffff,0px -1px 1px #000000">Còn cái đầu buồi</p>
+        <p class="center-text amargin" style="text-shadow: 0px 1px 1px #ffffff,0px -1px 1px #000000">Còn cái đầu buồi
+        </p>
         <!-- <div class="view">
             <div class="head-title">
                 <p>Robux server vip</p>
@@ -125,7 +118,8 @@
     <div id="contextMenu" class="context-menu" style="display:none">
         <ul>
             <li class="menu"><a class="link1" href="/index"><i class="fa-solid fa-house-user">&nbsp;</i>Home</a></li>
-            <li class="menu"><a class="link2" href="https://discord.com/invite/nfTUEWrEe6" target="_blank"><i class="fa-brands fa-discord">&nbsp;</i>Discord</a></li>
+            <li class="menu"><a class="link2" href="https://discord.com/invite/nfTUEWrEe6" target="_blank"><i
+                        class="fa-brands fa-discord">&nbsp;</i>Discord</a></li>
             <li class="menu"><a class="link3" href="#"><i class="fa-regular fa-circle-xmark">&nbsp;</i>Chưa có</a></li>
             <li class="menu"><a class="link4" href="#"><i class="fa-regular fa-circle-xmark">&nbsp;</i>Chưa có</a></li>
         </ul>
@@ -136,14 +130,14 @@
     // BACK TO TOP
     let mybutton = document.getElementById("Backtotop");
 
-    window.onscroll = function() {scrollFunction()};
+    window.onscroll = function () { scrollFunction() };
 
     function scrollFunction() {
-    if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
-        mybutton.style.display = "block";
-    } else {
-        mybutton.style.display = "none";
-    }
+        if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+            mybutton.style.display = "block";
+        } else {
+            mybutton.style.display = "none";
+        }
     }
     function Backtotop() {
         document.body.scrollTop = 0;
@@ -153,7 +147,5 @@
         document.getElementById("tbpopup-1").classList.toggle("active");
     }
 </script>
-<footer>
-    <br><div class="cpright"><p style="text-align: center; font-size: 15px;">&copy;  Copyright 2023-<script>document.write(new Date().getFullYear())</script> FNSURVIVAL</p>
-</footer>
+<footer><br><div class="cpright"><p style="text-align: center; font-size: 15px;">&copy; Copyright 2023 - <script>document.write(new Date().getFullYear())</script> FNSURVIVAL</p></div></footer>
 </html>
