@@ -60,6 +60,20 @@
             <a href="/o/Badminton"><p class="go div70">Đi đến trang</p></a>
         </div>
     </div>
+    <script src="/js/AdblockDetect.js" type="text/javascript"></script>
+    <script>
+        // Configure the adblock detector
+        (function () {
+            function adBlockDetected() {
+                console.log('Detected')
+                document.write('<script src="/js/Announcement.js" type="text/javascript"><\/script>')
+            }
+
+            if (typeof window.adblockDetector === 'undefined') {
+                adBlockDetected();
+            }
+        }());
+    </script>
 </body>
 <footer><br><div class="cpright"><p style="text-align: center; font-size: 15px;">&copy; Copyright 2023 - <script>document.write(new Date().getFullYear())</script> FNSURVIVAL</p></div></footer>
 </html>

@@ -73,6 +73,10 @@ body {
     border-radius: 5px;
     box-shadow: var(--boxshadow);
 }
+::placeholder {
+    font-size: 20px !important;
+    color: rgb(117, 117, 117);
+}
 .Submitbtn {
     width: 50%;
     padding: 2.5px 0;

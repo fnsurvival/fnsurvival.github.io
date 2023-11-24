@@ -1,11 +1,11 @@
 console.log("Loading JS SideBar");
-window.onload = CreateSideBar;
 function CreateSideBar() {
     // Tạo khung
+    const sidebaroutdiv = document.getElementById("SidebarOutDiv")
     const sidebar = document.createElement("div");
     sidebar.className = "sidebar";
     sidebar.id = "sidebar";
-    const OutB = document.body;
+    const OutB = sidebaroutdiv;
     OutB.appendChild(sidebar);
     // Tạo khung logo
     const logo = document.createElement("div");
@@ -53,18 +53,5 @@ function CreateSideBar() {
     i_icon.className = "fas fa-bars";
     icon.appendChild(i_icon);
 }
+window.onload = CreateSideBar;
 console.log("Loaded JS SideBar")
-const sidebarC = document.getElementById("sidebar");
-if (sidebarC === true) {
-    console.log("JS SideBar still working properly");
-    // MENU NAV
-    document.addEventListener("DOMContentLoaded",function(){
-        var nut = document.querySelector('div.icon i');
-        var mobile = document.querySelector('ul');
-        nut.addEventListener('click',function(){
-            mobile.classList.toggle('active');
-        })
-    })
-} else {
-    console.log("Error JS SideBar");
-}
