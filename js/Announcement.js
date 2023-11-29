@@ -1,4 +1,8 @@
-function load(){
+window.onload = function(){
+    document.body.style.overflow = "hidden"
+    const background = document.createElement('div')
+    background.className = "AdBlockBackground"
+    document.body.appendChild(background)
     // tạo khung
     const MotherBox = document.createElement('div')
     MotherBox.classList = 'Important-announcement amargin'
@@ -10,7 +14,7 @@ function load(){
     MotherBox.appendChild(Header)
     // thông báo đầu
     const p1 = document.createElement('p')
-    p1.textContent = 'Đây là tin nhắn tự động'
+    p1.textContent = '⚠️cái j đây cái j đây⚠️'
     Header.appendChild(p1)
     // tạo thân
     const Body = document.createElement('div')
@@ -27,7 +31,6 @@ function load(){
     MotherBox.appendChild(footer)
     // note
     const p3 = document.createElement('p')
-    p3.textContent = 'Mong bạn có thể hợp tác cùng chúng tôi'
+    p3.textContent = 'Mong bạn có thể hợp tác cùng chúng tôi vì tôi biết địa chỉ ip của bạn'
     footer.appendChild(p3)
 }
-window.onload = load
