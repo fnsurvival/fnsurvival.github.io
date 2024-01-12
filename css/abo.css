@@ -6,6 +6,7 @@ body {
     background-image: url(https://i.kym-cdn.com/entries/icons/facebook/000/047/760/dt.jpg);
     background-repeat: no-repeat;
     background-size: cover;
+    background-position: center top;
     background-attachment: fixed;
     scroll-behavior: smooth;
     display: flex;
