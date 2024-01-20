@@ -3,7 +3,7 @@
 }
 body {
     padding: 5px;
-    background-image: url(https://i.kym-cdn.com/entries/icons/facebook/000/047/760/dt.jpg);
+    background-image: url(/pic/toothles.jpg);
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center top;
@@ -56,6 +56,37 @@ body::-webkit-scrollbar {
     -ms-border-radius: 5px;
     -o-border-radius: 5px;
     margin: 0 !important;
+}
+.pop {
+    position: relative;
+    display: inline-block;
+}
+.pop .poptext {
+    visibility: hidden;
+    background: #DCE35B;  /* fallback for old browsers */
+    background: -webkit-linear-gradient(to top, #45B649, #DCE35B);  /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to top, #45B649, #DCE35B); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+    color: #fff;
+    text-align: center;
+    border-radius: 6px;
+    padding: 5px 10px;
+    position: absolute;
+    bottom: 115%;
+    left: 50%;
+    margin-left: -60px;
+} 
+.pop .poptext::after {
+    content: "";
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    margin-left: -5px;
+    border-width: 5px;
+    border-style: solid;
+    border-color: black transparent transparent transparent;
+} 
+.pop:hover .poptext {
+    visibility: visible;
 }
 .card {
     display: flex;
