@@ -13,15 +13,6 @@
     <script src="/js/idk.js"></script>
     <link rel="shortcut icon" href="/Logosite.png" type="image/x-icon">
     <!-- Google tag (gtag.js) -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-YSEL8YGQZK"></script>
-    <script>
-        window.dataLayer = window.dataLayer || [];
-        function gtag(){dataLayer.push(arguments);}
-        gtag('js', new Date());
-
-        gtag('config', 'G-YSEL8YGQZK');
-    </script>
-    <!-- Google tag (gtag.js) -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-2M5PZQW8D4"></script>
     <script>
         window.dataLayer = window.dataLayer || [];
