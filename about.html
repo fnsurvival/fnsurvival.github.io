@@ -23,7 +23,17 @@
     <script src="/js/abo.js"></script>
 </head>
 <body>
-    <div class="container">
+    <div class="vp" id="vp" >
+        <span style="padding: 5px; text-align: center;">
+            <span style="color: pink;">Ảnh trường tôi</span><br>
+            <span style="color: red;">Xin lỗi vì chất lượng ảnh ( lỗi của người chụp - không phải tôi )</span>
+        </span>
+        <span>
+            <i onclick="closeVP()" class="fa-solid fa-xmark cursor"></i>
+        </span>
+        <img src="https://lh5.googleusercontent.com/p/AF1QipNCwbh2Eokn7esWQt7d3SOSXa2u-WLQTS3QrM0=s411-k-no" alt="">
+    </div>
+    <div id="container" class="container">
         <div class="title4Ct">Phương thức liên lạc</div>
         <div class="gapbtw">
             <div class="card">
@@ -32,13 +42,17 @@
             </div>
         </div>
     </div>
-    <div class="container">
+    <div id="container2" class="container">
         <div class="title4Ct">Thông tin khác</div>
         <div class="gapbtw">
             <p>Tên: ... Lợi <br>Tuổi: 16 <br>Lớp: 10A12 <br>Học tại: Trường THPT Phan Bội Châu (cơ sở 1) <br>Địa Chỉ: Lô NT1A, Khu đô thị Văn Quán, Hà Đông, Hà Nội</p>
+            <div class="container specialCT">
+                <a target="_blank" href="https://www.google.com/maps/place/Tr%C6%B0%E1%BB%9Dng+THPT+Phan+B%E1%BB%99i+Ch%C3%A2u/@20.9732247,105.7867474,18.79z/data=!4m10!1m2!2m1!1sthpt+phan+boi+chau+h%C3%A0+n%E1%BB%99i!3m6!1s0x3135add7547971bf:0x7db6903da01e493f!8m2!3d20.9731017!4d105.7870098!15sChx0aHB0IHBoYW4gYm9pIGNoYXUgaMOgIG7hu5lpkgEGc2Nob29s4AEA!16s%2Fg%2F11syt99xkg?hl=vi-VN&entry=ttu">Đến trường thôi!</a>
+                <p onclick="vpbtn()" class="cursor">Xem ảnh</p>
+            </div>
         </div>
     </div>
-    <div class="container">
+    <div id="container3" class="container">
         <div class="title4Ct">Sở thích</div>
         <div class="gapbtw">
             <div class="freecard">
@@ -46,13 +60,17 @@
                 <p>Cầu lông</p>
                 <p class="cursor pop"><i class="fa-solid fa-gamepad"></i> Chơi game
                     <span class="poptext">
-                        <img src="/pic/icoab/roblox.ico" alt="Roblox">
-                        <img src="/pic/icoab/MCVB_App_Icon_Flat_18x18.webp" alt="Minecraft" width="30px">
+                        <a target="_blank" href="https://www.roblox.com/">
+                            <img src="/pic/icoab/roblox.ico" alt="Roblox">
+                        </a>
+                        <a target="_blank" href="https://account.xbox.com/en-us/profile?gamertag=Pham2015609">
+                            <img src="/pic/icoab/MCVB_App_Icon_Flat_18x18.webp" alt="Minecraft" width="30px">
+                        </a>
                         <img src="/pic/icoab/apple-icon-57x57.png" alt="Liên Quân" width="35px" height="30px">
                     </span>
                 </p>
                 <p>Trượt ván</p>
-                <p><i class="fa-solid fa-motorcycle"></i> Đi phượt</p>
+                <p><i class="fa-solid fa-bicycle fa-spin-pulse"></i> Đi phượt</p>
                 <p><i class="fa-solid fa-motorcycle"></i> Đi chơi</p>
                 <p><i class="fa-solid fa-explosion"></i> Phá đồ</p>
                 <p><i class="fa-solid fa-wind"></i> Thở</p>
@@ -61,39 +79,105 @@
             </div>
         </div>
     </div>
-    <div class="container">
+    <div id="container4" class="container">
         <div class="title4Ct">Mạng xã hội</div>
         <div class="gapbtw">
             <div class="card">
-                <a target="_blank" href="https://www.facebook.com/profile.php?id=100081497695433"><i class="fa-brands fa-facebook fa-lg" style="color: #195dd2;"></i> FaceBook: Nè Lợi</a>
-                <a target="_blank" href="https://www.github.com/nanibrah"><i class="fa-brands fa-github fa-lg"></i> Github: nanibrah</a>
-                <a target="_blank" href="https://open.spotify.com/user/31blsnqmcwz3hgabsxc4yqwgn7be?si=d649391758c0439c"><i class="fa-brands fa-spotify fa-lg" style="color: #0cd452;"></i> Spotify: pap</a>
-                <a target="_blank" href="https://discordapp.com/users/814651924766130226"><i class="fa-brands fa-discord fa-lg"></i> Discord: PAP_CORN</a>
-                <a target="_blank" href="https://www.reddit.com/user/Pham2015609"><i class="fa-brands fa-reddit" style="color: #fa3200;"></i> Reddit: Pham2015609</a>
-                <a target="_blank" href="https://www.instagram.com/papnineone/"><i class="fa-brands fa-instagram"></i> Instagram: papnineone</a>
+                <a target="_blank" href="https://www.facebook.com/profile.php?id=100081497695433">
+                    <i class="fa-brands fa-facebook fa-lg" style="color: #195dd2;"></i> FaceBook: Nè Lợi
+                </a>
+                <a target="_blank" href="https://www.github.com/nanibrah">
+                    <i class="fa-brands fa-github fa-lg"></i> Github: nanibrah
+                </a>
+                <a target="_blank" href="https://open.spotify.com/user/31blsnqmcwz3hgabsxc4yqwgn7be?si=d649391758c0439c">
+                    <i class="fa-brands fa-spotify fa-lg" style="color: #0cd452;"></i> Spotify: pap
+                </a>
+                <a target="_blank" href="https://discordapp.com/users/814651924766130226">
+                    <i class="fa-brands fa-discord fa-lg"></i> Discord: PAP_CORN
+                </a>
+                <a target="_blank" href="https://www.reddit.com/user/Pham2015609">
+                    <i class="fa-brands fa-reddit" style="color: #fa3200;"></i> Reddit: Pham2015609
+                </a>
+                <a target="_blank" href="https://www.instagram.com/papnineone/">
+                    <i class="fa-brands fa-instagram"></i> Instagram: papnineone
+                </a>
             </div>
         </div>
     </div>
-    <div class="container">
+    <div id="container5" class="container">
         <div class="title4Ct">Ngoài lề</div>
         <div class="gapbtw">
             <p>Bản <span style="color: red; font-size: 30px;">cheat</span> game do <span style="color: green; font-size: 30px;">mình</span> làm đảm bảo an toàn 1000000%: </p>
             <ol>
-                <li>Free Fire (Máy tính - Console v1): <span><a style="color: green !important;" href="https://github.com/nanibrah/C-sharp/raw/main/EngineCheatFF%20(Console)/A.%20Download%20Here/EngineCheatFF.zip">ở đây</a></span></li>
+                <li>Free Fire (Máy tính - Console v1): 
+                    <span>
+                        <a style="color: green !important;" href="https://github.com/nanibrah/C-sharp/raw/main/EngineCheatFF%20(Console)/A.%20Download%20Here/EngineCheatFF.zip">ở đây</a>
+                    </span>
+                </li>
                 <ul style="list-style-type:disc">
-                    <li>Mã phần mềm ( Console v1 ): <span><a style="color: green !important;" target="_blank" href="https://github.com/nanibrah/C-sharp/blob/main/EngineCheatFF%20(Console)/Main.cs">ở đây</a></span></li>
+                    <li>Mã phần mềm ( Console v1 ): 
+                        <span>
+                            <a style="color: green !important;" target="_blank" href="https://github.com/nanibrah/C-sharp/blob/main/EngineCheatFF%20(Console)/Main.cs">ở đây</a>
+                        </span>
+                    </li>
                 </ul>
-                <li>Free Fire (Máy tính - GUI): <span><a style="color: green !important;" href="https://github.com/nanibrah/C-sharp/raw/main/EngineCheatFF%20(GUI)/Download%20Here/EngineCheatFF.zip">ở đây</a></span></li>
+                <li>Free Fire (Máy tính - GUI): 
+                    <span>
+                        <a style="color: green !important;" href="https://github.com/nanibrah/C-sharp/raw/main/EngineCheatFF%20(GUI)/Download%20Here/EngineCheatFF.zip">ở đây</a>
+                    </span>
+                </li>
                 <ul style="list-style-type:disc">
-                    <li>Mã phần mềm ( GUI - Tệp 1): <span><a style="color: green !important;" target="_blank" href="https://github.com/nanibrah/C-sharp/blob/main/EngineCheatFF%20(GUI)/Program.cs">ở đây</a></span></li>
-                    <li>Mã phần mềm ( GUI - Tệp 2): <span><a style="color: green !important;" target="_blank" href="https://github.com/nanibrah/C-sharp/blob/main/EngineCheatFF%20(GUI)/MainForm.cs">ở đây</a></span></li>
-                    <li>Mã phần mềm ( GUI - Tệp 3): <span><a style="color: green !important;" target="_blank" href="https://github.com/nanibrah/C-sharp/blob/main/EngineCheatFF%20(GUI)/MainForm.Designer.cs">ở đây</a></span></li>
+                    <li>Mã phần mềm ( GUI - Tệp 1): 
+                        <span>
+                            <a style="color: green !important;" target="_blank" href="https://github.com/nanibrah/C-sharp/blob/main/EngineCheatFF%20(GUI)/Program.cs">ở đây</a>
+                        </span>
+                    </li>
+                    <li>Mã phần mềm ( GUI - Tệp 2): 
+                        <span>
+                            <a style="color: green !important;" target="_blank" href="https://github.com/nanibrah/C-sharp/blob/main/EngineCheatFF%20(GUI)/MainForm.cs">ở đây</a>
+                        </span>
+                    </li>
+                    <li>Mã phần mềm ( GUI - Tệp 3): 
+                        <span>
+                            <a style="color: green !important;" target="_blank" href="https://github.com/nanibrah/C-sharp/blob/main/EngineCheatFF%20(GUI)/MainForm.Designer.cs">ở đây</a>
+                        </span>
+                    </li>
                 </ul>
             </ol>
         </div>
     </div>
 </body>
 <footer>
+    <script>
+        const VPdiv = document.getElementById("vp")
+        const mCtn = [
+            document.getElementById("container"),
+            document.getElementById("container2"),
+            document.getElementById("container3"),
+            document.getElementById("container4"),
+            document.getElementById("container5")
+        ]
+        function vpbtn() {
+            mCtn[0].classList.add("blurOverflow")
+            mCtn[1].classList.add("blurOverflow")
+            mCtn[2].classList.add("blurOverflow")
+            mCtn[3].classList.add("blurOverflow")
+            mCtn[4].classList.add("blurOverflow")
+            VPdiv.classList.remove("floatout")
+            VPdiv.classList.add("floatin")
+            VPdiv.style.visibility = "visible"
+        }
+        function closeVP() {
+            mCtn[0].classList.remove("blurOverflow")
+            mCtn[1].classList.remove("blurOverflow")
+            mCtn[2].classList.remove("blurOverflow")
+            mCtn[3].classList.remove("blurOverflow")
+            mCtn[4].classList.remove("blurOverflow")
+            VPdiv.classList.remove("floatin")
+            VPdiv.classList.add("floatout")
+            VPdiv.style.visibility = "visible"
+        }
+    </script>
     <div class="cpright"><p style="text-align: center; font-size: 15px;">&copy; Copyright 2023-<script>document.write(new Date().getFullYear())</script> FNSURVIVAL</p></div>
 </footer>
 </html>

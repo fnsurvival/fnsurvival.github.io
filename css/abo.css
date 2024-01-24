@@ -30,6 +30,82 @@ body::-webkit-scrollbar {
     -o-border-radius: 7.5px;
     box-shadow: var(--dark-big-boxshadow);
 }
+.specialCT {
+    display: flex;
+    flex-wrap: wrap;
+    border: none !important;
+    box-shadow: none;
+    gap: 5px;
+}
+.specialCT * {
+    max-width: 350px;
+    width: 100%;
+    text-align: center;
+    padding: 5px 50px;
+    box-shadow: var(--boxshadow);
+    border: 1px solid whitesmoke;
+    border-radius: 5px;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    -ms-border-radius: 5px;
+    -o-border-radius: 5px;
+}
+.vp {
+    visibility: hidden;
+    display: flex;
+    position: fixed;
+    align-self: center;
+    flex-direction: column;
+    width: 80%;
+    top: 2%;
+    padding: 15px 10px;
+    border: 1px solid whitesmoke;
+    border-radius: 5px;
+    z-index: 10;
+    box-shadow: var(--dark-big-boxshadow);
+}
+.vp img {
+    max-width: 1150px;
+    width: 100%;
+    max-height: 90%;
+    box-shadow: var(--boxshadow);
+}
+.vp span:nth-child(2) {
+    position: absolute;
+    top: 0;
+    right: 0;
+    padding: 10px;
+}
+.vp span:nth-child(2) i {
+    border: 1px solid whitesmoke;
+    border-radius: 5px;
+    padding: 5px 10px;
+    box-shadow: var(--boxshadow);
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    -ms-border-radius: 5px;
+    -o-border-radius: 5px;
+}
+.floatin {
+    animation: floatin both 250ms;
+    -webkit-animation: floatin both 250ms;
+}
+.floatout {
+    animation: floatout both 250ms;
+    -webkit-animation: floatout both 250ms;
+}
+@keyframes floatin {
+    from {
+        top: -100%;
+        opacity: 0;
+    }
+}
+@keyframes floatout {
+    to {
+        top: -100%;
+        opacity: 0;
+    }
+}
 .title4Ct {
     width: 100%;
     font-size: xx-large;
@@ -83,10 +159,18 @@ body::-webkit-scrollbar {
     margin-left: -5px;
     border-width: 5px;
     border-style: solid;
-    border-color: black transparent transparent transparent;
+    border-color: #45B649 transparent transparent transparent;
 } 
 .pop:hover .poptext {
     visibility: visible;
+    animation: fadein both 100ms;
+    -webkit-animation: fadein both 200ms;
+}
+@keyframes fadein {
+    from {
+        margin-bottom: -10px;
+        opacity: 0;
+    }
 }
 .card {
     display: flex;
@@ -120,4 +204,9 @@ body::-webkit-scrollbar {
     -moz-transform: translateY(-3px) scaleX(1.025) scaleY(1.015);
     -ms-transform: translateY(-3px) scaleX(1.025) scaleY(1.015);
     -o-transform: translateY(-3px) scaleX(1.025) scaleY(1.015);
+}
+.blurOverflow {
+    overflow: hidden;
+    filter: blur(3px);
+    -webkit-filter: blur(3px);
 }
