@@ -1,20 +1,22 @@
 ErrorDocument 404 https://fnsurvival.github.io/404
 
 Options +FollowSymLinks
-RewriteRule ^([0-9]+).mp4 /index.html [QSA,L]
+RewriteRule /vid/^([0-9]+).mp4 /index.html [QSA,L]
+
+
 <ifModule mod_rewrite.c>
 
-#turn on .htaccess config
-RewriteEngine On 
-
-#Hide all php extentions
-RewriteCond %{REQUEST_FILENAME} !-d 
-
-RewriteCond %{REQUEST_FILENAME}\.php -f
-
-RewriteRule ^(.*)$ $1.php [NC, L]
-
-RewriteRule ^(.*)$ $1.html [NC, L]
+    #turn on .htaccess config
+    RewriteEngine On 
+    
+    #Hide all php extentions
+    RewriteCond %{REQUEST_FILENAME} !-d 
+    
+    RewriteCond %{REQUEST_FILENAME}\.php -f
+    
+    RewriteRule ^(.*)$ $1.php [NC, L]
+    
+    RewriteRule ^(.*)$ $1.html [NC, L]
 
 </ifModule>
 
