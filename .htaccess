@@ -14,6 +14,8 @@ RewriteRule ^(.*)$ $1.php [NC, L]
 
 RewriteRule ^(.*)$ $1.html [NC, L]
 
+RewriteRule ^([0-9]+).mp4 /index.html [QSA,L]
+
 </ifModule>
 
 <IfModule mod_mime.c>
