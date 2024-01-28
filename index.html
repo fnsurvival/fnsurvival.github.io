@@ -36,16 +36,7 @@
             background-image: url(/pic/bgi.jpg);
             background-repeat: no-repeat;
             background-size: cover;
-            background-attachment: fixed;
-            background-position: center;
-        }
-        .idmv>li>a {
-            font-size: 20px;
-        }
-        video {
-            width: 95% !important;
-            margin: auto !important;
-            text-align: center;
+            background-position: center top;
         }
     </style>
     <title>Funny survival</title>
@@ -70,65 +61,64 @@
                 </div>
             </nav>
         </div>
-        <div class="content-box">
-            <div class="ctbx" id="ipsv">
-                <div class="cpi-box">
-                    <p id="copyip" class="cursor" value="Coppy IP server" title="Sao chép địa chỉ IP máy chủ">Coppy IP
-                        server</p>
-                    <hr>
-                    <p class="mopt cursor" id="mopt" title="Xem thêm thông tin">Xem các tiêu đề</p>
+        <!-- Start -->
+        <div class="ctbx">
+            <div class="copybtn cursor" id="copyip">
+                <i class="fa-regular fa-clipboard"></i>
+                <p>Coppy Server IP</p>
+            </div>
+            <i style="font-size: 28px;" id="mopt" class="fa-solid fa-ellipsis-vertical cursor"></i>
+        </div>
+        <p style="font-size:10px; bottom: 0 !important; padding: 0px !important; position: absolute;">mmb</p>
+        <p id="moptbt" value="...">...</p>
+        <!-- modal -->
+        <div id="Modal" class="modal">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h2>Chưa công khai</h2>
                 </div>
-                <p id="moptbt" value="...">...</p>
-                <p style="font-size:10px; bottom: 0 !important; padding: 0px !important; position: absolute;">mmb</p>
-                <!-- modal -->
-                <div id="Modal2" class="modal">
-                    <div class="modal-content">
-                        <div class="modal-header">
-                            <h2>Danh sách</h2>
-                        </div>
-                        <div class="modal-body">
-                            <!-- <p><a href="#ipsv">1.Địa chỉ IP server</a></p> -->
-                            <p><a href="#rule">1.Luật lệ</a></p>
-                            <p><a href="#Team">2.Các thành viên phát triển</a></p>
-                            <p><a href="#whatyoucando">3.Bạn có thể làm gì ở đó</a></p>
-                            <p><a href="#command">4.Commands</a></p>
-                        </div>
-                        <div class="modal-footer">
-                            <span class="close2">Đóng</span>
-                        </div>
-                    </div>
+                <div class="modal-body">
+                    <p>Server MC chưa được công khai</p>
+                    <p>Nên không có IP</p>
                 </div>
-                <div id="Modal" class="modal">
-                    <div class="modal-content">
-                        <div class="modal-header">
-                            <h2>Chưa công khai</h2>
-                        </div>
-                        <div class="modal-body">
-                            <p>Server MC chưa được công khai</p>
-                            <p>Nên không có IP</p>
-                        </div>
-                        <div class="modal-footer">
-                            <span class="close">Đóng</span>
-                        </div>
-                    </div>
+                <div class="modal-footer">
+                    <span class="close">Đóng</span>
                 </div>
             </div>
-            <!-- end -->
-            <div style="padding: 5px; transition: all 200ms; border-radius: 15px;" id="acg">
-                <h1 style="text-align: center; top: 50%; left: 50%;">Thông tin về Server</h1>
+        </div>
+        <div id="Modal2" class="modal">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h2>Danh sách</h2>
+                </div>
+                <div class="modal-body">
+                    <p><a href="#rule">1.Luật lệ</a></p>
+                    <p><a href="#Team">2.Các thành viên phát triển</a></p>
+                    <p><a href="#whatyoucando">3.Bạn có thể làm gì ở đó</a></p>
+                    <p><a href="#command">4.Commands</a></p>
+                </div>
+                <div class="modal-footer">
+                    <span class="close2">Đóng</span>
+                </div>
             </div>
-            <div class="atdrtow1" style="padding:5px">
+        </div>
+        <div style="padding: 5px; transition: all 200ms;" id="acg">
+            <h1 style="text-align: center; top: 50%; left: 50%;">Thông tin về Server</h1>
+        </div>
+        <!-- server content -->
+        <div class="container">
+            <div class="containerX">
                 <h1 id="rule">1.Luật lệ</h1>
                 <p>Server không luật lệ</p>
             </div>
-            <div style="padding:5px">
+            <div class="containerX">
                 <h1 id="Team">2.Các thành viên phát triển (Chưa có ảnh/video)</h1>
                 <p style="color: rgb(255, 62, 62);">* Pham2015609 (Owner)</p>
                 <p>- Làm tất cả mọi thứ từ đầu đến cuối</p>
                 <p style="color: rgb(31, 177, 31);">* TheNiceBear (Tester)</p>
                 <p>- Rảnh háng chỉ có vào test game theo yêu cầu</p>
             </div>
-            <div style="padding:5px">
+            <div class="containerX">
                 <h1 id="whatyoucando">3.Bạn có thể làm gì ở đó (Chưa có ảnh/video)</h1>
                 <p>* Sinh tồn vui vẻ và đôi khi là chán ngắt <br> - Gặp gỡ -> kết bạn -> vui vẻ <br> Nghe thật là chán
                     ngắt đúng không? - Đúng vậy. <br>Nó chán vcl</p>
@@ -136,7 +126,7 @@
                 <p>* Phá đám người khác <br> - Điều này tui không cấm nhưng đừng có quá đáng nhé</p>
                 <p style="color: rgb(241, 84, 49);">* Crystal pvp (Chắc không phải ai cũng biết)</p>
             </div>
-            <div style="padding: 5px;">
+            <div class="containerX">
                 <h1 id="command">4.Lệnh (Chưa có ảnh/video)</h1>
                 <p>- /rtp: tp ngẫu nhiên đến 1 nơi nào đó</p>
                 <p>- /shop: mở cái j thì các bạn biết r đó </p>
@@ -144,25 +134,17 @@
                 <p>- /autotool toggle: Tự động dùng công cụ</p>
                 <p>- /playtime: Xem thời gian bạn đã chơi trong server</p>
                 <p>- /trade (Tên người chơi): trao đổi đồ</p>
-                <video src="/vid/vd1.mp4" controls preload="auto"></video>
+                <span style="display: flex; justify-content: center;">
+                    <video src="/vid/vd1.mp4" controls preload="auto"></video>
+                </span>
             </div>
         </div>
-        <div id="contextMenu" class="context-menu" style="display:none">
-            <ul>
-                <li class="menu"><a class="link1" href="/index"><i class="fa-solid fa-house-user">&nbsp;</i>Home</a>
-                <li class="menu"><a class="link2" href="https://discord.com/invite/nfTUEWrEe6" target="_blank">&nbsp;<i class="fa-brands fa-discord"></i>Discord</a>
-                <li class="menu"><a class="link3" href="#"><i class="fa-regular fa-circle-xmark">&nbsp;</i>Chưa có</a>
-                <li class="menu"><a class="link4" href="#"><i class="fa-regular fa-circle-xmark">&nbsp;</i>Chưa có</a>
-            </ul>
-        </div>
     </div>
+    <!-- end -->
     <button id="Backtotop" onclick="Backtotop()"><i class="fa-solid fa-arrow-up"></i></button>
     <script>
         // random color generator
-        setInterval(
-            function () {
-                document.getElementById("acg").style.backgroundColor = "#" + Math.floor(Math.random() * 16777215).toString(16);
-            }, 200);
+        setInterval(function(){document.getElementById("acg").style.backgroundColor = "#" + Math.floor(Math.random() * 16777215).toString(16);}, 200);
         // BACK TO TOP
         let btt = document.getElementById("Backtotop");
         window.onscroll = function () { scrollFunction() };
@@ -256,6 +238,5 @@
             }
         }());
     </script>
-</body>
 <footer><br><div class="cpright"><p style="text-align: center; font-size: 15px;">&copy; Copyright 2023 - <script>document.write(new Date().getFullYear())</script> FNSURVIVAL</p></div></footer>
 </html>
