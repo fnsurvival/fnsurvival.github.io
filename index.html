@@ -64,11 +64,17 @@
         </div>
         <!-- Start -->
         <div class="ctbx">
-            <div class="copybtn cursor" id="copyip">
-                <i class="fa-regular fa-clipboard"></i>
-                <p>Coppy Server IP</p>
-            </div>
-            <i style="font-size: 28px;" id="mopt" class="fa-solid fa-ellipsis-vertical cursor"></i>
+            <span>
+                <div class="copybtn cursor" id="copyip">
+                    <i class="fa-regular fa-clipboard"></i>
+                    <p>Coppy Server IP</p>
+                </div>
+                <i style="font-size: 28px;" id="mopt" class="fa-solid fa-ellipsis-vertical cursor"></i>
+                <div>
+                    <span>I know ><p id="ipaddress"></p></span>
+                </div>
+            </span>
+
         </div>
         <p style="font-size:10px; bottom: 0 !important; padding: 0px !important; position: absolute;">mmb</p>
         <p id="moptbt" value="...">...</p>
@@ -143,6 +149,15 @@
     </div>
     <!-- end -->
     <button id="Backtotop" onclick="Backtotop()"><i class="fa-solid fa-arrow-up"></i></button>
+    <script src= "https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script>
+        $(document).ready(()=>{
+            $.getJSON("https://api.ipify.org?format=json",
+            function (data) {
+                $("#ipaddress").html(data.ip);
+            })
+        });
+    </script>
     <script>
         // random color generator
         setInterval(function(){document.getElementById("acg").style.backgroundColor = "#" + Math.floor(Math.random() * 16777215).toString(16);}, 200);

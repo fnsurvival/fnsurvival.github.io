@@ -234,12 +234,19 @@ p {
     border-radius: 50%;
 }
 .ctbx {
+    display: flex !important;
+    justify-content: center;
+    align-items: center;
+}
+.ctbx span {
     display: flex;
     justify-content: center;
     align-items: center;
+    flex-wrap: wrap;
     gap: 5px;
+    max-width: 296.2px;
 }
-.ctbx > i, .copybtn {
+.ctbx > span > i, .copybtn {
     display: flex;
     gap: 5px;
     justify-content: center;
@@ -254,6 +261,20 @@ p {
     -moz-border-radius: 15px;
     -ms-border-radius: 15px;
     -o-border-radius: 15px;
+}
+.ctbx > span > :nth-child(3) {
+    align-items: end !important;
+    justify-content: left;
+    background: rgb(4, 196, 4);
+    padding: 5px;
+    padding: 5px;
+    border: 1px solid whitesmoke;
+    border-radius: 5px;
+    width: 100%;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    -ms-border-radius: 5px;
+    -o-border-radius: 5px;
 }
 .container {
     padding: 10px 0px;
