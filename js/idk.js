@@ -1,12 +1,3 @@
-// LOAD PAGE
-var loadpage;
-function LoadSite() {
-    loadpage = setTimeout(showPage, 500);
-}
-function showPage() {
-    document.getElementById("loader").style.display = "none";
-    document.getElementById("in-loader").style.display = "block";
-}
 
 // COPY IP SERVER  (DISABLED)
 // function IPSever() {
@@ -102,12 +93,3 @@ document.onkeydown = function (e) {
         return false;
     }
 }
-
-// MENU NAV
-document.addEventListener("DOMContentLoaded",function(){
-    var nut = document.querySelector('div.icon i');
-    var mobile = document.querySelector('ul');
-    nut.addEventListener('click',function(){
-        mobile.classList.toggle('active');
-    })
-})

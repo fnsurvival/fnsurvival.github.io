@@ -39,3 +39,6 @@ html, body {
 .div60 {
     width: 60% !important;
 }
+.line-through {
+    text-decoration: line-through !important;
+}

@@ -45,7 +45,32 @@
     <div id="container2" class="container">
         <div class="title4Ct">Thông tin khác</div>
         <div class="gapbtw">
-            <p>Tên: ... Lợi <br>Tuổi: 16 <br>Lớp: 10A12 <br>Học tại: Trường THPT Phan Bội Châu (cơ sở 1) <br>Địa Chỉ: Lô NT1A, Khu đô thị Văn Quán, Hà Đông, Hà Nội</p>
+            <p>Tên: ... Lợi</p>
+            <p>Tuổi:
+                <span>
+                    <script>
+                        const Year = new Date();
+                        let year = Year.getFullYear();
+                        let Olds = year - 2008;
+                        document.write(Olds)
+                    </script>
+                </span>
+            </p>
+            <p>Lớp: 
+                <span>
+                    <script>
+                        const classNow = ["11A12", "12A12"]
+
+                        if (Olds == 16) {
+                            document.write(classNow[0])
+                        } else if (Olds == 17) {
+                            document.write(classNow[1])
+                        } 
+                    </script>
+                </span>
+            </p>
+            <p>Học tại: Trường THPT Phan Bội Châu (cơ sở 1)</p> 
+            <p></p>Địa Chỉ: Lô NT1A, Khu đô thị Văn Quán, Hà Đông, Hà Nội</p>
             <div class="container specialCT">
                 <a target="_blank" href="https://www.google.com/maps/place/Tr%C6%B0%E1%BB%9Dng+THPT+Phan+B%E1%BB%99i+Ch%C3%A2u/@20.9732247,105.7867474,18.79z/data=!4m10!1m2!2m1!1sthpt+phan+boi+chau+h%C3%A0+n%E1%BB%99i!3m6!1s0x3135add7547971bf:0x7db6903da01e493f!8m2!3d20.9731017!4d105.7870098!15sChx0aHB0IHBoYW4gYm9pIGNoYXUgaMOgIG7hu5lpkgEGc2Nob29s4AEA!16s%2Fg%2F11syt99xkg?hl=vi-VN&entry=ttu">Đến trường thôi!</a>
                 <p onclick="vpbtn()" class="cursor">Xem ảnh</p>
@@ -89,25 +114,32 @@
                 <a target="_blank" href="https://www.github.com/nanibrah">
                     <i class="fa-brands fa-github fa-lg"></i> Github: nanibrah
                 </a>
-                <a target="_blank" href="https://open.spotify.com/user/31blsnqmcwz3hgabsxc4yqwgn7be?si=d649391758c0439c">
-                    <i class="fa-brands fa-spotify fa-lg" style="color: #0cd452;"></i> Spotify: pap
-                </a>
+                <!-- <a target="_blank" href="https://open.spotify.com/user/31yjqj7k2howgsdbtdnd2ozqdti4?si=efe4b7b2b7b64d36">
+                    <i class="fa-brands fa-spotify fa-lg" style="color: #0cd452;"></i> Spotify: Fcapham
+                </a> -->
                 <a target="_blank" href="https://discordapp.com/users/814651924766130226">
                     <i class="fa-brands fa-discord fa-lg"></i> Discord: PAP_CORN
                 </a>
-                <a target="_blank" href="https://www.reddit.com/user/Pham2015609">
+                <!-- <a target="_blank" href="https://www.reddit.com/user/Pham2015609">
                     <i class="fa-brands fa-reddit" style="color: #fa3200;"></i> Reddit: Pham2015609
                 </a>
                 <a target="_blank" href="https://www.instagram.com/papnineone/">
                     <i class="fa-brands fa-instagram"></i> Instagram: papnineone
-                </a>
+                </a> -->
             </div>
         </div>
     </div>
     <div id="container5" class="container">
         <div class="title4Ct">Ngoài lề</div>
-        <div class="gapbtw">
-            <p>Bản <span style="color: red; font-size: 30px;">cheat</span> game do <span style="color: green; font-size: 30px;">mình</span> làm đảm bảo an toàn 1000000%: </p>
+
+        <div id="viewthis" class="gapbtw" onclick="viewMoreDetails()">
+            <div class="card">
+                <span style="cursor: pointer;">Xem thêm</span>
+            </div>
+        </div>
+
+        <div class="gapbtw" id="viewthisDocu">
+            <p>Bản <span style="color: red; font-size: 30px;">cheat</span> game do <span style="color: green; font-size: 30px;">mình</span> làm đảm bảo an toàn 1000000% <span style="color: red;">(Just For Fun - j4f)</span>: </p>
             <ol>
                 <li>Free Fire (Máy tính - Console v1): 
                     <span>
@@ -149,6 +181,17 @@
 </body>
 <footer>
     <script>
+        const Viewthis = document.getElementById("viewthis")
+        const Docu = document.getElementById("viewthisDocu")
+        
+        function viewMoreDetails() {
+            Viewthis.style.display = "none"
+
+            Docu.style.display = "block"
+            Viewthis.classList.remove("floatout")
+            Docu.classList.add("floatin")
+        }
+
         const VPdiv = document.getElementById("vp")
         const mCtn = [
             document.getElementById("container"),
@@ -158,21 +201,17 @@
             document.getElementById("container5")
         ]
         function vpbtn() {
-            mCtn[0].classList.add("blurOverflow")
-            mCtn[1].classList.add("blurOverflow")
-            mCtn[2].classList.add("blurOverflow")
-            mCtn[3].classList.add("blurOverflow")
-            mCtn[4].classList.add("blurOverflow")
+            for (let i = 0; i < 5; i++) {
+                mCtn[i].classList.add("blurOverflow")
+            }
             VPdiv.classList.remove("floatout")
             VPdiv.classList.add("floatin")
             VPdiv.style.visibility = "visible"
         }
         function closeVP() {
-            mCtn[0].classList.remove("blurOverflow")
-            mCtn[1].classList.remove("blurOverflow")
-            mCtn[2].classList.remove("blurOverflow")
-            mCtn[3].classList.remove("blurOverflow")
-            mCtn[4].classList.remove("blurOverflow")
+            for (let i = 0; i < 5; i++) {
+                mCtn[i].classList.remove("blurOverflow")
+            }
             VPdiv.classList.remove("floatin")
             VPdiv.classList.add("floatout")
             VPdiv.style.visibility = "visible"

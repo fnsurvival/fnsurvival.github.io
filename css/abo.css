@@ -115,6 +115,9 @@ body::-webkit-scrollbar {
 .gapbtw {
     padding: 5px 0px;
 }
+#viewthisDocu {
+    display: none;
+}
 .freecard {
     display: flex;
     flex-wrap: wrap;
