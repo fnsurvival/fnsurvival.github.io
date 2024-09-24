@@ -1,32 +1,6 @@
 body {
     user-select: none;
 }
-.user {
-    display: flex;
-    border-bottom: 1px solid whitesmoke;
-    width: 99.9999999%;
-    height: 100px;
-    justify-content: end;
-    align-items: center;
-    padding: 0px 15px 0px 15px;
-}
-.userY {
-    display: flex;
-    flex-direction: column;
-    gap: 5px;
-}
-.userY > * {
-    text-align: center;
-    padding: 5px 15px;
-    border: 1px solid whitesmoke;
-    border-radius: 5px;
-    cursor: not-allowed;
-}
-.contentNAV > a:hover {
-    transition: all 150ms;
-    background-color: rgb(70,70,70);
-    border-radius: 5px !important;
-}
 .ctent {
     border: 3px solid rgb(112, 245, 79);
     border-radius: 3.5px;

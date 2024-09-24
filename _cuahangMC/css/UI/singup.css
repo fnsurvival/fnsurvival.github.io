@@ -1,0 +1,52 @@
+.form {
+    display: flex;
+    flex-direction: column;
+    gap: 7.5px;
+    max-width: 500px;
+    margin: auto;
+    border: 1px solid whitesmoke;
+    border-radius: 7.5px;
+    padding: 15px;
+}
+input {
+    width: 100%;
+    padding: 10px;
+    font-size: 20px !important;
+    background-color: rgb(53, 53, 53);
+    outline: whitesmoke;
+    border: 1px solid whitesmoke;
+    border-radius: 5.5px;
+    box-shadow: rgba(189, 189, 189, 0.829) 0px 0px 3.8px;
+}
+::placeholder {
+    font-size: 18px !important;
+}
+#requirment {
+    width: auto;
+    padding: 3px 6px;
+}
+.link_redirect, .link_redirect> a {
+    text-align: center;
+    font-size: 15px;
+}
+/* Add a green text color and a checkmark when the requirements are right */
+.valid {
+    color: rgb(0, 175, 0);
+    font-size: 15px;
+}
+.valid > i {
+    color: green;
+}
+.valid:before {
+    position: relative;
+    left: -10px;
+}
+/* Add a red text color and an "x" when the requirements are wrong */
+.invalid {
+    color: red;
+    font-size: 15px;
+}
+.invalid:before {
+    position: relative;
+    left: -10px;
+}

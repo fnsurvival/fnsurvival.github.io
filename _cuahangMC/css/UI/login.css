@@ -1,0 +1,36 @@
+.form {
+    display: flex;
+    flex-direction: column;
+    gap: 7.5px;
+    max-width: 500px;
+    margin: auto;
+    border: 1px solid whitesmoke;
+    border-radius: 7.5px;
+    padding: 15px;
+}
+.form > input {
+    width: 100%;
+    padding: 10px;
+    font-size: 20px !important;
+    background-color: rgb(53, 53, 53);
+    outline: whitesmoke;
+    border: 1px solid whitesmoke;
+    border-radius: 5.5px;
+    box-shadow: rgba(189, 189, 189, 0.829) 0px 0px 3.8px;
+}
+::placeholder {
+    font-size: 18px !important;
+}
+.link_redirect, .link_redirect> a {
+    text-align: center;
+    font-size: 15px;
+}
+.divOr {
+    padding: 0;
+    display: flex;
+    flex-direction: row;
+}
+.divOr > * {
+    padding: 0;
+    width: 100%;
+}

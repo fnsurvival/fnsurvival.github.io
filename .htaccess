@@ -1,27 +1,25 @@
 ErrorDocument 404 https://fnsurvival.github.io/404
 
-Options +FollowSymLinks
-RewriteRule /vid/^([0-9]+).mp4 /index.html [QSA,L]
+RewriteRule ^_cuahangMC/(.*)$ /../$1 [R=301,NC,L]
+RewriteRule ^css/(.*)$ /../$1 [R=301,NC,L]
+RewriteRule ^js/(.*)$ /../$1 [R=301,NC,L]
+RewriteRule ^pic/(.*)$ /../$1 [R=301,NC,L]
+RewriteRule ^vid/(.*)$ /../$1 [R=301,NC,L]
 
+RewriteOptions inherit
+RewriteEngine On
 
-<ifModule mod_rewrite.c>
+RewriteCond %{REQUEST_FILENAME} !-d 
+RewriteCond %{REQUEST_FILENAME}\.php -f 
+RewriteRule ^(.*)$ $1.php
 
-    #turn on .htaccess config
-    RewriteEngine On 
-    
-    #Hide all php extentions
-    RewriteCond %{REQUEST_FILENAME} !-d 
-    
-    RewriteCond %{REQUEST_FILENAME}\.php -f
-    
-    RewriteRule ^(.*)$ $1.php [NC, L]
-    
-    RewriteRule ^(.*)$ $1.html [NC, L]
+RewriteCond %{REQUEST_FILENAME} !-d 
+RewriteCond %{REQUEST_FILENAME}\.html -f 
+RewriteRule ^(.*)$ $1.html
 
-</ifModule>
+RewriteCond %{REQUEST_FILENAME} !-d 
+RewriteCond %{REQUEST_FILENAME}\.htm -f 
+RewriteRule ^(.*)$ $1.htm
 
-<IfModule mod_mime.c>
-
-    AddDefaultCharset utf-8
-
-</IfModule>
+RewriteCond %{HTTP_HOST} ^.*$
+RewriteRule ^/?$ "http\:\/\/fnsurvival.github.io/index" [R=301,L]
