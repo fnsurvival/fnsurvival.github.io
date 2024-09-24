@@ -1,10 +1,10 @@
 ErrorDocument 404 https://fnsurvival.github.io/404
 
-RewriteRule ^_cuahangMC/(.*)$ /../$1 [R=301,NC,L]
-RewriteRule ^css/(.*)$ /../$1 [R=301,NC,L]
-RewriteRule ^js/(.*)$ /../$1 [R=301,NC,L]
-RewriteRule ^pic/(.*)$ /../$1 [R=301,NC,L]
-RewriteRule ^vid/(.*)$ /../$1 [R=301,NC,L]
+RewriteRule ^_cuahangMC/(.*)$ /../index/$1 [R=301,NC,L]
+RewriteRule ^css/(.*)$ /../index/$1 [R=301,NC,L]
+RewriteRule ^js/(.*)$ /../index/$1 [R=301,NC,L]
+RewriteRule ^pic/(.*)$ /../index/$1 [R=301,NC,L]
+RewriteRule ^vid/(.*)$ /../index/$1 [R=301,NC,L]
 
 RewriteOptions inherit
 RewriteEngine On
