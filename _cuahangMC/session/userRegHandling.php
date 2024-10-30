@@ -1,4 +1,5 @@
 <?php
+ob_start();
 session_start();
 require('db/db.php');
 
@@ -26,6 +27,7 @@ if (isset($_REQUEST['username'])) {
         $query = "INSERT into `user` (username, password, email) VALUES ('$username', '$password', '$email')";
         $result   = mysqli_query(mysql: $con, query: $query);
         if ($result) {
+            $_SESSION['id_login'] = $username;
             echo "
             <div>
                 <h3>Đăng ký tài khoản thành công</h3>
@@ -36,4 +38,3 @@ if (isset($_REQUEST['username'])) {
     }
 
 }
-?>

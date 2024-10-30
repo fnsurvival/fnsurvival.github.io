@@ -1,10 +1,4 @@
-ErrorDocument 404 https://fnsurvival.github.io/404
-
-RewriteRule ^_cuahangMC/(.*)$ /../index/$1 [R=301,NC,L]
-RewriteRule ^css/(.*)$ /../index/$1 [R=301,NC,L]
-RewriteRule ^js/(.*)$ /../index/$1 [R=301,NC,L]
-RewriteRule ^pic/(.*)$ /../index/$1 [R=301,NC,L]
-RewriteRule ^vid/(.*)$ /../index/$1 [R=301,NC,L]
+ErrorDocument 404 https\:\/\/fnsurvival.github.io/404
 
 RewriteOptions inherit
 RewriteEngine On
@@ -21,5 +15,5 @@ RewriteCond %{REQUEST_FILENAME} !-d
 RewriteCond %{REQUEST_FILENAME}\.htm -f 
 RewriteRule ^(.*)$ $1.htm
 
-RewriteCond %{HTTP_HOST} ^.*$
+RewriteCond %{HTTPS_HOST} ^.*$
 RewriteRule ^/?$ "http\:\/\/fnsurvival.github.io/index" [R=301,L]

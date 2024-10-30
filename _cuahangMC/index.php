@@ -1,4 +1,9 @@
 <!DOCTYPE html>
+<?php
+ob_start();
+session_start();
+require 'session/db/db.php'
+?>
 <html lang="vi">
 <head>
     <meta charset="UTF-8">
@@ -55,14 +60,14 @@
     <!-- Napthe -->
     <div class="form_napthe">
         <h2>Nạp Thẻ</h2>
-        <form action="session/xulythe.php" class="thongtinthe" method="POST">
-            <select name="loaithe" id="">
+        <form action="session/napthe/xulythe.php" class="thongtinthe" method="POST">
+            <select name="loaithe" id="loaithe">
                 <option value="viettel">Viettel</option>
                 <option value="mobifone">MobiFone</option>
                 <option value="vinaphone">Vinaphone</option>
                 <option value="vietnammobile">Vietnamobile</option>
             </select>
-            <select name="giatri" id="">
+            <select name="giatri" id="giatri">
                 <option value="loaithe">Loại thẻ - Chọn sai mất thẻ</option>
                 <option value="10">10,000 VND</option>
                 <option value="20">20,000 VND</option>
@@ -71,8 +76,8 @@
                 <option value="200">200,000 VND</option>
                 <option value="500">500,000 VND</option>
             </select>
-            <input type="number" name="cardNumber" placeholder="Mã thẻ">
-            <input type="number" name="serialNumber" placeholder="Số serial">
+            <input type="number" name="mathe" id="mathe" placeholder="Mã thẻ">
+            <input type="number" name="serial" id="serial" placeholder="Số serial">
             <input type="submit" value="Xác nhận nạp thẻ" style="cursor: not-allowed;">
         </form>
     </div>

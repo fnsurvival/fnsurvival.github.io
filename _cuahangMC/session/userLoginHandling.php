@@ -1,4 +1,6 @@
 <?php
+ob_start();
+session_start();
 require('db/db.php');
 if (isset($_REQUEST['username'])) {
     $username = stripslashes(string: $_REQUEST['username']);    // removes backslashes
@@ -7,7 +9,7 @@ if (isset($_REQUEST['username'])) {
     $password = mysqli_real_escape_string(mysql: $con, string: $password);
     // Check user is exist in the database
     $query = "SELECT * FROM `user` WHERE username='$username' AND password='$password'";
-    $result = mysqli_query(mysql: $con, query: $query) or die($mysql_error());
+    $result = mysqli_query(mysql: $con, query: $query);
     $rows = mysqli_num_rows(result: $result);
     if ($rows == 1) {
         $_SESSION['username'] = $username;
@@ -24,4 +26,3 @@ if (isset($_REQUEST['username'])) {
         ";
     }
 }
-?>
