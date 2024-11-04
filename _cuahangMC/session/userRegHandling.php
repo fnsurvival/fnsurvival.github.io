@@ -22,9 +22,9 @@ if (isset($_REQUEST['username'])) {
         <h3>Tên người dùng không khả dụng. Vui lòng đăng ký lại </h3>
         <p style="fonts-size: 30px;">Trang này sẽ tự động quay lại trang đăng ký sau <strong>5 giây</strong></p>
         ';
-        header(header: 'Refresh: 3; URL=../UI/registration.php');
+        header(header: 'Refresh: 5; URL=../UI/registration.php');
     } else {
-        $query = "INSERT into `user` (username, password, email) VALUES ('$username', '$password', '$email')";
+        $query = "INSERT into `user` (username, password, email, money) VALUES ('$username', '$password', '$email', 0)";
         $result   = mysqli_query(mysql: $con, query: $query);
         if ($result) {
             $_SESSION['id_login'] = $username;
@@ -34,7 +34,7 @@ if (isset($_REQUEST['username'])) {
             </div?
             ";
         }
-        header('Locatiomn ../UI/login.php');
+        header(header: 'Refresh: 1; URL=../UI/registration.php');
     }
 
 }

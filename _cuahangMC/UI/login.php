@@ -44,16 +44,7 @@
     <form class="form" action="../session/userLoginHandling.php" method="POST" name="login">
         <h1 class="login-title">Đăng nhập</h1><hr>
         <input type="text" class="login-input" name="username" placeholder="Tên đã đăng ký" title="Tên đã đăng ký" autocomplete="on" autofocus="true" required/>
-        <input type="password" class="login-input" name="password" placeholder="Mật khẩu" title="Mật khẩu" required autocomplete="off"/>
-        <div class="divOr">
-            <span>
-                <input type="checkbox" value="Ghi nhớ thiết bị" id="trustDevice">
-                <label for="trustDevice" style="color:white; font-size: 15px">Ghi nhớ thiết bị</label>
-            </span>
-            <!-- <span style="text-align: end;">
-                <a href="" style="font-size: 15px;">Quên mật khẩu?</a>
-            </span> -->
-        </div>
+        <input type="password" class="login-input" name="password" placeholder="Mật khẩu" title="Mật khẩu" required autocomplete="on"/>
         <input type="submit" value="Đăng nhập" name="submit" class="login-button" />
         <p class="link_redirect">Chưa có tài khoản O_o?<br><a href="registration">Cút đi đăng ký</a></p>
     </form>
