@@ -21,16 +21,10 @@ require 'session/db/db.php'
     <link rel="shortcut icon" href="/Logosite.png" type="image/x-icon">
     <!-- Google tag (gtag.js) -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-2M5PZQW8D4"></script>
-    <script>
-        window.dataLayer = window.dataLayer || [];
-        function gtag() { dataLayer.push(arguments); }
-        gtag('js', new Date());
-
-        gtag('config', 'G-2M5PZQW8D4');
-    </script>
     <title>Shop lừa đảo</title>
 </head>
-<body onload="thongbaopopup()" style="user-select: none;">
+<!-- <body onload="thongbaopopup()" style="user-select: none;"> -->
+<body>
     <div class="tbpopup" id="tbpopup-1">
         <div class="tboverlay"></div>
         <div class="tbcontent">
@@ -47,7 +41,7 @@ require 'session/db/db.php'
     </div>
     <div class="nav" id="nav" style="border: 1px solid whitesmoke;">
         <div class="user-s">
-            <a href="/">
+            <a href="">
                 <img src="/Logosite.png" alt="FNSURVIVAL">
             </a>
             <div class="playnow">
@@ -59,8 +53,13 @@ require 'session/db/db.php'
                             $soduRES = $con->query(query: "SELECT * FROM `user` WHERE username='$username'");
                             $fetched = $soduRES->fetch_array(mode: MYSQLI_ASSOC);
                             $sodu = $fetched['money'] ?? null;
+                            $coin = $fetched['coins'] ?? null;
 
-                            echo '[ '. $username . ' ]' . ' | <a style="font-size:23px">' . number_format(num: $sodu) . '</a> VND';
+                            if (number_format(num: $coin) > 1) {
+                                echo '[ '. $username . ' ]' . ' | <a style="font-size:23px">' . number_format(num: $sodu) . ' VND | ' . number_format(num: $coin) . ' FCoin </a>' ;
+                            } else {
+                                echo '[ '. $username . ' ]' . ' | <a style="font-size:23px">' . number_format(num: $sodu) . ' VND | ' . number_format(num: $coin) . ' FCoins </a>' ;
+                            }
                         }
                     } elseif (isset($_SESSION['username']) == '') {
                         session_destroy();
@@ -110,6 +109,7 @@ require 'session/db/db.php'
                 <a>Mua ngay</a>
             </div>
         </div>
+        <!-- Start -->
     </div>
 </body>
 </html>

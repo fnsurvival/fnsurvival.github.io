@@ -3,7 +3,6 @@
 <head>
     <meta charset="utf-8" />
     <title>Đăng nhập</title>
-    <link rel="stylesheet" href="style.css" />
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -12,31 +11,18 @@
     <link rel="stylesheet" href="/css/ao21b20z/require.css">
     <link rel="stylesheet" href="/css/ao21b20z/font.css">
     <link rel="stylesheet" href="/css/scrol.css">
-    <script src="/js/font1.js"></script>
     <script src="/js/idk.js"></script>
     <link rel="shortcut icon" href="/Logosite.png" type="image/x-icon">
-    <!-- Google tag (gtag.js) -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-2M5PZQW8D4"></script>
-    <script>
-        window.dataLayer = window.dataLayer || [];
-
-        function gtag() {
-            dataLayer.push(arguments);
-        }
-        gtag('js', new Date());
-
-        gtag('config', 'G-2M5PZQW8D4');
-    </script>
+    <script src="js/index.js"></script>
 </head>
 <body>
     <div class="nav" id="nav" style="border: 1px solid whitesmoke;">
         <div class="user-s">
-            <a href="/">
+            <a href="../">
                 <img src="/Logosite.png" alt="FNSURVIVAL">
             </a>
-            <div class="line-through playnow">
-                <p>CHƠI NGAY</p>
-                <P>IP >> ////////</P>
+            <div class="playnow">
+                <a href="registration">Đăng Ký</a>
             </div>
         </div>
         <hr>

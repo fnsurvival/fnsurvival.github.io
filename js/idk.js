@@ -93,3 +93,17 @@ document.onkeydown = function (e) {
         return false;
     }
 }
+
+console.log("Loading googleAnalytics");
+function googleAnalytics() {
+    const head = document.head
+    const scr1 = document.createElement("script")
+    scr1.src = "https://www.googletagmanager.com/gtag/js?id=G-CM2MHWZ3LE"
+    scr1.async = true
+    const scr2 = document.createElement("script")
+    scr2.text = "window.dataLayer = window.dataLayer || [];\nfunction gtag(){dataLayer.push(arguments);}\ngtag('js', new Date());\n\ngtag('config', 'G-CM2MHWZ3LE');"
+    head.appendChild(scr1)
+    head.appendChild(scr2)
+    console.log("Loaded googleAnalytics")
+}
+window.onload = googleAnalytics;

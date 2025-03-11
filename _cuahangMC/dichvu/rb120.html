@@ -1,4 +1,9 @@
 <!DOCTYPE html>
+<!-- <?php
+ob_start();
+session_start();
+require '../session/db/db.php'
+?> -->
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -8,82 +13,56 @@
     <link rel="stylesheet" href="/css/ao21b20z/font.css">
     <link rel="stylesheet" href="/css/ao21b20z/require.css">
     <link rel="stylesheet" href="/css/scrol.css">
-    <link rel="stylesheet" href="../css/rb120.css">
-    <script src="/js/font1.js"></script>
+    <link rel="stylesheet" href="../css/service/rb120.css">
     <script src="/js/idk.js"></script>
-    <!-- Google tag (gtag.js) -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-2M5PZQW8D4"></script>
-    <script>
-        window.dataLayer = window.dataLayer || [];
-        function gtag(){dataLayer.push(arguments);}
-        gtag('js', new Date());
-
-        gtag('config', 'G-2M5PZQW8D4');
-    </script>
+    <script src="js/index.js"></script>
     <title>Roxbux svv | Shop lừa đảo</title>
 </head>
 <body>
-    <div class="sidebar">
-        <div class="logo">
-            <a class="logo-font" href="/" style="font-family: IntoRrust;">FNSURVIVAL</a>
-        </div>
-        <nav>
-            <ul class="mother-content">
-                <noscript>
-                <!-- <li class="main-content">
-                    <a href="#">Home</a>
-                    <ul class="cap_2">
-                        <li>1QUE</li>
-                        <li>2QUE</li>
-                        <li>3QUE</li>
-                    </ul>
-                </li> -->
-                </noscript>
-                <li class="main-content" style="font-size: 30px"><a href="../">Shop</a></li>
-            </ul>
-            <div class="icon">
-                <i class="fas fa-bars"></i>
+    <div class="nav" id="nav" style="border: 1px solid whitesmoke;">
+        <div class="user-s">
+            <a href="">
+                <img src="/Logosite.png" alt="FNSURVIVAL">
+            </a>
+            <div class="playnow">
+                <!-- <?php
+                    if (isset($_SESSION['username'])) {
+                        $username = $_SESSION['username'];
+                        $checkifuserExist = mysqli_num_rows(result: mysqli_query(mysql: $con, query: "SELECT * FROM `user` WHERE username='$username'"));
+                        if ($checkifuserExist == 1) {
+                            $soduRES = $con->query(query: "SELECT * FROM `user` WHERE username='$username'");
+                            $fetched = $soduRES->fetch_array(mode: MYSQLI_ASSOC);
+                            $sodu = $fetched['money'] ?? null;
+                            $coin = $fetched['coins'] ?? null;
+
+                            if (number_format(num: $coin) > 1) {
+                                echo '[ '. $username . ' ]' . ' | <a style="font-size:23px">' . number_format(num: $sodu) . ' VND | ' . number_format(num: $coin) . ' FCoins </a>' ;
+                            } else {
+                                echo '[ '. $username . ' ]' . ' | <a style="font-size:23px">' . number_format(num: $sodu) . ' VND | ' . number_format(num: $coin) . ' FCoin </a>' ;
+                            }
+                        }
+                    } elseif (isset($_SESSION['username']) == '') {
+                        session_destroy();
+                        echo '<a href="UI/login">Đăng nhập</a>';
+                    }
+                ?> -->
             </div>
-        </nav>
+        </div>
+        <hr>
     </div>
-    <p style="font-size: 35px;text-align: center;">Robux còn lại: <a id="rbleft">0</a></p>
-    <div class="container"><br>
-        <form action="">
-            <p class="descr">Hình thức mua</p>
-            <select name="type" class="form-control valid" id="type" aria-invalid="false" required>
-                <option value="gp">Mua qua gamepass svv, không giới hạn rb</option>
-                <option value="svv">Mua qua svv, giới hạn 50k (nên dùng gamepass)</option>
-            </select><br><br>
-            <p class="descr">Mua ngay hoặc đặt trước<a style="color: red;">*</a></p>
-            <select name="type" class="form-control valid" id="type" aria-invalid="false" required>
-                <option value="now">Mua ngay</option>
-                <option value="dattrc">Đặt trước robux 120</option>
-            </select><br><br>
-            <p class="descr">Gói robux muốn mua<a style="color: red;">*</a></p>
-            <select name="type" class="form-control valid" id="type" aria-invalid="false" required>
-                <option value="10k">10k - 100rb</option>
-                <option value="20k">20k - 200rb</option>
-                <option value="10k">40k - 400rb</option>
-                <option value="20k">50k - 500rb</option>
-                <option value="10k">100k - 1000rb</option>
-                <option value="20k">200k - 2000rb</option>
-                <option value="10k">400k - 4000rb</option>
-                <option value="20k">500k - 5000rb</option>
-                <option value="bip">Bịp(Không nhận rb, mất hết tiền)</option>
-            </select><br><br>
-            <p class="descr-namerb">Tên đăng nhập robux<a style="color: red;">*</a></p>
-            <input type="text" id="idnamerb" class="namerb" autocomplete="on" required><br><br>
-            <input type="submit" value="Rút robux">
+    <div class="container">
+        <form action="" class="chonDichvu">
+            <div>
+                <label for="loaidichvu">Chọn cách nạp robux:</label>
+                <select id="loaidichvu" name="loaidichvu" class="loaidichvu">
+                    <option value="tructiep">Mua qua server vip</option>
+                    <option value="giantiep">Mua qua gamepass</option>
+                </select>
+            </div>
+            <div>
+                
+            </div>
         </form>
-        
-    </div>
-    <div id="contextMenu" class="context-menu" style="display:none">
-        <ul>
-            <li class="menu"><a class="link1" href="/index"><i class="fa-solid fa-house-user">&nbsp;</i>Home</a></li>
-            <li class="menu"><a class="link2" href="https://discord.com/invite/nfTUEWrEe6" target="_blank"><i class="fa-brands fa-discord">&nbsp;</i>Discord</a></li>
-            <li class="menu"><a class="link3" href="#"><i class="fa-regular fa-circle-xmark">&nbsp;</i>Chưa có</a></li>
-            <li class="menu"><a class="link4" href="#"><i class="fa-regular fa-circle-xmark">&nbsp;</i>Chưa có</a></li>
-        </ul>
     </div>
 </body>
 </html>

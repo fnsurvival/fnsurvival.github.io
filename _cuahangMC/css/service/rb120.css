@@ -1,44 +1,41 @@
 .container {
-    padding: 5px;
-    border: 1px solid rgb(167, 167, 167);
-    border-radius: 2.5px;
-    padding-left: 10px;
+    max-width: 500px;
+    width: 90%;
+    display: flex;
     margin: auto;
-    width: 420px;
-    height: 390px;
-    padding: 5px;
-    box-shadow: var(--boxshadow);
-}
-.descr {
-    font-size: 20px !important;
-}
-option, select {
-    background-color: rgb(45, 45, 45) !important;
-    padding: 7px 20px 7px 20px !important;
-    outline: none;
-    font-size: 15px;
-    width: 100%;
-}
-.namerb {
-    background-color: transparent !important;
-    border: 1px solid rgb(167, 167, 167);
-    padding: 7px 20px 7px 20px !important;
-    outline: none;
-    font-size: 15px;
-    width: 100%;
-}
-input[type=submit] {
-    cursor: pointer;
-    background-color: rgb(11, 67, 140);
-    outline: none;
+    justify-content: center;
     border: 1px solid whitesmoke;
     border-radius: 5px;
-    border-bottom-left-radius: 0;
-    font-size: 20px;
-    padding: 9px;
 }
-@media (max-width: 420px) {
-    .container {
-        width: auto !important;
-    }
+.container > form > div {
+    padding: 10px !important;
+}
+.container > form > div > label {
+    font-size: 20px;
+    color: rgb(189, 240, 173);
+}
+select, option {
+    background-color: rgb(51, 51, 51);
+    outline: none;
+    padding: 7.5px 10px;
+    border-radius: 5px;
+    font-size: 20px !important;
+    width: 100%;
+}
+option {
+    box-shadow: rgba(189, 189, 189, 0.829) 0px 0px 5px !important;
+}
+input {
+    background-color: rgb(51, 51, 51);
+    outline: none;
+    padding: 7.5px 10px;
+    border-radius: 5px;
+    font-size: 20px;
+    border: 1px solid rgb(110, 110, 110);
+}
+input::placeholder {
+    font-size: 18px;
+}
+input[type="submit"] {
+    font-size: 25px;
 }
