@@ -1,176 +1,45 @@
-@import url(/css/root/rt.css);
-* {
-    margin: 0;
-    padding: 0 auto;
-}
-body {
-    background-color: rgb(45, 45, 45);
-}
-.tbpopup .tboverlay {
-    position: fixed;
-    top: 0px;
-    left: 0px;
-    width: 100vw;
-    height: 100vh;
-    background: rgba(0, 0, 0, 0.7);
-    z-index: 1;
-    display: none;
-}
-.tbpopup .tbcontent {
-    position: absolute;
-    top: 45%;
-    left: 50%;
-    transform: translate(-50%, -50%) scale(0);
-    background: rgb(66, 66, 66);
-    max-width: 500px;
-    z-index: 2;
-    text-align: center;
-    padding: 20px;
-    box-sizing: border-box;
-    font-family: "Open Sans", sans-serif;
-    border-radius: 7px;
-    display: block;
-    position: fixed;
-    box-shadow: rgba(0, 0, 0, 0.4) 0px 0px 10px;
-    -webkit-border-radius: 7px;
-    -moz-border-radius: 7px;
-    -ms-border-radius: 7px;
-    -o-border-radius: 7px;
-    -webkit-transform: translate(-50%, -50%) scale(0);
-    -moz-transform: translate(-50%, -50%) scale(0);
-    -ms-transform: translate(-50%, -50%) scale(0);
-    -o-transform: translate(-50%, -50%) scale(0);
-}
-@media (max-width: 700px) {
-    .tbpopup .tbcontent {
-        width: 90%;
-    }
-}
-.tbpopup .tbclose-btn {
+#userInfo {
+    position: relative;
+    display: inline-block;
     cursor: pointer;
+}
+
+#userInfo span {
+    padding: 5px 10px;
+    background-color: #f5f5f5;
+    border-radius: 5px;
+}
+
+#userDropdown {
+    display: none;
     position: absolute;
-    right: 20px;
-    top: 20px;
-    width: 35px;
-    height: 35px;
-    color: #ff4444;
-    font-size: 30px;
-    font-weight: 600;
-    line-height: 35px;
-    text-align: center;
-    border-radius: 2px;
-    -webkit-border-radius: 2px;
-    -moz-border-radius: 2px;
-    -ms-border-radius: 2px;
-    -o-border-radius: 2px;
+    top: 100%;
+    left: 0;
+    background-color: #fff;
+    min-width: 150px;
+    border: 1px solid #ddd;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+    z-index: 1000;
 }
-.tbpopup.active .tboverlay {
+
+#userDropdown a {
     display: block;
+    padding: 8px 12px;
+    text-decoration: none;
+    color: #333;
 }
-.tbpopup.active .tbcontent {
-    transition: all 300ms ease-in-out;
-    transform: translate(-50%, -50%) scale(1);
+
+#userDropdown a:hover {
+    background-color: #f0f0f0;
 }
-@media (max-width: 750px) {
-    .user-s {
-        width: 99.999%;
-        display: flex;
-        flex-direction: column !important;
-        padding-bottom: 10px;
-    }
-    .user-s > a:nth-child(1) > img {
-        justify-content: center;
-        width: 99.998% !important;
-    }
-}
-/* START CONTENT */
+
+
 .form_napthe {
     max-width: 500px;
-    width: 90%;
-    border: 1px solid whitesmoke;
-    border-radius: 5px;
+    width: 99%;
     margin: auto;
-}
-.form_napthe > h2 {
-    text-align: center;
-    justify-content: center;
-    padding: 10px 0px;
-    border-bottom: 1px solid whitesmoke;
-}
-form {
-    padding: 5px;
-    display: flex;
-    flex-direction: column;
-    gap: 5px;
-}
-select, option {
-    background-color: rgb(51, 51, 51);
-    outline: none;
-    padding: 7.5px 10px;
-    border-radius: 5px;
-    font-size: 20px !important;
-}
-option {
-    box-shadow: rgba(189, 189, 189, 0.829) 0px 0px 5px !important;
-}
-input {
-    background-color: rgb(51, 51, 51);
-    outline: none;
-    padding: 7.5px 10px;
-    border-radius: 5px;
-    font-size: 20px;
-    border: 1px solid rgb(110, 110, 110);
-}
-input::placeholder {
-    font-size: 18px;
-}
-input[type="submit"] {
-    font-size: 25px;
-}
-.container {
-    display: flex;
-    flex-wrap: wrap;
-    margin: auto;
-    border: 1px solid whitesmoke;
-    border-radius: 7.5px;
-    max-width: 1262px;
-    width: 90%;
-    padding: 0px 10px 0px 10px;
-}
-.container_interact {
-    border: 1px solid whitesmoke;
-    max-width: 300px;
-    width: 100%;
-    margin: 10px 5px;
-    border-radius: 5px;
-    box-shadow: rgba(189, 189, 189, 0.829) 0px 0px 5px;
-}
-.container * {
-    cursor: not-allowed
-}
-.head-container {
-    font-size: 25px;
-    text-align: center;
-    padding: 5px 0px 0px 0px;
-    border-bottom: 1px solid whitesmoke;
-}
-.body-container {
-    background-color:rgb(110, 110, 110);
-    border-bottom: 1px solid whitesmoke;
-}
-.body-container > a > img {
-    width: 100%;
-}
-.footer-container {
-    display: block;
-    text-align: center;
-    padding: 15px 10px;
-}
-.footer-container a {
-    display: flex;
-    justify-content: center;
-    margin: auto;
-    padding: 10px 25px;
-    border: 1px solid whitesmoke;
-    width: 65%;
+    background: #fff;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }

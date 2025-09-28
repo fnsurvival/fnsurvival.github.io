@@ -7,11 +7,6 @@
     <script src="js/index.js"></script>
 </head>
 </html>
-<?php
-    session_start();
-    // Destroy session
-    if(session_destroy()) {
-        // Redirecting To Home Page
-        header(header: "Location: ../");
-    }
-?>
+<body>
+    <script src="../session/Handler.js"></script>
+</body>

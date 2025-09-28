@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="/Logosite.png" type="image/x-icon">
+    <link rel="stylesheet" href="../css/UI/singup.css">
+    <link rel="stylesheet" href="/css/ao21b20z/require.css">
+    <link rel="stylesheet" href="/css/ao21b20z/font.css">
+    <link rel="stylesheet" href="/css/scrol.css">
+    <link rel="stylesheet" href="/css/root/rt.css">
+    <script src="/js/idk.js"></script>
+    <link rel="shortcut icon" href="/Logosite.png" type="image/x-icon">
+    <script src="https://kit.fontawesome.com/a94c2c8bc2.js" crossorigin="anonymous"></script>
+    <script src="js/index.js"></script>
+    <title>Đăng ký</title>
+</head>
+<body>
+    <div class="nav" id="nav" style="border: 1px solid whitesmoke;">
+        <div class="user-s">
+            <a href="../">
+                <img src="/Logosite.png" alt="FNSURVIVAL">
+            </a>
+            <div class="playnow">
+                <a href="login">Đăng nhập</a>
+            </div>
+        </div>
+        <hr>
+    </div>
+    <form class="form" action="" >
+        <h1 class="login-title">Đăng ký</h1><hr>
+        <input type="text" id="nameInput" class="reg-input" name="username" autocomplete="off" placeholder="Tên đăng ký" title="Tên đăng ký" minlength="8" onkeypress="return event.charCode != 32" required />
+        <input type="password" id="regInput" class="reg-input" name="password" placeholder="Mật khẩu" title="Mật khẩu" minlength="8" maxlength="100" onkeypress="return event.charCode != 32" autocomplete="off" required>
+        <div id="requirment">
+            <strong style="font-size: 20px;">Mật khẩu phải bao gồm:</strong>
+            <p id="letter" class="invalid"><i id="letterL" class="fa-solid fa-circle-xmark"></i> 1 chữ cái viết hoa</p>
+            <p id="special_character" class="invalid"><i id="special_characterS" class="fa-solid fa-circle-xmark"></i> 1 ký tự đạc biệt</p>
+            <p id="number" class="invalid"><i id="numberN" class="fa-solid fa-circle-xmark"></i> 1 chữ só</p>
+            <p id="length" class="invalid"><i id="lengthL" class="fa-solid fa-circle-xmark"></i> Có ít nhất 8 ký tự</p>
+        </div>
+        <input type="text" id="emailInput" class="reg-input" name="email" autocomplete="off" placeholder="Email" title="email">
+        <input type="submit" name="submit" value="Đăng ký" class="login-button" >
+        <p class="link_redirect">Có tài khoản r sao? <a href="login">Đăng nhập đê</a></p>
+    </form>
+
+    <script src="../session/Handler.js"></script>
+</body>
+</html>

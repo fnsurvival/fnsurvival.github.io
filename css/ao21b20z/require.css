@@ -43,7 +43,7 @@ body {
     margin: auto;
 }
 .user-s > :first-child > img {
-    max-width: 400px;
+    max-width: 250px;
     width: auto;
     padding: 5px 0px;
 }

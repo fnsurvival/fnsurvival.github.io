@@ -96,8 +96,12 @@ body::-webkit-scrollbar {
 }
 @keyframes floatin {
     from {
-        top: -100%;
+        top: -20%;
         opacity: 0;
+    }
+    to {
+        top: auto;
+        opacity: 1;
     }
 }
 @keyframes floatout {
