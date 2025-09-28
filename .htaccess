@@ -1,20 +1,29 @@
-ErrorDocument 404 https\:\/\/fnsurvival.github.io/404
+# ==== Error page ====
+ErrorDocument 404 https://fnsurvival.github.io/404
 
-RewriteOptions inherit
+# ==== Enable Rewrite ====
 RewriteEngine On
+RewriteOptions inherit
 
-RewriteCond %{REQUEST_FILENAME} !-d 
-RewriteCond %{REQUEST_FILENAME}\.php -f 
-RewriteRule ^(.*)$ $1.php
+# ==== Bỏ qua thư mục _cuahangMC ====
+RewriteCond %{REQUEST_URI} ^/_cuahangMC/.* [NC]
+RewriteRule ^ - [L]
 
-RewriteCond %{REQUEST_FILENAME} !-d 
-RewriteCond %{REQUEST_FILENAME}\.html -f 
-RewriteRule ^(.*)$ $1.html
+# ==== Rewrite .php ====
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteCond %{REQUEST_FILENAME}\.php -f
+RewriteRule ^(.*)$ $1.php [L]
 
-RewriteCond %{REQUEST_FILENAME} !-d 
-RewriteCond %{REQUEST_FILENAME}\.htm -f 
-RewriteRule ^(.*)$ $1.htm
+# ==== Rewrite .html ====
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteCond %{REQUEST_FILENAME}\.html -f
+RewriteRule ^(.*)$ $1.html [L]
 
-RewriteCond %{HTTPS_HOST} ^.*$
-RewriteRule ^/?$ "https\:\/\/fnsurvival.github.io/index" [R=301,L]
+# ==== Rewrite .htm ====
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteCond %{REQUEST_FILENAME}\.htm -f
+RewriteRule ^(.*)$ $1.htm [L]
 
+# ==== Redirect root to index.html ====
+RewriteCond %{REQUEST_URI} ^/?$ 
+RewriteRule ^$ index.html [R=301,L]
