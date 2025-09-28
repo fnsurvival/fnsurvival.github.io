@@ -1,4 +1,4 @@
-ErrorDocument 404 https\:\/\/localhost/404
+ErrorDocument 404 https\:\/\/fnsurvival.github.io/404
 
 RewriteOptions inherit
 RewriteEngine On
@@ -16,5 +16,5 @@ RewriteCond %{REQUEST_FILENAME}\.htm -f
 RewriteRule ^(.*)$ $1.htm
 
 RewriteCond %{HTTPS_HOST} ^.*$
-RewriteRule ^/?$ "http\:\/\/localhost/index" [R=301,L]
+RewriteRule ^/?$ "https\:\/\/fnsurvival.github.io/index" [R=301,L]
 
