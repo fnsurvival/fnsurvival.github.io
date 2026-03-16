@@ -3,43 +3,89 @@
     display: inline-block;
     cursor: pointer;
 }
-
 #userInfo span {
     padding: 5px 10px;
-    background-color: #f5f5f5;
     border-radius: 5px;
+    font-size: 20px !important;
 }
-
+.dataformdb {
+    color: #ff5722 !important;
+    font-weight: bold;
+}
 #userDropdown {
     display: none;
     position: absolute;
     top: 100%;
-    left: 0;
-    background-color: #fff;
+    right: 0;
+    background-color: rgb(44, 42, 42);
     min-width: 150px;
     border: 1px solid #ddd;
-    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+    border-radius: 10px;
+    box-shadow: var(--dark-big-boxshadow);
     z-index: 1000;
 }
-
 #userDropdown a {
     display: block;
     padding: 8px 12px;
     text-decoration: none;
-    color: #333;
+    color: #fff;
 }
-
 #userDropdown a:hover {
-    background-color: #f0f0f0;
+    background-color: #363535;
+    border-radius: 10px;
 }
-
-
 .form_napthe {
     max-width: 500px;
     width: 99%;
     margin: auto;
     background: #fff;
-    padding: 30px;
+    padding: 15px;
+    border: 1px solid #000;
     border-radius: 10px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    box-shadow: var(--dark-big-boxshadow);
+    background-color: rgb(44, 42, 42);
+}
+.form_napthe h2 {
+    text-align: center;
+    color: #ebebeb;
+    padding-bottom: 10px;
+    margin-bottom: 15px;
+    border-bottom: 1px solid #fff;
+}
+.form_napthe form {
+    display: flex;
+    flex-direction: column;
+    row-gap: 10px;
+}
+.thongtinthe select {
+    background-color: transparent;
+    width: 100%;
+    outline: none;
+    padding: 5px;
+    font-size: 20px;
+}
+.thongtinthe select option {
+    background-color: rgb(44, 42, 42);
+    font-size: 20px;
+}
+.thongtinthe input[type="number"] {
+    background-color: rgb(44, 42, 42);
+    padding: 5px;
+    width: 100%;
+    outline: none;
+    border: none;
+    border-bottom: 1px solid #fff;
+    font-size: 20px;
+}
+.thongtinthe input[type="number"]::placeholder {
+    font-size: 18px;
+    padding: 5px;
+}
+.thongtinthe button[type="submit"] {
+    background-color: rgb(44, 42, 42);
+    width: 100%;
+    outline: none;
+    border: 1px solid #fff;
+    padding: 5px;
+    border-radius: 7px;
 }

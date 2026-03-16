@@ -150,6 +150,82 @@ async function logout() {
     }
 }
 
+async function initTopup() {
+  const form = document.querySelector(".thongtinthe");
+  if (!form) return;
+  
+  form.addEventListener("submit", async e => {
+    e.preventDefault();
+    
+    // Lấy và log giá trị
+    const card_type = document.getElementById("loaithe").value.trim();
+    const card_value = Number(document.getElementById("giatri").value);
+    const card_code = document.getElementById("mathe").value.trim();
+    const card_serial = document.getElementById("serial").value.trim();
+
+    console.log('Form values:', {
+      card_type,
+      card_value,
+      card_code,
+      card_serial
+    });
+
+    // Validation
+    if (!card_type || card_type === "dcumaychondi") {
+      alert("Vui lòng chọn loại thẻ hợp lệ");
+      return;
+    }
+
+    if (!card_value || card_value <= 0 || isNaN(card_value)) {
+      alert("Vui lòng chọn giá trị thẻ hợp lệ");
+      return;
+    }
+
+    if (!card_code || card_code.length < 6) {
+      alert("Mã thẻ phải có ít nhất 6 ký tự");
+      return;
+    }
+
+    if (!card_serial || card_serial.length < 6) {
+      alert("Serial thẻ phải có ít nhất 6 ký tự");
+      return;
+    }
+
+    // Tạo payload và log
+    const payload = {
+      card_type,
+      card_value,
+      card_code,
+      card_serial
+    };
+
+    console.log('Sending payload:', payload);
+
+    try {
+      const res = await fetch("https://database-fnsurvival.fcapham201.workers.dev/api/topup", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        credentials: "include",
+        body: JSON.stringify(payload)
+      });
+      
+      console.log('Response status:', res.status);
+      
+      const data = await res.json();
+      console.log('Response data:', data);
+      
+      if (res.ok && data.success) {
+        alert(`Nạp thành công +${data.added} VND`);
+        location.reload();
+      } else {
+        alert("Lỗi: " + (data.error || "Lỗi nạp thẻ"));
+      }
+    } catch (err) {
+      console.error('Fetch error:', err);
+      alert("Lỗi kết nối: " + err.message);
+    }
+  });
+}
 
 async function loadUserInfo() {
     try {
@@ -160,10 +236,11 @@ async function loadUserInfo() {
         const data = await res.json();
 
         const userInfoDiv = document.getElementById("userInfo");
+        const formatMoney = (amount) => new Intl.NumberFormat('en-US').format(amount);
 
         if (data.loggedIn) {
             userInfoDiv.innerHTML = `
-                <span id="userButton">Xin chào, ${data.username} | ${data.money} VND &#9662;</span>
+                <span id="userButton">Xin chào,<span class="dataformdb">${data.username}</span>|<span class="dataformdb">${formatMoney(data.money)}</span>VND &#9662;</span>
                 <div id="userDropdown">
                     <a href="#">Thông tin tài khoản</a>
                     <a href="#">Nạp thẻ</a>
@@ -206,6 +283,7 @@ async function loadUserInfo() {
 document.addEventListener("DOMContentLoaded", async () => {
     if (location.pathname.includes("signup")) initSignup();
     if (location.pathname.includes("login")) initLogin();
+    if (location.pathname.includes("index")) initTopup();
 
     await loadUserInfo();
 

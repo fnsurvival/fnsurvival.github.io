@@ -1,0 +1,943 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Chicky Bot — Tài liệu</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+/* ══════════════════════════ THEME ══════════════════════════ */
+:root {
+  --accent:    #5865F2;
+  --accent-lo: rgba(88,101,242,.12);
+  --green:     #3ba55c;
+  --green-lo:  rgba(59,165,92,.12);
+  --yellow:    #c9a227;
+  --yellow-lo: rgba(254,231,92,.12);
+  --red:       #d83c3e;
+  --red-lo:    rgba(237,66,69,.12);
+  --pink:      #c0457b;
+  --pink-lo:   rgba(235,69,158,.12);
+  --cyan-lo:   rgba(0,200,180,.12);
+  --r:  12px;
+  --rs: 7px;
+  --sw: 230px;
+  --fh: 'Plus Jakarta Sans', sans-serif;
+  --fm: 'JetBrains Mono', monospace;
+}
+
+/* ── System default: light ── */
+@media (prefers-color-scheme: light) {
+  :root:not([data-t=dark]) {
+    --bg:   #f4f5f8; --sur: #ffffff; --hov: #ecedf2; --bd: #e2e4eb;
+    --side: #1e2028; --side-bd: rgba(255,255,255,.07);
+    --side-text: rgba(255,255,255,.65); --side-active: #ffffff;
+    --side-hov: rgba(255,255,255,.08); --side-section: rgba(255,255,255,.28);
+    --tx: #111216; --txm: #4a4d5e; --txf: #9396a8;
+    --code: #edeef4;
+    --sh: 0 1px 12px rgba(0,0,0,.07); --shl: 0 8px 40px rgba(0,0,0,.12);
+  }
+}
+/* ── System default: dark ── */
+@media (prefers-color-scheme: dark) {
+  :root:not([data-t=light]) {
+    --bg:   #0c0d11; --sur: #14151d; --hov: #1c1e28; --bd: #24263a;
+    --side: #111218; --side-bd: rgba(255,255,255,.05);
+    --side-text: rgba(255,255,255,.55); --side-active: #ffffff;
+    --side-hov: rgba(255,255,255,.07); --side-section: rgba(255,255,255,.22);
+    --tx: #e8eaf5; --txm: #8286a0; --txf: #3e4160;
+    --code: #191b27;
+    --sh: 0 1px 12px rgba(0,0,0,.4); --shl: 0 8px 40px rgba(0,0,0,.6);
+  }
+}
+/* ── Manual override: light ── */
+[data-t=light] {
+  --bg:   #f4f5f8; --sur: #ffffff; --hov: #ecedf2; --bd: #e2e4eb;
+  --side: #ffffff; --side-bd: #e2e4eb;
+  --side-text: #4a4d5e; --side-active: #111216;
+  --side-hov: #ecedf2; --side-section: #9396a8;
+  --tx: #111216; --txm: #4a4d5e; --txf: #9396a8;
+  --code: #edeef4;
+  --sh: 0 1px 12px rgba(0,0,0,.07); --shl: 0 8px 40px rgba(0,0,0,.12);
+}
+/* ── Manual override: dark ── */
+[data-t=dark] {
+  --bg:   #0c0d11; --sur: #14151d; --hov: #1c1e28; --bd: #24263a;
+  --side: #111218; --side-bd: #1e2030;
+  --side-text: rgba(255,255,255,.55); --side-active: #ffffff;
+  --side-hov: rgba(255,255,255,.08); --side-section: rgba(255,255,255,.3);
+  --tx: #e8eaf5; --txm: #8286a0; --txf: #3e4160;
+  --code: #191b27;
+  --sh: 0 1px 12px rgba(0,0,0,.4); --shl: 0 8px 40px rgba(0,0,0,.6);
+}
+
+/* ══════════════════════════ RESET ══════════════════════════ */
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;font-size:16px}
+body{font-family:var(--fh);background:var(--bg);color:var(--tx);line-height:1.65;overflow-x:hidden;transition:background .25s,color .25s}
+a{text-decoration:none;color:inherit}
+::-webkit-scrollbar{width:5px;height:5px}
+::-webkit-scrollbar-track{background:transparent}
+::-webkit-scrollbar-thumb{background:var(--bd);border-radius:99px}
+::-webkit-scrollbar-thumb:hover{background:var(--txf)}
+
+/* ══════════════════════════ LAYOUT ══════════════════════════ */
+.layout{display:flex;min-height:100vh}
+
+/* ══════════════════════════ SIDEBAR ══════════════════════════ */
+nav.side{
+  width:var(--sw);background:var(--side);
+  position:fixed;top:0;left:0;bottom:0;
+  overflow:hidden;display:flex;flex-direction:column;
+  z-index:200;
+  transition:transform .25s cubic-bezier(.4,0,.2,1), background .25s, border-color .25s;
+}
+/* phần giữa sidebar có thể scroll */
+.side-scroll{
+  flex:1;overflow-y:auto;overflow-x:hidden;
+  min-height:0;
+}
+.side-scroll::-webkit-scrollbar{width:4px}
+.side-scroll::-webkit-scrollbar-track{background:transparent}
+.side-scroll::-webkit-scrollbar-thumb{background:rgba(255,255,255,.1);border-radius:99px}
+.side-scroll::-webkit-scrollbar-thumb:hover{background:rgba(255,255,255,.2)}
+.side-brand{
+  display:flex;align-items:center;gap:10px;
+  padding:20px 16px 16px;
+  border-bottom:1px solid var(--side-bd);
+  flex-shrink:0;
+  transition:border-color .25s;
+}
+.side-brand .em{font-size:28px;line-height:1;filter:drop-shadow(0 2px 8px rgba(88,101,242,.5))}
+.side-brand .nm{font-weight:800;font-size:17px;letter-spacing:-.3px;color:var(--side-active);transition:color .25s}
+.side-brand .nm em{font-style:normal;color:var(--accent)}
+
+.side-sec{
+  padding:16px 14px 5px;
+  font-size:10px;font-weight:700;letter-spacing:1.8px;text-transform:uppercase;
+  color:var(--side-section);
+  transition:color .25s;
+}
+.side-link{
+  display:flex;align-items:center;gap:9px;
+  padding:8px 10px;margin:1px 8px;
+  border-radius:var(--rs);
+  font-size:13.5px;font-weight:600;
+  color:var(--side-text);
+  cursor:pointer;
+  transition:background .2s,color .2s;
+}
+.side-link:hover{background:var(--side-hov);color:var(--side-active)}
+.side-link.on{background:rgba(88,101,242,.25);color:var(--side-active)}
+.side-link .ic{font-size:14px;width:18px;text-align:center;flex-shrink:0}
+.side-link .arr{margin-left:auto;font-size:10px;transition:transform .2s;color:var(--side-section)}
+.side-link.open .arr{transform:rotate(90deg)}
+
+/* dropdown */
+.side-drop{overflow:hidden;max-height:0;transition:max-height .25s cubic-bezier(.4,0,.2,1)}
+.side-drop.open{max-height:600px}
+.side-sub{
+  display:flex;align-items:center;gap:8px;
+  padding:6px 10px 6px 36px;margin:1px 8px;
+  border-radius:var(--rs);
+  font-size:12.5px;font-weight:500;
+  color:var(--side-text);
+  cursor:pointer;
+  transition:background .2s,color .2s;
+  font-family:var(--fm);
+}
+.side-sub:hover{background:var(--side-hov);color:rgba(255,255,255,.9)}
+.side-sub.on{color:var(--accent);background:rgba(88,101,242,.15)}
+.side-sub .dot{width:5px;height:5px;border-radius:50%;background:currentColor;flex-shrink:0;opacity:.6}
+.side-foot{margin-top:auto;padding:12px 16px;font-size:11px;color:rgba(255,255,255,.2);border-top:1px solid var(--side-bd);text-align:center}
+
+/* ══════════════════════════ MAIN ══════════════════════════ */
+.main{margin-left:var(--sw);flex:1;min-width:0;display:flex;flex-direction:column}
+
+/* ══════════════════════════ TOPBAR ══════════════════════════ */
+.topbar{
+  position:sticky;top:0;z-index:100;
+  display:flex;align-items:center;gap:10px;
+  padding:0 28px;height:52px;
+  background:var(--sur);
+  border-bottom:1px solid var(--bd);
+  flex-shrink:0;
+  transition:background .25s,border-color .25s;
+}
+.search{
+  flex:1;max-width:360px;
+  display:flex;align-items:center;gap:8px;
+  background:var(--hov);
+  border:1px solid var(--bd);
+  border-radius:var(--rs);
+  padding:0 13px;height:34px;
+  transition:border-color .15s,box-shadow .15s;
+  cursor:text;
+}
+.search:focus-within{border-color:var(--accent);box-shadow:0 0 0 3px rgba(88,101,242,.15)}
+.search input{background:none;border:none;outline:none;font-family:var(--fh);font-size:13.5px;color:var(--tx);flex:1}
+.search input::placeholder{color:var(--txf)}
+.search .si{color:var(--txf);font-size:14px}
+.tbtn{
+  display:flex;align-items:center;justify-content:center;
+  width:34px;height:34px;border-radius:var(--rs);
+  background:var(--hov);border:1px solid var(--bd);
+  cursor:pointer;font-size:16px;color:var(--txm);
+  transition:background .15s,transform .1s;
+}
+.tbtn:hover{background:var(--hov);border-color:var(--accent);transform:scale(1.06)}
+.ham{display:none}
+.breadcrumb{margin-left:8px;font-size:13px;color:var(--txf);display:flex;align-items:center;gap:6px}
+.breadcrumb span{color:var(--txm);font-weight:600}
+
+/* ══════════════════════════ CONTENT ══════════════════════════ */
+.content{padding:36px 40px 100px;flex:1}
+section{margin-bottom:64px;scroll-margin-top:68px}
+section:nth-child(n){animation:fadeUp .4s ease both}
+section:nth-child(1){animation-delay:.05s}
+section:nth-child(2){animation-delay:.1s}
+section:nth-child(3){animation-delay:.14s}
+section:nth-child(4){animation-delay:.18s}
+section:nth-child(5){animation-delay:.22s}
+section:nth-child(6){animation-delay:.26s}
+section:nth-child(7){animation-delay:.3s}
+section:nth-child(8){animation-delay:.34s}
+@keyframes fadeUp{from{opacity:0;transform:translateY(16px)}to{opacity:1;transform:translateY(0)}}
+
+/* ══════════════════════════ HERO ══════════════════════════ */
+.hero{
+  position:relative;overflow:hidden;
+  background:linear-gradient(140deg,rgba(88,101,242,.13) 0%,rgba(59,165,92,.06) 55%,transparent 100%);
+  border:1px solid var(--bd);border-radius:18px;
+  padding:44px 48px;margin-bottom:48px;
+}
+.hero::after{
+  content:'🐥';position:absolute;right:36px;bottom:-12px;
+  font-size:96px;opacity:.07;pointer-events:none;line-height:1;
+}
+.hero-badge{
+  display:inline-flex;align-items:center;gap:5px;
+  font-size:11px;font-weight:700;letter-spacing:.7px;text-transform:uppercase;
+  padding:4px 12px;border-radius:99px;margin-bottom:16px;
+  background:var(--accent-lo);border:1px solid rgba(88,101,242,.25);color:var(--accent);
+}
+.hero h1{
+  font-size:clamp(28px,4.5vw,46px);font-weight:800;
+  line-height:1.08;letter-spacing:-1.2px;margin-bottom:14px;
+}
+.hero h1 .hl{
+  background:linear-gradient(95deg,var(--accent),#7b8ff7);
+  -webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;
+}
+.hero-desc{font-size:15px;color:var(--txm);max-width:520px;margin-bottom:28px;line-height:1.7}
+.hero-stats{display:flex;flex-wrap:wrap;gap:28px}
+.stat .n{font-weight:800;font-size:22px;color:var(--tx);line-height:1;font-variant-numeric:tabular-nums}
+.stat .l{font-size:12px;color:var(--txm);margin-top:2px}
+
+/* ══════════════════════════ SECTION TITLE ══════════════════════════ */
+.stitle{
+  display:flex;align-items:center;gap:12px;
+  font-size:19px;font-weight:800;
+  margin-bottom:20px;padding-bottom:14px;
+  border-bottom:1px solid var(--bd);
+  letter-spacing:-.3px;
+}
+.stitle .ico{
+  width:34px;height:34px;border-radius:9px;
+  display:flex;align-items:center;justify-content:center;
+  font-size:16px;flex-shrink:0;
+}
+.stitle .sub{font-size:13px;font-weight:500;color:var(--txm);margin-left:4px;letter-spacing:0}
+
+/* ══════════════════════════ COMMAND GRID ══════════════════════════ */
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:12px}
+.card{
+  background:var(--sur);border:1px solid var(--bd);border-radius:var(--r);
+  padding:18px 20px;
+  transition:transform .2s,box-shadow .2s,border-color .2s,background .25s;
+  display:flex;flex-direction:column;
+}
+.card:hover{transform:translateY(-2px);box-shadow:var(--shl);border-color:rgba(88,101,242,.4)}
+.card-head{display:flex;align-items:center;justify-content:space-between;margin-bottom:10px}
+.cmd-name{
+  font-family:var(--fm);font-size:13px;font-weight:500;
+  color:var(--accent);background:var(--accent-lo);
+  padding:3px 10px;border-radius:6px;display:inline-block;
+}
+.perm-tag{font-size:10px;font-weight:700;padding:2px 8px;border-radius:99px;border:1px solid var(--bd);color:var(--txf)}
+.card-desc{font-size:14px;color:var(--txm);line-height:1.65;margin-bottom:12px;flex:1}
+.card-usage{
+  font-family:var(--fm);font-size:12px;color:var(--txm);
+  background:var(--code);padding:7px 11px;border-radius:var(--rs);
+  word-break:break-all;border-left:2px solid var(--accent);
+  margin-bottom:10px;
+}
+.tags{display:flex;flex-wrap:wrap;gap:5px}
+.tag{
+  font-size:11px;font-weight:700;padding:3px 9px;border-radius:99px;
+  display:inline-flex;align-items:center;gap:4px;
+}
+.tag-g{background:var(--green-lo);color:var(--green)}
+.tag-y{background:var(--yellow-lo);color:var(--yellow)}
+.tag-b{background:var(--accent-lo);color:var(--accent)}
+.tag-p{background:var(--pink-lo);color:var(--pink)}
+.tag-r{background:var(--red-lo);color:var(--red)}
+.tag-c{background:var(--cyan-lo);color:#0bb}
+
+/* ══════════════════════════ FEATURE LIST ══════════════════════════ */
+.flist{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:10px}
+.fi{
+  display:flex;align-items:flex-start;gap:13px;
+  background:var(--sur);border:1px solid var(--bd);border-radius:var(--r);
+  padding:14px 16px;
+  transition:border-color .15s,background .15s;
+}
+.fi:hover{border-color:rgba(88,101,242,.3);background:var(--hov)}
+.fi .e{font-size:22px;flex-shrink:0;line-height:1;margin-top:1px}
+.fi strong{font-size:14.5px;font-weight:700;color:var(--tx);display:block;margin-bottom:3px}
+.fi p{font-size:13px;color:var(--txm);line-height:1.6}
+
+/* ══════════════════════════ NOTE ══════════════════════════ */
+.note{
+  display:flex;gap:10px;padding:12px 16px;
+  border-radius:var(--rs);border-left:3px solid;
+  margin:12px 0;font-size:13.5px;line-height:1.65;color:var(--txm);
+}
+.note strong{color:var(--tx)}
+.note.i{background:var(--accent-lo);border-color:var(--accent)}
+.note.g{background:var(--green-lo);border-color:var(--green)}
+.note.w{background:var(--yellow-lo);border-color:#c9a227}
+.note.r{background:var(--red-lo);border-color:var(--red)}
+
+/* ══════════════════════════ TABLE ══════════════════════════ */
+.tbl{overflow-x:auto;border-radius:var(--r);border:1px solid var(--bd)}
+table{width:100%;border-collapse:collapse;font-size:14px}
+th{
+  background:var(--hov);padding:10px 16px;text-align:left;
+  font-weight:700;font-size:11px;letter-spacing:.6px;text-transform:uppercase;
+  color:var(--txm);border-bottom:1px solid var(--bd);
+}
+td{padding:10px 16px;border-bottom:1px solid var(--bd);color:var(--txm)}
+tr:last-child td{border-bottom:none}
+tr:hover td{background:var(--hov)}
+td code,th code{font-family:var(--fm);font-size:12px;background:var(--code);padding:2px 7px;border-radius:4px;color:var(--accent)}
+
+/* ══════════════════════════ FLAG GRID ══════════════════════════ */
+.flags{display:grid;grid-template-columns:repeat(auto-fill,minmax(148px,1fr));gap:7px}
+.flag-item{
+  display:flex;align-items:center;gap:8px;
+  background:var(--sur);border:1px solid var(--bd);border-radius:var(--rs);
+  padding:8px 10px;transition:border-color .15s,background .15s;
+}
+.flag-item:hover{border-color:rgba(88,101,242,.4);background:var(--hov)}
+.flag-em{font-size:20px;flex-shrink:0;line-height:1}
+.flag-c{font-size:12px;font-weight:700;color:var(--tx);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.flag-l{font-size:11px;color:var(--txm)}
+
+/* ══════════════════════════ STEPS ══════════════════════════ */
+.steps{display:flex;flex-direction:column;gap:8px}
+.step{
+  display:flex;align-items:flex-start;gap:13px;
+  background:var(--sur);border:1px solid var(--bd);border-radius:var(--rs);
+  padding:13px 16px;
+}
+.step-num{
+  min-width:26px;height:26px;border-radius:50%;
+  background:var(--accent);color:#fff;
+  font-weight:800;font-size:12px;
+  display:flex;align-items:center;justify-content:center;flex-shrink:0;
+}
+.step strong{font-size:14px;font-weight:700;color:var(--tx);display:block;margin-bottom:2px}
+.step p{font-size:13px;color:var(--txm);line-height:1.6}
+
+/* ══════════════════════════ OVERLAY ══════════════════════════ */
+.ov{display:none;position:fixed;inset:0;background:rgba(0,0,0,.55);z-index:150;backdrop-filter:blur(3px)}
+.ov.on{display:block}
+
+/* ══════════════════════════ SEARCH ══════════════════════════ */
+.hidden{display:none!important}
+mark{background:rgba(254,231,92,.3);color:inherit;border-radius:3px;padding:0 2px}
+
+/* ══════════════════════════ RESPONSIVE ══════════════════════════ */
+@media(max-width:900px){
+  .content{padding:24px 20px 80px}
+  .hero{padding:28px 24px}
+  .grid{grid-template-columns:1fr}
+  .flist{grid-template-columns:1fr}
+  .flags{grid-template-columns:repeat(auto-fill,minmax(130px,1fr))}
+}
+@media(max-width:720px){
+  nav.side{transform:translateX(-100%)}
+  nav.side.open{transform:translateX(0)}
+  .main{margin-left:0}
+  .topbar{padding:0 14px}
+  .ham{display:flex}
+  .breadcrumb{display:none}
+}
+</style>
+</head>
+<body>
+<div class="ov" id="ov" onclick="closeSide()"></div>
+<div class="layout">
+
+<!-- ══════════════════════════ SIDEBAR ══════════════════════════ -->
+<nav class="side" id="side">
+  <div class="side-brand">
+    <span class="em">🐥</span>
+    <span class="nm">Chicky<em>Bot</em></span>
+  </div>
+
+  <div class="side-scroll">
+  <div class="side-sec">Tổng quan</div>
+  <a class="side-link on" href="#intro" data-id="intro"><span class="ic">✨</span>Giới thiệu</a>
+
+  <div class="side-sec">Lệnh</div>
+
+  <!-- Kiểm duyệt dropdown -->
+  <div class="side-link" onclick="toggleDrop('mod')" data-drop="mod">
+    <span class="ic">🔨</span>Kiểm duyệt
+    <span class="arr">▶</span>
+  </div>
+  <div class="side-drop" id="drop-mod">
+    <a class="side-sub" href="#cmd-mute" data-id="moderation"><span class="dot"></span>/mute</a>
+    <a class="side-sub" href="#cmd-unmute" data-id="moderation"><span class="dot"></span>/unmute</a>
+    <a class="side-sub" href="#cmd-listmute" data-id="moderation"><span class="dot"></span>/listmute</a>
+    <a class="side-sub" href="#cmd-ban" data-id="moderation"><span class="dot"></span>/ban</a>
+    <a class="side-sub" href="#cmd-unban" data-id="moderation"><span class="dot"></span>/unban</a>
+    <a class="side-sub" href="#cmd-kick" data-id="moderation"><span class="dot"></span>/kick</a>
+  </div>
+
+  <!-- Cảnh cáo dropdown -->
+  <div class="side-link" onclick="toggleDrop('warn')" data-drop="warn">
+    <span class="ic">⚠️</span>Cảnh cáo
+    <span class="arr">▶</span>
+  </div>
+  <div class="side-drop" id="drop-warn">
+    <a class="side-sub" href="#cmd-warn" data-id="warning"><span class="dot"></span>/warn</a>
+    <a class="side-sub" href="#cmd-warnconfig" data-id="warning"><span class="dot"></span>/warnconfig</a>
+  </div>
+
+  <!-- Kênh dropdown -->
+  <div class="side-link" onclick="toggleDrop('ch')" data-drop="ch">
+    <span class="ic">🔒</span>Khóa kênh
+    <span class="arr">▶</span>
+  </div>
+  <div class="side-drop" id="drop-ch">
+    <a class="side-sub" href="#cmd-lock" data-id="channel"><span class="dot"></span>/lock</a>
+    <a class="side-sub" href="#cmd-unlock" data-id="channel"><span class="dot"></span>/unlock</a>
+    <a class="side-sub" href="#cmd-listlock" data-id="channel"><span class="dot"></span>/listlock</a>
+  </div>
+
+  <!-- Tiện ích dropdown -->
+  <div class="side-link" onclick="toggleDrop('util')" data-drop="util">
+    <span class="ic">🛠️</span>Tiện ích
+    <span class="arr">▶</span>
+  </div>
+  <div class="side-drop" id="drop-util">
+    <a class="side-sub" href="#cmd-afk" data-id="utility"><span class="dot"></span>/afk</a>
+    <a class="side-sub" href="#cmd-say" data-id="utility"><span class="dot"></span>/say</a>
+    <a class="side-sub" href="#cmd-addrole" data-id="utility"><span class="dot"></span>/addrole</a>
+    <a class="side-sub" href="#cmd-removerole" data-id="utility"><span class="dot"></span>/removerole</a>
+  </div>
+
+  <div class="side-sec">Dịch thuật</div>
+  <div class="side-link" onclick="toggleDrop('tr')" data-drop="tr">
+    <span class="ic">🌐</span>Dịch thuật
+    <span class="arr">▶</span>
+  </div>
+  <div class="side-drop" id="drop-tr">
+    <a class="side-sub" href="#tr-cmd" data-id="translate"><span class="dot"></span>/translate</a>
+    <a class="side-sub" href="#tr-ctx" data-id="translate"><span class="dot"></span>Click phải dịch</a>
+    <a class="side-sub" href="#tr-flag" data-id="translate"><span class="dot"></span>React lá cờ</a>
+  </div>
+
+  <div class="side-sec">Tự động</div>
+  <a class="side-link" href="#auto" data-id="auto"><span class="ic">⚡</span>Tự động hoá</a>
+
+  </div><!-- /side-scroll -->
+  <div class="side-foot">Chicky Bot • Bản quyền thuộc về fnsurival.github.io </div>
+</nav>
+
+<!-- ══════════════════════════ MAIN ══════════════════════════ -->
+<div class="main">
+  <div class="topbar">
+    <button class="tbtn ham" onclick="toggleSide()">☰</button>
+    <div class="search">
+      <span class="si">🔍</span>
+      <input id="q" type="text" placeholder="Tìm lệnh, tính năng..." oninput="doSearch(this.value)">
+    </div>
+    <div class="breadcrumb" id="bc">/ <span id="bc-cur">Giới thiệu</span></div>
+    <div style="margin-left:auto"></div>
+    <button class="tbtn" onclick="toggleTheme()">🌓</button>
+  </div>
+
+  <div class="content" id="ct">
+
+    <!-- ══ INTRO ══ -->
+    <section id="intro">
+      <div class="hero">
+        <div class="hero-badge">📖 Hướng dẫn sử dụng</div>
+        <h1>Chào mừng đến<br><span class="hl">Chicky Bot</span></h1>
+        <p class="hero-desc">Bot đa năng cho server Discord — kiểm duyệt, cảnh cáo có cấu hình, quản lý kênh, phản hồi tự động và dịch thuật 98 ngôn ngữ ngay trong chat.</p>
+        <div class="hero-stats">
+          <div class="stat"><div class="n">16</div><div class="l">loại lệnh</div></div>
+          <div class="stat"><div class="n">1</div><div class="l">context menu</div></div>
+          <div class="stat"><div class="n">98</div><div class="l">ngôn ngữ có thể dịch</div></div>
+          <div class="stat"><div class="n">🇻🇳 🇺🇸</div><div class="l">ngôn ngữ UI</div></div>
+        </div>
+      </div>
+
+      <div class="flist">
+        <div class="fi"><span class="e">🔨</span><div><strong>Kiểm duyệt đầy đủ</strong><p>Mute/Ban/Kick/Unban với autocomplete thông minh — chỉ hiện đúng người đang bị phạt</p></div></div>
+        <div class="fi"><span class="e">⚠️</span><div><strong>Cảnh cáo có cấu hình</strong><p>Tự động phạt khi đạt ngưỡng. Cấu hình mọi thứ qua UI button — không cần gõ lệnh phức tạp</p></div></div>
+        <div class="fi"><span class="e">🔒</span><div><strong>Khóa kênh</strong><p>Khóa có thời hạn, tự động mở. Autocomplete chỉ hiện kênh đang bị khóa khi unlock</p></div></div>
+        <div class="fi"><span class="e">🌐</span><div><strong>Dịch thuật 3 cách</strong><p>Slash command, click phải, hoặc react lá cờ. Tất cả 98 ngôn ngữ, tự xóa sau 10 giây</p></div></div>
+        <div class="fi"><span class="e">💬</span><div><strong>Phản hồi tự động</strong><p>Bot trả lời thông minh khi được @tag, dựa trên từ khoá cấu hình trong responses.json</p></div></div>
+        <div class="fi"><span class="e">⚡</span><div><strong>Tự động setup</strong><p>Bot tự tạo role muted khi vào server mới. Tự động DM admin nếu thiếu quyền, kèm nút yêu cầu cấp quyền</p></div></div>
+        <div class="fi"><span class="e">🗣️</span><div><strong>Đa ngôn ngữ</strong><p>Tiếng Việt hoặc tiếng Anh — tự động theo cài đặt ngôn ngữ Discord của từng người</p></div></div>
+      </div>
+    </section>
+
+    <!-- ══ MODERATION ══ -->
+    <section id="moderation">
+      <div class="stitle">
+        <div class="ico" style="background:var(--red-lo)">🔨</div>
+        Kiểm duyệt thành viên
+        <span class="sub">6 lệnh</span>
+      </div>
+
+      <div class="grid">
+        <div class="card" id="cmd-mute">
+          <div class="card-head"><span class="cmd-name">/mute</span><span class="perm-tag">manage_roles</span></div>
+          <div class="card-desc">Cấm thành viên gửi tin nhắn. Hỗ trợ thời gian cụ thể hoặc mute vĩnh viễn. Bot tự động unmute khi hết hạn và gửi DM thông báo cho người bị mute.</div>
+          <div class="card-usage">/mute &lt;member&gt; [duration] [reason]</div>
+          <div class="tags">
+            <span class="tag tag-y">⏱ có thời gian</span>
+            <span class="tag tag-g">↻ tự động unmute</span>
+            <span class="tag tag-p">✉ DM</span>
+          </div>
+        </div>
+
+        <div class="card" id="cmd-unmute">
+          <div class="card-head"><span class="cmd-name">/unmute</span><span class="perm-tag">manage_roles</span></div>
+          <div class="card-desc">Gỡ mute thành viên. Autocomplete chỉ hiển thị những người <strong>đang bị mute</strong> trong server — lấy từ database, không cần nhớ ID.</div>
+          <div class="card-usage">/unmute &lt;member&gt; [reason]</div>
+          <div class="tags"><span class="tag tag-b">✦ autocomplete</span></div>
+        </div>
+
+        <div class="card" id="cmd-listmute">
+          <div class="card-head"><span class="cmd-name">/listmute</span><span class="perm-tag">manage_roles</span></div>
+          <div class="card-desc">Xem toàn bộ danh sách đang bị mute kèm lý do, thời điểm bắt đầu, thời điểm hết hạn và người đã mute.</div>
+          <div class="card-usage">/listmute</div>
+          <div class="tags"><span class="tag tag-c">📋 danh sách</span></div>
+        </div>
+
+        <div class="card" id="cmd-ban">
+          <div class="card-head"><span class="cmd-name">/ban</span><span class="perm-tag">ban_members</span></div>
+          <div class="card-desc">Cấm thành viên khỏi server vĩnh viễn. Bot gửi DM thông báo cho người bị ban trước khi thực thi. Không thể ban người có role cao hơn bạn.</div>
+          <div class="card-usage">/ban &lt;member&gt; [reason]</div>
+          <div class="tags"><span class="tag tag-p">✉ DM trước khi ban</span><span class="tag tag-r">vĩnh viễn</span></div>
+        </div>
+
+        <div class="card" id="cmd-unban">
+          <div class="card-head"><span class="cmd-name">/unban</span><span class="perm-tag">ban_members</span></div>
+          <div class="card-desc">Gỡ ban thành viên. Autocomplete hiển thị danh sách <strong>tất cả người đang bị cấm</strong> trong server, tìm kiếm theo tên hoặc ID.</div>
+          <div class="card-usage">/unban &lt;user&gt; [reason]</div>
+          <div class="tags"><span class="tag tag-b">✦ autocomplete</span><span class="tag tag-p">✉ DM thông báo</span></div>
+        </div>
+
+        <div class="card" id="cmd-kick">
+          <div class="card-head"><span class="cmd-name">/kick</span><span class="perm-tag">kick_members</span></div>
+          <div class="card-desc">Đá thành viên ra khỏi server. Thành viên vẫn có thể join lại bằng link mời. Gửi DM thông báo trước khi kick.</div>
+          <div class="card-usage">/kick &lt;member&gt; [reason]</div>
+          <div class="tags"><span class="tag tag-p">✉ DM</span></div>
+        </div>
+      </div>
+
+      <div class="note i">💡 <div>Tất cả lệnh kiểm duyệt đều kiểm tra hierarchy — bạn không thể phạt người có role cao hơn hoặc bằng mình. Bot cũng tự kiểm tra quyền của chính nó trước khi thực hiện.</div></div>
+    </section>
+
+    <!-- ══ WARNING ══ -->
+    <section id="warning">
+      <div class="stitle">
+        <div class="ico" style="background:var(--yellow-lo)">⚠️</div>
+        Hệ thống cảnh cáo
+        <span class="sub">2 lệnh</span>
+      </div>
+
+      <div class="grid">
+        <div class="card" id="cmd-warn">
+          <div class="card-head"><span class="cmd-name">/warn</span><span class="perm-tag">manage_roles</span></div>
+          <div class="card-desc">Cảnh cáo thành viên. Khi số lần cảnh cáo đạt ngưỡng đã cấu hình, bot <strong>tự động áp hình phạt</strong> (mute / kick / ban). Cảnh cáo cũ tự xóa sau thời gian cấu hình. Gửi DM thông báo cho người bị warn.</div>
+          <div class="card-usage">/warn &lt;member&gt; [reason]</div>
+          <div class="tags">
+            <span class="tag tag-g">⚡ tự động phạt</span>
+            <span class="tag tag-y">⏱ tự hết hạn</span>
+            <span class="tag tag-p">✉ DM</span>
+          </div>
+        </div>
+
+        <div class="card" id="cmd-warnconfig">
+          <div class="card-head"><span class="cmd-name">/warnconfig</span><span class="perm-tag">manage_guild</span></div>
+          <div class="card-desc">Cấu hình toàn bộ hệ thống cảnh cáo qua <strong>giao diện nút bấm</strong>: thời gian lưu cảnh cáo, thêm/sửa/xóa ngưỡng hình phạt, reset về mặc định. Tối đa 10 ngưỡng.</div>
+          <div class="card-usage">/warnconfig</div>
+          <div class="tags"><span class="tag tag-b">🎛 UI buttons</span><span class="tag tag-c">tối đa 10 ngưỡng</span></div>
+        </div>
+      </div>
+
+      <div class="note g" style="margin-top:14px">
+        🎛️ <div><strong>Warnconfig</strong> cho phép tuỳ chỉnh: <strong>thời gian lưu</strong> cảnh cáo (1 ngày → 90 ngày hoặc không giới hạn), mỗi ngưỡng chọn <strong>hành động</strong> (Mute / Kick / Ban) và nếu là mute thì chọn <strong>thời gian</strong> mute. Cấu hình riêng cho từng server.</div>
+      </div>
+
+      <div class="tbl" style="margin-top:14px">
+        <table>
+          <thead><tr><th>Cấu hình mặc định</th><th>Hành động</th><th>Thời gian</th></tr></thead>
+          <tbody>
+            <tr><td>3 lần cảnh cáo</td><td>🔇 Mute</td><td>1 ngày</td></tr>
+            <tr><td>6 lần cảnh cáo</td><td>🔇 Mute</td><td>3 ngày</td></tr>
+            <tr><td>9 lần cảnh cáo</td><td>🔇 Mute</td><td>7 ngày</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- ══ CHANNEL ══ -->
+    <section id="channel">
+      <div class="stitle">
+        <div class="ico" style="background:var(--accent-lo)">🔒</div>
+        Khóa kênh
+        <span class="sub">3 lệnh</span>
+      </div>
+
+      <div class="grid">
+        <div class="card" id="cmd-lock">
+          <div class="card-head"><span class="cmd-name">/lock</span><span class="perm-tag">manage_channels</span></div>
+          <div class="card-desc">Khóa kênh, ngăn @everyone gửi tin nhắn. Có thể đặt thời gian — bot tự mở khóa khi hết giờ. Autocomplete hiện tất cả kênh, <strong>kênh hiện tại lên đầu</strong>.</div>
+          <div class="card-usage">/lock [duration] [channel] [reason]</div>
+          <div class="tags">
+            <span class="tag tag-y">⏱ có thời gian</span>
+            <span class="tag tag-g">↻ tự động mở</span>
+            <span class="tag tag-b">✦ autocomplete</span>
+          </div>
+        </div>
+
+        <div class="card" id="cmd-unlock">
+          <div class="card-head"><span class="cmd-name">/unlock</span><span class="perm-tag">manage_channels</span></div>
+          <div class="card-desc">Mở khóa kênh. Autocomplete <strong>chỉ hiện kênh đang bị khóa</strong> (lấy từ database). Kênh hiện tại luôn xuất hiện đầu tiên.</div>
+          <div class="card-usage">/unlock [channel] [reason]</div>
+          <div class="tags"><span class="tag tag-b">✦ autocomplete</span></div>
+        </div>
+
+        <div class="card" id="cmd-listlock">
+          <div class="card-head"><span class="cmd-name">/listlock</span><span class="perm-tag">manage_channels</span></div>
+          <div class="card-desc">Xem tất cả kênh đang bị khóa: ai khóa, lý do, thời điểm khóa và thời điểm tự động mở khóa.</div>
+          <div class="card-usage">/listlock</div>
+          <div class="tags"><span class="tag tag-c">📋 danh sách</span></div>
+        </div>
+      </div>
+
+      <div class="note i">💡 <div>Bot tự động gửi thông báo vào kênh khi khóa và mở khóa để thành viên biết lý do. Dữ liệu khóa được lưu trên database — không mất khi bot restart.</div></div>
+    </section>
+
+    <!-- ══ UTILITY ══ -->
+    <section id="utility">
+      <div class="stitle">
+        <div class="ico" style="background:var(--green-lo)">🛠️</div>
+        Tiện ích
+        <span class="sub">4 lệnh</span>
+      </div>
+
+      <div class="grid">
+        <div class="card" id="cmd-afk">
+          <div class="card-head"><span class="cmd-name">/afk</span><span class="perm-tag">—</span></div>
+          <div class="card-desc">Đặt trạng thái AFK. Khi có người mention bạn, bot thông báo bạn đang AFK kèm lý do. <strong>Tự động tắt AFK</strong> ngay khi bạn gửi tin nhắn trở lại.</div>
+          <div class="card-usage">/afk [reason]</div>
+          <div class="tags"><span class="tag tag-g">↻ tự động tắ afk</span></div>
+        </div>
+
+        <div class="card" id="cmd-say">
+          <div class="card-head"><span class="cmd-name">/say</span><span class="perm-tag">manage_messages</span></div>
+          <div class="card-desc">Bot gửi tin nhắn thay bạn vào kênh đang được chọn trong Admin Terminal. Hỗ trợ mention @người_dùng và @everyone.</div>
+          <div class="card-usage">/say &lt;message&gt;</div>
+          <div class="tags"></div>
+        </div>
+
+        <div class="card" id="cmd-addrole">
+          <div class="card-head"><span class="cmd-name">/addrole</span><span class="perm-tag">manage_roles</span></div>
+          <div class="card-desc">Thêm role cho thành viên. Bot kiểm tra hierarchy — không thể thêm role cao hơn role cao nhất của bot.</div>
+          <div class="card-usage">/addrole &lt;member&gt; &lt;role&gt;</div>
+          <div class="tags"></div>
+        </div>
+
+        <div class="card" id="cmd-removerole">
+          <div class="card-head"><span class="cmd-name">/removerole</span><span class="perm-tag">manage_roles</span></div>
+          <div class="card-desc">Gỡ role khỏi thành viên.</div>
+          <div class="card-usage">/removerole &lt;member&gt; &lt;role&gt;</div>
+          <div class="tags"></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ══ TRANSLATE ══ -->
+    <section id="translate">
+      <div class="stitle">
+        <div class="ico" style="background:var(--cyan-lo)">🌐</div>
+        Dịch thuật
+        <span class="sub">3 cách sử dụng</span>
+      </div>
+
+      <!-- /translate -->
+      <div style="margin-bottom:24px" id="tr-cmd">
+        <h3 style="font-size:15px;font-weight:700;color:var(--tx);margin-bottom:10px">💬 Lệnh /translate</h3>
+        <div class="card" style="max-width:580px">
+          <div class="card-head"><span class="cmd-name">/translate</span><span class="perm-tag">—</span></div>
+          <div class="card-desc">Dịch văn bản bất kỳ, hoặc nhập <strong>ID tin nhắn</strong> để bot tự fetch và dịch tin nhắn đó. Chọn ngôn ngữ đích từ autocomplete với <strong>107 ngôn ngữ</strong>. Để trống → dịch sang ngôn ngữ Discord của bạn.</div>
+          <div class="card-usage">/translate &lt;text | message_ID&gt; [target_lang]</div>
+          <div class="tags">
+            <span class="tag tag-b">✦ 107 ngôn ngữ</span>
+            <span class="tag tag-g">ephemeral</span>
+          </div>
+        </div>
+        <div class="note g" style="margin-top:10px">
+          📢 <div>Sau khi dịch: nút <strong>Chia sẻ</strong> để gửi public vào kênh (nút biến mất sau khi share để tránh share nhiều lần), nút <strong>Đổi ngôn ngữ</strong> để dịch lại sang ngôn ngữ khác.</div>
+        </div>
+      </div>
+
+      <!-- Context menu -->
+      <div style="margin-bottom:24px" id="tr-ctx">
+        <h3 style="font-size:15px;font-weight:700;color:var(--tx);margin-bottom:10px">🖱️ Click phải để dịch</h3>
+        <div class="steps">
+          <div class="step"><div class="step-num">1</div><div><strong>Click chuột phải vào tin nhắn bất kỳ</strong><p>Trên Discord desktop hoặc mobile</p></div></div>
+          <div class="step"><div class="step-num">2</div><div><strong>Chọn "Apps" → "Translate"</strong><p>Trong context menu xuất hiện</p></div></div>
+          <div class="step"><div class="step-num">3</div><div><strong>Kết quả hiện riêng tư — chỉ mình bạn thấy</strong><p>Kèm nút Chia sẻ và Đổi ngôn ngữ. Bot tự detect ngôn ngữ Discord của bạn làm đích dịch mặc định.</p></div></div>
+        </div>
+      </div>
+
+      <!-- Flag reaction -->
+      <div id="tr-flag">
+        <h3 style="font-size:15px;font-weight:700;color:var(--tx);margin-bottom:10px">🏳️ React lá cờ</h3>
+        <p style="color:var(--txm);font-size:14px;margin-bottom:12px">Cách dùng nhanh nhất — không gõ lệnh. React lá cờ vào bất kỳ tin nhắn nào, bot reply bản dịch rồi <strong>tự xóa sau 10 giây</strong>.</p>
+        <div class="note w" style="margin-bottom:16px">⚡ <div>Ví dụ: React 🇻🇳 vào tin nhắn tiếng Anh → bot reply tiếng Việt → tự xóa sau 10s. Nếu ngôn ngữ gốc trùng ngôn ngữ đích → bot im lặng, không reply.</div></div>
+        <p style="font-size:11px;font-weight:700;color:var(--txf);letter-spacing:.8px;text-transform:uppercase;margin-bottom:10px">98 lá cờ được hỗ trợ</p>
+        <div class="flags" id="flags"></div>
+      </div>
+    </section>
+
+    <!-- ══ AUTO ══ -->
+    <section id="auto">
+      <div class="stitle">
+        <div class="ico" style="background:var(--green-lo)">⚡</div>
+        Tự động hoá
+        <span class="sub">không cần lệnh</span>
+      </div>
+
+      <div class="flist">
+        <div class="fi"><span class="e">💬</span><div>
+          <strong>Phản hồi khi được @tag</strong>
+          <p>Bot tự động trả lời thông minh dựa trên từ khoá khi thành viên mention bot. Nội dung cấu hình trong <code style="font-family:var(--fm);font-size:11.5px;background:var(--code);padding:1px 6px;border-radius:4px">data/json/responses.json</code>.</p>
+        </div></div>
+
+        <div class="fi"><span class="e">🚫</span><div>
+          <strong>Tự động unmute khi hết hạn</strong>
+          <p>Bot kiểm tra định kỳ, tự động gỡ mute và gửi DM thông báo cho người bị mute khi thời gian kết thúc. Không cần can thiệp thủ công.</p>
+        </div></div>
+
+        <div class="fi"><span class="e">🔓</span><div>
+          <strong>Tự động mở khóa kênh</strong>
+          <p>Nếu /lock được đặt thời gian, bot sẽ tự động mở khóa và gửi thông báo vào kênh khi hết giờ.</p>
+        </div></div>
+
+        <div class="fi"><span class="e">⏱</span><div>
+          <strong>Dọn dẹp cảnh cáo hết hạn</strong>
+          <p>Bot chạy tác vụ mỗi 6 tiếng để xóa các cảnh cáo đã hết thời hạn lưu khỏi database, giữ dữ liệu gọn sạch.</p>
+        </div></div>
+
+        <div class="fi"><span class="e">⚙️</span><div>
+          <strong>Tự động setup khi join server</strong>
+          <p>Bot tự tạo role <code style="font-family:var(--fm);font-size:11.5px;background:var(--code);padding:1px 6px;border-radius:4px">muted</code> và thiết lập quyền cho tất cả kênh. Nếu thiếu quyền → DM admin kèm nút cấp quyền và thử lại.</p>
+        </div></div>
+
+        <div class="fi"><span class="e">📢</span><div>
+          <strong>Phát hiện AFK</strong>
+          <p>Khi ai đó mention người đang AFK, bot tự động thông báo và xóa tin nhắn đó. Người AFK sẽ được gỡ AFK tự động khi họ gửi tin nhắn tiếp theo.</p>
+        </div></div>
+      </div>
+
+      <div class="note i" style="margin-top:16px">
+        🔄 <div><strong>Hot Reload</strong>: Sau khi sửa code, gõ <code style="font-family:var(--fm);font-size:12px;background:var(--code);padding:1px 6px;border-radius:4px;color:var(--accent)">reload</code> trong Admin Terminal để áp dụng ngay không cần tắt bot. Dùng <code style="font-family:var(--fm);font-size:12px;background:var(--code);padding:1px 6px;border-radius:4px;color:var(--accent)">reload sync</code> khi thêm lệnh mới để đồng bộ lên Discord.</div>
+      </div>
+    </section>
+
+  </div>
+</div>
+</div>
+
+<script>
+/* ── FLAGS ─────────────────────────────────────────────────────── */
+const FLAGS=[
+  {f:"🇦🇫",c:"Afghanistan",l:"Pashto"},{f:"🇦🇱",c:"Albania",l:"Albanian"},{f:"🇦🇲",c:"Armenia",l:"Armenian"},
+  {f:"🇦🇴",c:"Angola",l:"Portuguese"},{f:"🇦🇷",c:"Argentina",l:"Spanish"},{f:"🇦🇺",c:"Australia",l:"English"},
+  {f:"🇦🇿",c:"Azerbaijan",l:"Azerbaijani"},{f:"🇧🇦",c:"Bosnia",l:"Bosnian"},{f:"🇧🇩",c:"Bangladesh",l:"Bengali"},
+  {f:"🇧🇬",c:"Bulgaria",l:"Bulgarian"},{f:"🇧🇴",c:"Bolivia",l:"Spanish"},{f:"🇧🇷",c:"Brazil",l:"Portuguese"},
+  {f:"🇧🇾",c:"Belarus",l:"Belarusian"},{f:"🇨🇦",c:"Canada",l:"English"},{f:"🇨🇱",c:"Chile",l:"Spanish"},
+  {f:"🇨🇳",c:"China",l:"Chinese (Simp.)"},{f:"🇨🇴",c:"Colombia",l:"Spanish"},{f:"🇨🇺",c:"Cuba",l:"Spanish"},
+  {f:"🇨🇿",c:"Czech Rep.",l:"Czech"},{f:"🇩🇪",c:"Germany",l:"German"},{f:"🇩🇰",c:"Denmark",l:"Danish"},
+  {f:"🇩🇿",c:"Algeria",l:"Arabic"},{f:"🇪🇨",c:"Ecuador",l:"Spanish"},{f:"🇪🇪",c:"Estonia",l:"Estonian"},
+  {f:"🇪🇬",c:"Egypt",l:"Arabic"},{f:"🇪🇸",c:"Spain",l:"Spanish"},{f:"🇪🇹",c:"Ethiopia",l:"Amharic"},
+  {f:"🇫🇮",c:"Finland",l:"Finnish"},{f:"🇫🇷",c:"France",l:"French"},{f:"🇬🇧",c:"UK",l:"English"},
+  {f:"🇬🇪",c:"Georgia",l:"Georgian"},{f:"🇬🇭",c:"Ghana",l:"Akan"},{f:"🇬🇷",c:"Greece",l:"Greek"},
+  {f:"🇭🇰",c:"Hong Kong",l:"Chinese (Trad.)"},{f:"🇭🇷",c:"Croatia",l:"Croatian"},{f:"🇭🇺",c:"Hungary",l:"Hungarian"},
+  {f:"🇮🇩",c:"Indonesia",l:"Indonesian"},{f:"🇮🇱",c:"Israel",l:"Hebrew"},{f:"🇮🇳",c:"India",l:"Hindi"},
+  {f:"🇮🇶",c:"Iraq",l:"Arabic"},{f:"🇮🇷",c:"Iran",l:"Persian"},{f:"🇮🇸",c:"Iceland",l:"Icelandic"},
+  {f:"🇮🇹",c:"Italy",l:"Italian"},{f:"🇯🇴",c:"Jordan",l:"Arabic"},{f:"🇯🇵",c:"Japan",l:"Japanese"},
+  {f:"🇰🇪",c:"Kenya",l:"Swahili"},{f:"🇰🇬",c:"Kyrgyzstan",l:"Kyrgyz"},{f:"🇰🇭",c:"Cambodia",l:"Khmer"},
+  {f:"🇰🇷",c:"South Korea",l:"Korean"},{f:"🇰🇿",c:"Kazakhstan",l:"Kazakh"},{f:"🇱🇦",c:"Laos",l:"Lao"},
+  {f:"🇱🇧",c:"Lebanon",l:"Arabic"},{f:"🇱🇹",c:"Lithuania",l:"Lithuanian"},{f:"🇱🇻",c:"Latvia",l:"Latvian"},
+  {f:"🇱🇾",c:"Libya",l:"Arabic"},{f:"🇲🇦",c:"Morocco",l:"Arabic"},{f:"🇲🇰",c:"Macedonia",l:"Macedonian"},
+  {f:"🇲🇲",c:"Myanmar",l:"Burmese"},{f:"🇲🇳",c:"Mongolia",l:"Mongolian"},{f:"🇲🇽",c:"Mexico",l:"Spanish"},
+  {f:"🇲🇾",c:"Malaysia",l:"Malay"},{f:"🇳🇬",c:"Nigeria",l:"Yoruba"},{f:"🇳🇱",c:"Netherlands",l:"Dutch"},
+  {f:"🇳🇴",c:"Norway",l:"Norwegian"},{f:"🇳🇵",c:"Nepal",l:"Nepali"},{f:"🇳🇿",c:"New Zealand",l:"English"},
+  {f:"🇵🇪",c:"Peru",l:"Spanish"},{f:"🇵🇬",c:"Papua N.G.",l:"English"},{f:"🇵🇭",c:"Philippines",l:"Filipino"},
+  {f:"🇵🇰",c:"Pakistan",l:"Urdu"},{f:"🇵🇱",c:"Poland",l:"Polish"},{f:"🇵🇹",c:"Portugal",l:"Portuguese"},
+  {f:"🇷🇴",c:"Romania",l:"Romanian"},{f:"🇷🇺",c:"Russia",l:"Russian"},{f:"🇸🇦",c:"Saudi Arabia",l:"Arabic"},
+  {f:"🇸🇩",c:"Sudan",l:"Arabic"},{f:"🇸🇪",c:"Sweden",l:"Swedish"},{f:"🇸🇬",c:"Singapore",l:"English"},
+  {f:"🇸🇮",c:"Slovenia",l:"Slovenian"},{f:"🇸🇰",c:"Slovakia",l:"Slovak"},{f:"🇸🇴",c:"Somalia",l:"Somali"},
+  {f:"🇸🇷",c:"Suriname",l:"Serbian"},{f:"🇸🇾",c:"Syria",l:"Arabic"},{f:"🇹🇭",c:"Thailand",l:"Thai"},
+  {f:"🇹🇯",c:"Tajikistan",l:"Tajik"},{f:"🇹🇲",c:"Turkmenistan",l:"Turkmen"},{f:"🇹🇳",c:"Tunisia",l:"Arabic"},
+  {f:"🇹🇷",c:"Turkey",l:"Turkish"},{f:"🇹🇼",c:"Taiwan",l:"Chinese (Trad.)"},{f:"🇹🇿",c:"Tanzania",l:"Swahili"},
+  {f:"🇺🇦",c:"Ukraine",l:"Ukrainian"},{f:"🇺🇸",c:"USA",l:"English"},{f:"🇺🇿",c:"Uzbekistan",l:"Uzbek"},
+  {f:"🇻🇪",c:"Venezuela",l:"Spanish"},{f:"🇻🇳",c:"Vietnam",l:"Vietnamese"},{f:"🇾🇪",c:"Yemen",l:"Arabic"},
+  {f:"🇿🇦",c:"South Africa",l:"Afrikaans"},{f:"🇿🇼",c:"Zimbabwe",l:"Shona"},
+];
+document.getElementById('flags').innerHTML=FLAGS.map(x=>`
+<div class="flag-item">
+  <span class="flag-em">${x.f}</span>
+  <div><div class="flag-c">${x.c}</div><div class="flag-l">${x.l}</div></div>
+</div>`).join('');
+
+/* ── THEME ─────────────────────────────────────────────────────── */
+const html=document.documentElement;
+const saved=localStorage.getItem('t');
+if(saved)html.dataset.t=saved;
+function toggleTheme(){
+  const cur=html.dataset.t||(matchMedia('(prefers-color-scheme:dark)').matches?'dark':'light');
+  const next=cur==='dark'?'light':'dark';
+  html.dataset.t=next;localStorage.setItem('t',next);
+}
+
+/* ── SIDEBAR ───────────────────────────────────────────────────── */
+function toggleSide(){
+  document.getElementById('side').classList.toggle('open');
+  document.getElementById('ov').classList.toggle('on');
+}
+function closeSide(){
+  document.getElementById('side').classList.remove('open');
+  document.getElementById('ov').classList.remove('on');
+}
+
+/* ── DROPDOWN ──────────────────────────────────────────────────── */
+function toggleDrop(id){
+  const drop=document.getElementById('drop-'+id);
+  const btn=document.querySelector(`[data-drop="${id}"]`);
+  const isOpen=drop.classList.contains('open');
+  drop.classList.toggle('open',!isOpen);
+  btn.classList.toggle('open',!isOpen);
+}
+// Open dropdown that contains active link on load
+function openDropForSection(secId){
+  const subLinks=document.querySelectorAll('.side-sub[data-id="'+secId+'"]');
+  subLinks.forEach(l=>{
+    const drop=l.closest('.side-drop');
+    if(drop){
+      drop.classList.add('open');
+      const id=drop.id.replace('drop-','');
+      const btn=document.querySelector(`[data-drop="${id}"]`);
+      if(btn)btn.classList.add('open');
+    }
+  });
+}
+
+/* ── NAV ACTIVE + BREADCRUMB ───────────────────────────────────── */
+const SECTION_NAMES={
+  'intro':'Giới thiệu','moderation':'Kiểm duyệt','warning':'Cảnh cáo',
+  'channel':'Khóa kênh','utility':'Tiện ích','translate':'Dịch thuật','auto':'Tự động hoá'
+};
+function setActive(id){
+  document.querySelectorAll('.side-link[data-id]').forEach(el=>{
+    el.classList.toggle('on',el.dataset.id===id);
+  });
+  document.querySelectorAll('.side-sub[data-id]').forEach(el=>{
+    el.classList.remove('on');
+  });
+  const bc=document.getElementById('bc-cur');
+  if(bc)bc.textContent=SECTION_NAMES[id]||id;
+  openDropForSection(id);
+}
+
+/* ── SCROLL SPY ────────────────────────────────────────────────── */
+const secs=document.querySelectorAll('section[id]');
+const obs=new IntersectionObserver(entries=>{
+  entries.forEach(e=>{if(e.isIntersecting)setActive(e.target.id)});
+},{rootMargin:'-25% 0px -65% 0px'});
+secs.forEach(s=>obs.observe(s));
+
+// Sub-items click
+document.querySelectorAll('.side-sub').forEach(el=>{
+  el.addEventListener('click',function(e){
+    e.preventDefault();
+    const href=this.getAttribute('href');
+    const target=document.querySelector(href);
+    if(target){const y=target.getBoundingClientRect().top+window.scrollY-64;window.scrollTo({top:y,behavior:'smooth'})}
+    document.querySelectorAll('.side-sub').forEach(x=>x.classList.remove('on'));
+    this.classList.add('on');
+    closeSide();
+  });
+});
+document.querySelectorAll('.side-link[data-id]').forEach(el=>{
+  el.addEventListener('click',function(e){
+    e.preventDefault();
+    const href=this.getAttribute('href');
+    if(!href)return;
+    const target=document.querySelector(href);
+    if(target){const y=target.getBoundingClientRect().top+window.scrollY-64;window.scrollTo({top:y,behavior:'smooth'})}
+    closeSide();
+  });
+});
+
+/* ── SEARCH ────────────────────────────────────────────────────── */
+function doSearch(q){
+  q=q.trim().toLowerCase();
+  // Remove old marks
+  document.querySelectorAll('mark').forEach(m=>{
+    const t=document.createTextNode(m.textContent);
+    m.parentNode.replaceChild(t,m);m.parentNode.normalize();
+  });
+  if(!q){
+    document.querySelectorAll('.card,.fi,.flag-item,.step').forEach(el=>el.classList.remove('hidden'));
+    return;
+  }
+  document.querySelectorAll('.card,.fi,.flag-item,.step').forEach(el=>{
+    el.classList.toggle('hidden',!el.textContent.toLowerCase().includes(q));
+  });
+  // Highlight
+  function hl(node){
+    if(node.nodeType===3){
+      const i=node.textContent.toLowerCase().indexOf(q);
+      if(i<0)return;
+      const after=node.splitText(i);after.splitText(q.length);
+      const mk=document.createElement('mark');
+      mk.appendChild(after.cloneNode(true));
+      after.parentNode.replaceChild(mk,after);
+    } else if(node.nodeType===1&&!['MARK','SCRIPT','STYLE','CODE'].includes(node.tagName)){
+      [...node.childNodes].forEach(hl);
+    }
+  }
+  document.querySelectorAll('.card:not(.hidden),.fi:not(.hidden)').forEach(hl);
+}
+
+/* ── INIT ──────────────────────────────────────────────────────── */
+openDropForSection('moderation');
+</script>
+</body>
+</html>
