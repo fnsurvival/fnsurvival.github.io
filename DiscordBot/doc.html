@@ -64,7 +64,7 @@
 					--side-section: rgba(255, 255, 255, .22);
 					--tx: #e8eaf5;
 					--txm: #8286a0;
-					--txf: #9799b8;
+					--txf: #3e4160;
 					--code: #191b27;
 					--sh: 0 1px 12px rgba(0, 0, 0, .4);
 					--shl: 0 8px 40px rgba(0, 0, 0, .6);
@@ -312,7 +312,7 @@
 
 			.side-sub:hover {
 				background: var(--side-hov);
-				color: rgba(255, 255, 255, .9)
+				color: var(--side-active)
 			}
 
 			.side-sub.on {
@@ -333,9 +333,10 @@
 				margin-top: auto;
 				padding: 12px 16px;
 				font-size: 11px;
-				color: rgba(255, 255, 255, .2);
+				color: var(--side-section);
 				border-top: 1px solid var(--side-bd);
-				text-align: center
+				text-align: center;
+				transition: color .25s, border-color .25s
 			}
 
 			/* ══════════════════════════ MAIN ══════════════════════════ */
@@ -1104,12 +1105,24 @@
 						<a class="side-sub" href="#tr-flag" data-id="translate">
 							<span class="dot"></span>React lá cờ </a>
 					</div>
+					<div class="side-sec">Minigame</div>
+					<div class="side-link" onclick="toggleDrop('mg')" data-drop="mg">
+						<span class="ic">🎲</span>Tài Xỉu <span class="arr">▶</span>
+					</div>
+					<div class="side-drop" id="drop-mg">
+						<a class="side-sub" href="#mg-rules" data-id="minigame">
+							<span class="dot"></span>Cách chơi </a>
+						<a class="side-sub" href="#mg-bets" data-id="minigame">
+							<span class="dot"></span>Loại cược </a>
+						<a class="side-sub" href="#mg-cmds" data-id="minigame">
+							<span class="dot"></span>Lệnh </a>
+					</div>
 					<div class="side-sec">Tự động</div>
 					<a class="side-link" href="#auto" data-id="auto">
 						<span class="ic">⚡</span>Tự động hoá </a>
 				</div>
 				<!-- /side-scroll -->
-				<div class="side-foot">Chicky Bot • Bản quyền thuộc về fnsurival.github.io </div>
+				<div class="side-foot">Chicky Bot • v2.0</div>
 			</nav>
 			<!-- ══════════════════════════ MAIN ══════════════════════════ -->
 			<div class="main">
@@ -1132,11 +1145,11 @@
 							<h1>Chào mừng đến <br>
 								<span class="hl">Chicky Bot</span>
 							</h1>
-							<p class="hero-desc">Bot đa năng cho server Discord — kiểm duyệt, cảnh cáo có cấu hình, quản lý kênh và dịch thuật 98 ngôn ngữ ngay trong chat.</p>
+							<!-- <p class="hero-desc">Bot đa năng cho server Discord — kiểm duyệt, cảnh cáo có cấu hình, quản lý kênh, phản hồi tự động và dịch thuật 98 ngôn ngữ ngay trong chat.</p> -->
 							<div class="hero-stats">
 								<div class="stat">
-									<div class="n">16</div>
-									<div class="l">loại lệnh</div>
+									<div class="n">20</div>
+									<div class="l">slash commands</div>
 								</div>
 								<div class="stat">
 									<div class="n">1</div>
@@ -1144,10 +1157,10 @@
 								</div>
 								<div class="stat">
 									<div class="n">98</div>
-									<div class="l">ngôn ngữ có thể dịch</div>
+									<div class="l">lá cờ dịch</div>
 								</div>
 								<div class="stat">
-									<div class="n">🇻🇳 🇺🇸</div>
+									<div class="n">🇻🇳 🇬🇧</div>
 									<div class="l">ngôn ngữ UI</div>
 								</div>
 							</div>
@@ -1181,12 +1194,18 @@
 									<p>Slash command, click phải, hoặc react lá cờ. Tất cả 98 ngôn ngữ, tự xóa sau 10 giây</p>
 								</div>
 							</div>
-							<!-- <div class="fi"><span class="e">💬</span><div><strong>Phản hồi tự động</strong><p>Bot trả lời thông minh khi được @tag, dựa trên từ khoá cấu hình trong responses.json</p></div></div> -->
+							<!-- <div class="fi">
+								<span class="e">💬</span>
+								<div>
+									<strong>Phản hồi tự động</strong>
+									<p>Bot trả lời thông minh khi được @tag, dựa trên từ khoá cấu hình trong responses.json</p>
+								</div>
+							</div> -->
 							<div class="fi">
 								<span class="e">⚡</span>
 								<div>
 									<strong>Tự động setup</strong>
-									<p>Bot tự tạo role muted khi vào server mới. Tự động DM admin nếu thiếu quyền, kèm nút yêu cầu cấp quyền </p>
+									<p>Bot tự tạo role muted khi vào server mới. DM admin nếu thiếu quyền, kèm nút cấp quyền lại</p>
 								</div>
 							</div>
 							<div class="fi">
@@ -1196,6 +1215,20 @@
 									<p>Tiếng Việt hoặc tiếng Anh — tự động theo cài đặt ngôn ngữ Discord của từng người</p>
 								</div>
 							</div>
+							<div class="fi">
+								<span class="e">🎲</span>
+								<div>
+									<strong>Minigame Tài Xỉu</strong>
+									<p>Chơi trong voice call, tối đa 500 người. Đặt cược điểm, 25 loại cửa cược, lịch sử 20 ván, bảng xếp hạng server.</p>
+								</div>
+							</div>
+							<!-- <div class="fi">
+								<span class="e">🔄</span>
+								<div>
+									<strong>Hot Reload</strong>
+									<p>Reload code, thêm tính năng mới mà không cần tắt bot. Có lệnh <code style="font-family:var(--fm);font-size:12px;background:var(--code);padding:1px 5px;border-radius:4px">reload sync</code> để sync Discord </p>
+								</div>
+							</div> -->
 						</div>
 					</section>
 					<!-- ══ MODERATION ══ -->
@@ -1399,10 +1432,10 @@
 									<span class="cmd-name">/afk</span>
 									<span class="perm-tag">—</span>
 								</div>
-								<div class="card-desc">Đặt trạng thái AFK. Khi có người mention bạn, bot thông báo bạn đang AFK kèm lý do. <strong>Tự động tắt AFK</strong> ngay khi bạn gửi tin nhắn trở lại. </div>
+								<div class="card-desc">Đặt trạng thái AFK. Khi có người mention bạn, bot thông báo bạn đang AFK kèm lý do. <strong>Tự động xóa AFK</strong> ngay khi bạn gửi tin nhắn trở lại. </div>
 								<div class="card-usage">/afk [reason]</div>
 								<div class="tags">
-									<span class="tag tag-g">↻ tự động tắt afk</span>
+									<span class="tag tag-g">↻ tự động xóa</span>
 								</div>
 							</div>
 							<div class="card" id="cmd-say">
@@ -1464,14 +1497,14 @@
 								<div class="step">
 									<div class="step-num">1</div>
 									<div>
-										<strong>Click chuột phải (hoặc giữ - mobile) vào tin nhắn bất kỳ</strong>
+										<strong>Click chuột phải hoặc giữ (mobile) vào tin nhắn bất kỳ</strong>
 										<p>Trên Discord desktop hoặc mobile</p>
 									</div>
 								</div>
 								<div class="step">
 									<div class="step-num">2</div>
 									<div>
-										<strong>Chọn "Apps" → "Chicky" → "Translate"</strong>
+										<strong>Chọn "Apps" → Chicky → "Translate"</strong>
 										<p>Trong context menu xuất hiện</p>
 									</div>
 								</div>
@@ -1490,8 +1523,220 @@
 							<p style="color:var(--txm);font-size:14px;margin-bottom:12px">Cách dùng nhanh nhất — không gõ lệnh. React lá cờ vào bất kỳ tin nhắn nào, bot reply bản dịch rồi <strong>tự xóa sau 10 giây</strong>. </p>
 							<div class="note w" style="margin-bottom:16px">⚡ <div>Ví dụ: React 🇻🇳 vào tin nhắn tiếng Anh → bot reply tiếng Việt → tự xóa sau 10s. Nếu ngôn ngữ gốc trùng ngôn ngữ đích → bot im lặng, không reply.</div>
 							</div>
-							<p style="font-size:11px;font-weight:700;color:var(--txf);letter-spacing:.8px;text-transform:uppercase;margin-bottom:10px"> 98 lá cờ được hỗ trợ</p>
+							<p style="font-size:11px;font-weight:700;color:var(--txf);letter-spacing:.8px;text-transform:uppercase;margin-bottom:10px">98 lá cờ được hỗ trợ</p>
 							<div class="flags" id="flags"></div>
+						</div>
+					</section>
+					<!-- ══ MINIGAME ══ -->
+					<section id="minigame">
+						<div class="stitle">
+							<div class="ico" style="background:rgba(254,231,92,.15)">🎲</div> Minigame — Tài Xỉu <span class="sub">4 lệnh</span>
+						</div>
+						<!-- Cách chơi -->
+						<div id="mg-rules" style="margin-bottom:28px">
+							<h3 style="font-size:15px;font-weight:700;color:var(--tx);margin-bottom:12px">📖 Cách chơi</h3>
+							<div class="steps">
+								<div class="step">
+									<div class="step-num">1</div>
+									<div>
+										<strong>Vào voice channel, gõ /taixiu</strong>
+										<p>Bot mở phòng chờ. Tối đa 4 người có thể tham gia, phải ở cùng voice channel.</p>
+									</div>
+								</div>
+								<div class="step">
+									<div class="step-num">2</div>
+									<div>
+										<strong>Chọn loại cược và số điểm</strong>
+										<p>Mỗi người chọn cửa cược từ dropdown (25 loại), rồi chọn số điểm muốn đặt, sau đó ấn Xác nhận.</p>
+									</div>
+								</div>
+								<div class="step">
+									<div class="step-num">3</div>
+									<div>
+										<strong>Bot tung 3 xúc xắc</strong>
+										<p>Animation lắc hộp, công bố kết quả. Tổng 3–10 là <strong>Xỉu</strong>, tổng 11–18 là <strong>Tài</strong>. Bộ ba → tất cả cửa cơ bản thua. </p>
+									</div>
+								</div>
+								<div class="step">
+									<div class="step-num">4</div>
+									<div>
+										<strong>Nhận/mất điểm theo tỷ lệ</strong>
+										<p>Điểm được cộng/trừ ngay, lưu trên database. Dùng chung toàn server — điểm ở server này cũng là điểm ở server khác.</p>
+									</div>
+								</div>
+							</div>
+							<div class="note w" style="margin-top:12px">⚠️ <div>
+									<strong>Bộ ba (Triple)</strong>: Nếu cả 3 xúc xắc ra cùng một số, tất cả cửa Tài/Xỉu/Chẵn/Lẻ đều thua. Chỉ cửa "Bộ 3" thắng.
+								</div>
+							</div>
+						</div>
+						<!-- Loại cược -->
+						<div id="mg-bets" style="margin-bottom:28px">
+							<h3 style="font-size:15px;font-weight:700;color:var(--tx);margin-bottom:12px">💰 Loại cược & Tỷ lệ thưởng</h3>
+							<div class="tbl">
+								<table>
+									<thead>
+										<tr>
+											<th>Loại cược</th>
+											<th>Điều kiện thắng</th>
+											<th>Tỷ lệ</th>
+											<th>Xác suất</th>
+										</tr>
+									</thead>
+									<tbody>
+										<tr>
+											<td>🔺 Tài</td>
+											<td>Tổng 11–18</td>
+											<td>
+												<code>1:1</code>
+											</td>
+											<td>~48.6%</td>
+										</tr>
+										<tr>
+											<td>🔻 Xỉu</td>
+											<td>Tổng 3–10</td>
+											<td>
+												<code>1:1</code>
+											</td>
+											<td>~48.6%</td>
+										</tr>
+										<tr>
+											<td>◈ Chẵn</td>
+											<td>Tổng số chẵn</td>
+											<td>
+												<code>1:1</code>
+											</td>
+											<td>~48.6%</td>
+										</tr>
+										<tr>
+											<td>◇ Lẻ</td>
+											<td>Tổng số lẻ</td>
+											<td>
+												<code>1:1</code>
+											</td>
+											<td>~48.6%</td>
+										</tr>
+										<tr>
+											<td>☠️ Bộ 3 bất kỳ</td>
+											<td>Ba mặt giống nhau</td>
+											<td>
+												<code>24:1</code>
+											</td>
+											<td>~2.8%</td>
+										</tr>
+										<tr>
+											<td>⚀⚀⚀ Bộ 3 cụ thể</td>
+											<td>Ba số 1 / 2 / 3 / 4 / 5 / 6</td>
+											<td>
+												<code>150:1</code>
+											</td>
+											<td>~0.46%</td>
+										</tr>
+										<tr>
+											<td>Tổng 4 / 17</td>
+											<td>Tổng = 4 hoặc 17</td>
+											<td>
+												<code>60:1</code>
+											</td>
+											<td>~0.46%</td>
+										</tr>
+										<tr>
+											<td>Tổng 5 / 16</td>
+											<td>Tổng = 5 hoặc 16</td>
+											<td>
+												<code>30:1</code>
+											</td>
+											<td>~1.4%</td>
+										</tr>
+										<tr>
+											<td>Tổng 6 / 15</td>
+											<td>Tổng = 6 hoặc 15</td>
+											<td>
+												<code>18:1</code>
+											</td>
+											<td>~2.8%</td>
+										</tr>
+										<tr>
+											<td>Tổng 7 / 14</td>
+											<td>Tổng = 7 hoặc 14</td>
+											<td>
+												<code>12:1</code>
+											</td>
+											<td>~4.6%</td>
+										</tr>
+										<tr>
+											<td>Tổng 8 / 13</td>
+											<td>Tổng = 8 hoặc 13</td>
+											<td>
+												<code>8:1</code>
+											</td>
+											<td>~6.9%</td>
+										</tr>
+										<tr>
+											<td>Tổng 9–12</td>
+											<td>Tổng = 9, 10, 11, hoặc 12</td>
+											<td>
+												<code>6:1</code>
+											</td>
+											<td>~11.6%</td>
+										</tr>
+									</tbody>
+								</table>
+							</div>
+							<div class="note i" style="margin-top:10px">💡 <div>Tỷ lệ <code style="font-family:var(--fm);font-size:12px;background:var(--code);padding:1px 6px;border-radius:4px">1:1</code> nghĩa là thắng gấp đôi tiền cược. Ví dụ: đặt 100đ Tài, thắng → nhận về 200đ (lãi 100đ). </div>
+							</div>
+						</div>
+						<!-- Lệnh -->
+						<div id="mg-cmds">
+							<h3 style="font-size:15px;font-weight:700;color:var(--tx);margin-bottom:12px">⌨️ Lệnh</h3>
+							<div class="grid">
+								<div class="card">
+									<div class="card-head">
+										<span class="cmd-name">/taixiu</span>
+										<span class="perm-tag">voice required</span>
+									</div>
+									<div class="card-desc">Bắt đầu game trong voice channel. Chờ người vào (30s), rồi mỗi người chọn cược và xác nhận.</div>
+									<div class="card-usage">/taixiu</div>
+									<div class="tags">
+										<span class="tag tag-y">🎙 voice channel</span>
+										<span class="tag tag-b">tối đa 4 người</span>
+									</div>
+								</div>
+								<div class="card">
+									<div class="card-head">
+										<span class="cmd-name">/taixiu_score</span>
+										<span class="perm-tag">—</span>
+									</div>
+									<div class="card-desc">Xem điểm hiện có của bạn hoặc của thành viên khác. Điểm khởi đầu: <strong>1,000đ</strong>. </div>
+									<div class="card-usage">/taixiu_score [@member]</div>
+									<div class="tags">
+										<span class="tag tag-g">ephemeral</span>
+									</div>
+								</div>
+								<div class="card">
+									<div class="card-head">
+										<span class="cmd-name">/taixiu_rank</span>
+										<span class="perm-tag">—</span>
+									</div>
+									<div class="card-desc">Bảng xếp hạng top 10 điểm trong server. Điểm là global — dùng chung mọi server.</div>
+									<div class="card-usage">/taixiu_rank</div>
+									<div class="tags">
+										<span class="tag tag-c">🏆 top 10</span>
+									</div>
+								</div>
+								<div class="card">
+									<div class="card-head">
+										<span class="cmd-name">/taixiu_history</span>
+										<span class="perm-tag">—</span>
+									</div>
+									<div class="card-desc">Lịch sử kết quả các ván gần nhất dưới dạng lưới emoji. Kèm thống kê Tài/Xỉu/Bộ ba và streak hiện tại.</div>
+									<div class="card-usage">/taixiu_history [count]</div>
+									<div class="tags">
+										<span class="tag tag-b">20-50 ván</span>
+										<span class="tag tag-g">📊 thống kê</span>
+									</div>
+								</div>
+							</div>
 						</div>
 					</section>
 					<!-- ══ AUTO ══ -->
@@ -1500,13 +1745,13 @@
 							<div class="ico" style="background:var(--green-lo)">⚡</div> Tự động hoá <span class="sub">không cần lệnh</span>
 						</div>
 						<div class="flist">
-							<!--<div class="fi">
-								 <span class="e">💬</span>
+							<!-- <div class="fi">
+								<span class="e">💬</span>
 								<div>
 									<strong>Phản hồi khi được @tag</strong>
 									<p>Bot tự động trả lời thông minh dựa trên từ khoá khi thành viên mention bot. Nội dung cấu hình trong <code style="font-family:var(--fm);font-size:11.5px;background:var(--code);padding:1px 6px;border-radius:4px">data/json/responses.json</code>. </p>
-								</div> 
-							</div>-->
+								</div>
+							</div> -->
 							<div class="fi">
 								<span class="e">🚫</span>
 								<div>
@@ -1543,8 +1788,10 @@
 								</div>
 							</div>
 						</div>
-						<!-- <div class="note i" style="margin-top:16px">
-        🔄 <div><strong>Hot Reload</strong>: Sau khi sửa code, gõ <code style="font-family:var(--fm);font-size:12px;background:var(--code);padding:1px 6px;border-radius:4px;color:var(--accent)">reload</code> trong Admin Terminal để áp dụng ngay không cần tắt bot. Dùng <code style="font-family:var(--fm);font-size:12px;background:var(--code);padding:1px 6px;border-radius:4px;color:var(--accent)">reload sync</code> khi thêm lệnh mới để đồng bộ lên Discord.</div></div> -->
+						<!-- <div class="note i" style="margin-top:16px"> 🔄 <div>
+								<strong>Hot Reload</strong>: Sau khi sửa code, gõ <code style="font-family:var(--fm);font-size:12px;background:var(--code);padding:1px 6px;border-radius:4px;color:var(--accent)">reload</code> trong Admin Terminal để áp dụng ngay không cần tắt bot. Dùng <code style="font-family:var(--fm);font-size:12px;background:var(--code);padding:1px 6px;border-radius:4px;color:var(--accent)">reload sync</code> khi thêm lệnh mới để đồng bộ lên Discord.
+							</div>
+						</div> -->
 					</section>
 				</div>
 			</div>
@@ -1552,105 +1799,105 @@
 		<script>
 			/* ── FLAGS ─────────────────────────────────────────────────────── */
 			const FLAGS=[
-        {f:"🇦🇫", c:"Afghanistan", l:"Pashto"},
-        {f:"🇦🇱", c:"Albania", l:"Albanian"},
-        {f:"🇦🇲", c:"Armenia", l:"Armenian"},
-        {f:"🇦🇴", c:"Angola", l:"Portuguese"},
-        {f:"🇦🇷", c:"Argentina", l:"Spanish"},
-        {f:"🇦🇺", c:"Australia", l:"English"},
-        {f:"🇦🇿", c:"Azerbaijan", l:"Azerbaijani"},
-        {f:"🇧🇦", c:"Bosnia", l:"Bosnian"},
-        {f:"🇧🇩", c:"Bangladesh", l:"Bengali"},
-        {f:"🇧🇬", c:"Bulgaria", l:"Bulgarian"},
-        {f:"🇧🇴", c:"Bolivia", l:"Spanish"},
-        {f:"🇧🇷", c:"Brazil", l:"Portuguese"},
-        {f:"🇧🇾", c:"Belarus", l:"Belarusian"},
-        {f:"🇨🇦", c:"Canada", l:"English"},
-        {f:"🇨🇱", c:"Chile", l:"Spanish"},
-        {f:"🇨🇳", c:"China", l:"Chinese (Simp.)"},
-        {f:"🇨🇴", c:"Colombia", l:"Spanish"},
-        {f:"🇨🇺", c:"Cuba", l:"Spanish"},
-        {f:"🇨🇿", c:"Czech Rep.", l:"Czech"},
-        {f:"🇩🇪", c:"Germany", l:"German"},
-        {f:"🇩🇰", c:"Denmark", l:"Danish"},
-        {f:"🇩🇿", c:"Algeria", l:"Arabic"},
-        {f:"🇪🇨", c:"Ecuador", l:"Spanish"},
-        {f:"🇪🇪", c:"Estonia", l:"Estonian"},
-        {f:"🇪🇬", c:"Egypt", l:"Arabic"},
-        {f:"🇪🇸", c:"Spain", l:"Spanish"},
-        {f:"🇪🇹", c:"Ethiopia", l:"Amharic"},
-        {f:"🇫🇮", c:"Finland", l:"Finnish"},
-        {f:"🇫🇷", c:"France", l:"French"},
-        {f:"🇬🇧", c:"UK", l:"English"},
-        {f:"🇬🇪", c:"Georgia", l:"Georgian"},
-        {f:"🇬🇭", c:"Ghana", l:"Akan"},
-        {f:"🇬🇷", c:"Greece", l:"Greek"},
-        {f:"🇭🇰", c:"Hong Kong", l:"Chinese (Trad.)"},
-        {f:"🇭🇷", c:"Croatia", l:"Croatian"},
-        {f:"🇭🇺", c:"Hungary", l:"Hungarian"},
-        {f:"🇮🇩", c:"Indonesia", l:"Indonesian"},
-        {f:"🇮🇱", c:"Israel", l:"Hebrew"},
-        {f:"🇮🇳", c:"India", l:"Hindi"},
-        {f:"🇮🇶", c:"Iraq", l:"Arabic"},
-        {f:"🇮🇷", c:"Iran", l:"Persian"},
-        {f:"🇮🇸", c:"Iceland", l:"Icelandic"},
-        {f:"🇮🇹", c:"Italy", l:"Italian"},
-        {f:"🇯🇴", c:"Jordan", l:"Arabic"},
-        {f:"🇯🇵", c:"Japan", l:"Japanese"},
-        {f:"🇰🇪", c:"Kenya", l:"Swahili"},
-        {f:"🇰🇬", c:"Kyrgyzstan", l:"Kyrgyz"},
-        {f:"🇰🇭", c:"Cambodia", l:"Khmer"},
-        {f:"🇰🇷", c:"South Korea", l:"Korean"},
-        {f:"🇰🇿", c:"Kazakhstan", l:"Kazakh"},
-        {f:"🇱🇦", c:"Laos", l:"Lao"},
-        {f:"🇱🇧", c:"Lebanon", l:"Arabic"},
-        {f:"🇱🇹", c:"Lithuania", l:"Lithuanian"},
-        {f:"🇱🇻", c:"Latvia", l:"Latvian"},
-        {f:"🇱🇾", c:"Libya", l:"Arabic"},
-        {f:"🇲🇦", c:"Morocco", l:"Arabic"},
-        {f:"🇲🇰", c:"Macedonia", l:"Macedonian"},
-        {f:"🇲🇲", c:"Myanmar", l:"Burmese"},
-        {f:"🇲🇳", c:"Mongolia", l:"Mongolian"},
-        {f:"🇲🇽", c:"Mexico", l:"Spanish"},
-        {f:"🇲🇾", c:"Malaysia", l:"Malay"},
-        {f:"🇳🇬", c:"Nigeria", l:"Yoruba"},
-        {f:"🇳🇱", c:"Netherlands", l:"Dutch"},
-        {f:"🇳🇴", c:"Norway", l:"Norwegian"},
-        {f:"🇳🇵", c:"Nepal", l:"Nepali"},
-        {f:"🇳🇿", c:"New Zealand", l:"English"},
-        {f:"🇵🇪", c:"Peru", l:"Spanish"},
-        {f:"🇵🇬", c:"Papua N.G.", l:"English"},
-        {f:"🇵🇭", c:"Philippines", l:"Filipino"},
-        {f:"🇵🇰", c:"Pakistan", l:"Urdu"},
-        {f:"🇵🇱", c:"Poland", l:"Polish"},
-        {f:"🇵🇹", c:"Portugal", l:"Portuguese"},
-        {f:"🇷🇴", c:"Romania", l:"Romanian"},
-        {f:"🇷🇺", c:"Russia", l:"Russian"},
-        {f:"🇸🇦", c:"Saudi Arabia", l:"Arabic"},
-        {f:"🇸🇩", c:"Sudan", l:"Arabic"},
-        {f:"🇸🇪", c:"Sweden", l:"Swedish"},
-        {f:"🇸🇬", c:"Singapore", l:"English"},
-        {f:"🇸🇮", c:"Slovenia", l:"Slovenian"},
-        {f:"🇸🇰", c:"Slovakia", l:"Slovak"},
-        {f:"🇸🇴", c:"Somalia", l:"Somali"},
-        {f:"🇸🇷", c:"Suriname", l:"Serbian"},
-        {f:"🇸🇾", c:"Syria", l:"Arabic"},
-        {f:"🇹🇭", c:"Thailand", l:"Thai"},
-        {f:"🇹🇯", c:"Tajikistan", l:"Tajik"},
-        {f:"🇹🇲", c:"Turkmenistan", l:"Turkmen"},
-        {f:"🇹🇳", c:"Tunisia", l:"Arabic"},
-        {f:"🇹🇷", c:"Turkey", l:"Turkish"},
-        {f:"🇹🇼", c:"Taiwan", l:"Chinese (Trad.)"},
-        {f:"🇹🇿", c:"Tanzania", l:"Swahili"},
-        {f:"🇺🇦", c:"Ukraine", l:"Ukrainian"},
-        {f:"🇺🇸", c:"USA", l:"English"},
-        {f:"🇺🇿", c:"Uzbekistan", l:"Uzbek"},
-        {f:"🇻🇪", c:"Venezuela", l:"Spanish"},
-        {f:"🇻🇳", c:"Vietnam", l:"Vietnamese"},
-        {f:"🇾🇪", c:"Yemen", l:"Arabic"},
-        {f:"🇿🇦", c:"South Africa", l:"Afrikaans"},
-        {f:"🇿🇼", c:"Zimbabwe", l:"Shona"},
-      ];
+                {f:"🇦🇫", c:"Afghanistan", l:"Pashto"},
+                {f:"🇦🇱", c:"Albania", l:"Albanian"},
+                {f:"🇦🇲", c:"Armenia", l:"Armenian"},
+                {f:"🇦🇴", c:"Angola", l:"Portuguese"},
+                {f:"🇦🇷", c:"Argentina", l:"Spanish"},
+                {f:"🇦🇺", c:"Australia", l:"English"},
+                {f:"🇦🇿", c:"Azerbaijan", l:"Azerbaijani"},
+                {f:"🇧🇦", c:"Bosnia", l:"Bosnian"},
+                {f:"🇧🇩", c:"Bangladesh", l:"Bengali"},
+                {f:"🇧🇬", c:"Bulgaria", l:"Bulgarian"},
+                {f:"🇧🇴", c:"Bolivia", l:"Spanish"},
+                {f:"🇧🇷", c:"Brazil", l:"Portuguese"},
+                {f:"🇧🇾", c:"Belarus", l:"Belarusian"},
+                {f:"🇨🇦", c:"Canada", l:"English"},
+                {f:"🇨🇱", c:"Chile", l:"Spanish"},
+                {f:"🇨🇳", c:"China", l:"Chinese (Simp.)"},
+                {f:"🇨🇴", c:"Colombia", l:"Spanish"},
+                {f:"🇨🇺", c:"Cuba", l:"Spanish"},
+                {f:"🇨🇿", c:"Czech Rep.", l:"Czech"},
+                {f:"🇩🇪", c:"Germany", l:"German"},
+                {f:"🇩🇰", c:"Denmark", l:"Danish"},
+                {f:"🇩🇿", c:"Algeria", l:"Arabic"},
+                {f:"🇪🇨", c:"Ecuador", l:"Spanish"},
+                {f:"🇪🇪", c:"Estonia", l:"Estonian"},
+                {f:"🇪🇬", c:"Egypt", l:"Arabic"},
+                {f:"🇪🇸", c:"Spain", l:"Spanish"},
+                {f:"🇪🇹", c:"Ethiopia", l:"Amharic"},
+                {f:"🇫🇮", c:"Finland", l:"Finnish"},
+                {f:"🇫🇷", c:"France", l:"French"},
+                {f:"🇬🇧", c:"UK", l:"English"},
+                {f:"🇬🇪", c:"Georgia", l:"Georgian"},
+                {f:"🇬🇭", c:"Ghana", l:"Akan"},
+                {f:"🇬🇷", c:"Greece", l:"Greek"},
+                {f:"🇭🇰", c:"Hong Kong", l:"Chinese (Trad.)"},
+                {f:"🇭🇷", c:"Croatia", l:"Croatian"},
+                {f:"🇭🇺", c:"Hungary", l:"Hungarian"},
+                {f:"🇮🇩", c:"Indonesia", l:"Indonesian"},
+                {f:"🇮🇱", c:"Israel", l:"Hebrew"},
+                {f:"🇮🇳", c:"India", l:"Hindi"},
+                {f:"🇮🇶", c:"Iraq", l:"Arabic"},
+                {f:"🇮🇷", c:"Iran", l:"Persian"},
+                {f:"🇮🇸", c:"Iceland", l:"Icelandic"},
+                {f:"🇮🇹", c:"Italy", l:"Italian"},
+                {f:"🇯🇴", c:"Jordan", l:"Arabic"},
+                {f:"🇯🇵", c:"Japan", l:"Japanese"},
+                {f:"🇰🇪", c:"Kenya", l:"Swahili"},
+                {f:"🇰🇬", c:"Kyrgyzstan", l:"Kyrgyz"},
+                {f:"🇰🇭", c:"Cambodia", l:"Khmer"},
+                {f:"🇰🇷", c:"South Korea", l:"Korean"},
+                {f:"🇰🇿", c:"Kazakhstan", l:"Kazakh"},
+                {f:"🇱🇦", c:"Laos", l:"Lao"},
+                {f:"🇱🇧", c:"Lebanon", l:"Arabic"},
+                {f:"🇱🇹", c:"Lithuania", l:"Lithuanian"},
+                {f:"🇱🇻", c:"Latvia", l:"Latvian"},
+                {f:"🇱🇾", c:"Libya", l:"Arabic"},
+                {f:"🇲🇦", c:"Morocco", l:"Arabic"},
+                {f:"🇲🇰", c:"Macedonia", l:"Macedonian"},
+                {f:"🇲🇲", c:"Myanmar", l:"Burmese"},
+                {f:"🇲🇳", c:"Mongolia", l:"Mongolian"},
+                {f:"🇲🇽", c:"Mexico", l:"Spanish"},
+                {f:"🇲🇾", c:"Malaysia", l:"Malay"},
+                {f:"🇳🇬", c:"Nigeria", l:"Yoruba"},
+                {f:"🇳🇱", c:"Netherlands", l:"Dutch"},
+                {f:"🇳🇴", c:"Norway", l:"Norwegian"},
+                {f:"🇳🇵", c:"Nepal", l:"Nepali"},
+                {f:"🇳🇿", c:"New Zealand", l:"English"},
+                {f:"🇵🇪", c:"Peru", l:"Spanish"},
+                {f:"🇵🇬", c:"Papua N.G.", l:"English"},
+                {f:"🇵🇭", c:"Philippines", l:"Filipino"},
+                {f:"🇵🇰", c:"Pakistan", l:"Urdu"},
+                {f:"🇵🇱", c:"Poland", l:"Polish"},
+                {f:"🇵🇹", c:"Portugal", l:"Portuguese"},
+                {f:"🇷🇴", c:"Romania", l:"Romanian"},
+                {f:"🇷🇺", c:"Russia", l:"Russian"},
+                {f:"🇸🇦", c:"Saudi Arabia", l:"Arabic"},
+                {f:"🇸🇩", c:"Sudan", l:"Arabic"},
+                {f:"🇸🇪", c:"Sweden", l:"Swedish"},
+                {f:"🇸🇬", c:"Singapore", l:"English"},
+                {f:"🇸🇮", c:"Slovenia", l:"Slovenian"},
+                {f:"🇸🇰", c:"Slovakia", l:"Slovak"},
+                {f:"🇸🇴", c:"Somalia", l:"Somali"},
+                {f:"🇸🇷", c:"Suriname", l:"Serbian"},
+                {f:"🇸🇾", c:"Syria", l:"Arabic"},
+                {f:"🇹🇭", c:"Thailand", l:"Thai"},
+                {f:"🇹🇯", c:"Tajikistan", l:"Tajik"},
+                {f:"🇹🇲", c:"Turkmenistan", l:"Turkmen"},
+                {f:"🇹🇳", c:"Tunisia", l:"Arabic"},
+                {f:"🇹🇷", c:"Turkey", l:"Turkish"},
+                {f:"🇹🇼", c:"Taiwan", l:"Chinese (Trad.)"},
+                {f:"🇹🇿", c:"Tanzania", l:"Swahili"},
+                {f:"🇺🇦", c:"Ukraine", l:"Ukrainian"},
+                {f:"🇺🇸", c:"USA", l:"English"},
+                {f:"🇺🇿", c:"Uzbekistan", l:"Uzbek"},
+                {f:"🇻🇪", c:"Venezuela", l:"Spanish"},
+                {f:"🇻🇳", c:"Vietnam", l:"Vietnamese"},
+                {f:"🇾🇪", c:"Yemen", l:"Arabic"},
+                {f:"🇿🇦", c:"South Africa", l:"Afrikaans"},
+                {f:"🇿🇼", c:"Zimbabwe", l:"Shona"},
+            ];
 			document.getElementById('flags').innerHTML = FLAGS.map(x => `
 
 									<div class="flag-item">
@@ -1710,6 +1957,7 @@
 				'channel': 'Khóa kênh',
 				'utility': 'Tiện ích',
 				'translate': 'Dịch thuật',
+				'minigame': 'Tài Xỉu',
 				'auto': 'Tự động hoá'
 			};
 
@@ -1802,6 +2050,7 @@
 			}
 			/* ── INIT ──────────────────────────────────────────────────────── */
 			openDropForSection('moderation');
+			openDropForSection('minigame');
 		</script>
 	</body>
 </html>
